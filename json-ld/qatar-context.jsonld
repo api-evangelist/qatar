@@ -1,0 +1,86 @@
+{
+  "@context": {
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "oai": "http://www.openarchives.org/OAI/2.0/",
+    "hal": "http://stateless.co/hal_specification/",
+    "qu": "https://www.qu.edu.qa/ns#",
+    "@vocab": "https://www.qu.edu.qa/ns#",
+
+    "Institution": "schema:CollegeOrUniversity",
+    "name": "schema:name",
+    "description": "schema:description",
+    "url": "schema:url",
+    "logo": "schema:logo",
+    "sameAs": "schema:sameAs",
+    "address": "schema:address",
+    "country": "schema:addressCountry",
+
+    "Repository": "qu:Repository",
+    "repositoryName": "oai:repositoryName",
+    "baseURL": "oai:baseURL",
+    "protocolVersion": "oai:protocolVersion",
+    "adminEmail": "oai:adminEmail",
+    "earliestDatestamp": "oai:earliestDatestamp",
+    "metadataFormat": "oai:metadataFormat",
+    "metadataPrefix": "oai:metadataPrefix",
+
+    "Item": "qu:Item",
+    "Community": "qu:Community",
+    "Collection": "schema:Collection",
+    "Bitstream": "schema:MediaObject",
+
+    "uuid": "dcterms:identifier",
+    "handle": "dcterms:identifier",
+    "title": "dc:title",
+    "author": "dc:creator",
+    "abstract": "dcterms:abstract",
+    "dateIssued": "dc:date",
+    "subject": "dc:subject",
+    "publisher": "dc:publisher",
+    "language": "dc:language",
+    "rights": "dc:rights",
+    "type": "dc:type",
+    "_links": "hal:_links",
+
+    "dspaceVersion": "qu:dspaceVersion"
+  },
+  "@type": "Institution",
+  "@id": "https://www.qu.edu.qa/",
+  "name": "Qatar University",
+  "description": "The national public research university of the State of Qatar, located in Doha. Its public developer footprint is concentrated in QSpace, the DSpace 7.6 institutional repository exposing an OAI-PMH metadata endpoint and a public DSpace REST/HAL API.",
+  "url": "https://www.qu.edu.qa/",
+  "country": "QA",
+  "sameAs": [
+    "https://github.com/qataruniversity",
+    "https://www.linkedin.com/school/qatar-university/"
+  ],
+  "qu:catalogedAPIs": [
+    {
+      "@type": "Repository",
+      "@id": "https://qspace.qu.edu.qa/server/oai/request",
+      "name": "QSpace OAI-PMH Metadata Endpoint",
+      "repositoryName": "Qspace",
+      "baseURL": "https://qspace.qu.edu.qa/server/oai/request",
+      "protocolVersion": "2.0",
+      "adminEmail": "quspace@qu.edu.qa",
+      "earliestDatestamp": "2009-11-25T12:41:15Z",
+      "metadataFormat": [
+        "oai_dc",
+        "qdc",
+        "uketd_dc",
+        "mods",
+        "didl",
+        "ore"
+      ]
+    },
+    {
+      "@type": "Repository",
+      "@id": "https://qspace.qu.edu.qa/server/api",
+      "name": "QSpace DSpace REST API",
+      "url": "https://qspace.qu.edu.qa/server/api",
+      "dspaceVersion": "DSpace 7.6"
+    }
+  ]
+}

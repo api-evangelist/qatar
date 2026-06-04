@@ -1,0 +1,14 @@
+{
+  "repo": "qatar",
+  "feeds": [
+    {
+      "source": "https://www.qu.edu.qa/",
+      "feed_url": "https://www.qu.edu.qa/newsroom",
+      "title": "Qatar University Newsroom",
+      "saved": 0,
+      "method": "none"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-06-03T00:00:00Z"
+}
