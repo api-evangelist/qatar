@@ -61,6 +61,8 @@ apis:
       - type: Documentation
         url: https://libguides.qu.edu.qa/quir
 common:
+  - type: DomainSecurity
+    url: security/qatar-domain-security.yml
   - type: Website
     url: https://www.qu.edu.qa/
   - type: GitHub
