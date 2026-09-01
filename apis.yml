@@ -2,104 +2,483 @@
 aid: qatar
 name: Qatar University
 description: >-
-  Qatar University is the national public research university of the State of
-  Qatar, located in Doha, and ranked #122 in the QS World University Rankings
-  2025. Its public, machine-readable developer footprint is concentrated in
-  QSpace, the university's institutional repository running on DSpace 7.6, which
-  exposes a public OAI-PMH metadata-harvesting endpoint and a public DSpace
-  REST/HAL API for scholarly output and academic records. Most other
-  institutional systems (Self-Service Banner SIS, library discovery, SSO/MFA)
-  are gated behind authentication and do not publish open developer
-  documentation.
+  Qatar University is the national public research university of the State of Qatar, in Doha,
+  founded 1973 and registered as https://ror.org/00yhnba62. Its institution-operated
+  programmable footprint is small, real, and not where the June 2026 profile said it was. That
+  pass recorded QSpace — the institutional repository at qspace.qu.edu.qa — as Qatar
+  University's own API. It is not: qspace.qu.edu.qa CNAMEs to qataru.cname.openrepository.com
+  and terminates on Amazon eu-west-1, making it a tenant of Open Repository, a commercial
+  hosted-DSpace service. The 66,950 records, the Handle prefix 10576 and the administrative
+  contact are Qatar University's; the DSpace REST and OAI-PMH contracts are the hosting
+  platform's engineering, and they are recorded here as a tenancy rather than saved as Qatar
+  University's contracts. What the earlier pass missed is the part Qatar University actually
+  runs. It operates its own identity provider at sso.qu.edu.qa — a WSO2 Identity Server on
+  QUNET, its own RIPE allocation — publishing both a SAML 2.0 IdP metadata document and a
+  complete OpenID Connect discovery document, which together are the strongest machine-readable
+  contract in this profile. Qatar University Press self-hosts Open Journal Systems 3.3.0.7 at
+  journals.qu.edu.qa, also on QUNET, serving an anonymous OAI-PMH 2.0 endpoint over eight
+  journals and 3,186 records in Arabic and English, and registers DOIs as Crossref member 11655
+  under prefix 10.29117. Learning is a Blackboard Learn tenant and library guides are a
+  Springshare tenant. There is no developer portal, no changelog, no status page, no API terms
+  of service, and no published OpenAPI for anything — and there is an institutional API gateway
+  at api.qu.edu.qa that fronts a live production API pool while publishing no route,
+  documentation or access path whatsoever. Three verified defects sit on the surfaces Qatar
+  University does run: sso.qu.edu.qa and journals.qu.edu.qa both serve an incomplete TLS chain
+  that a default client cannot verify, the SAML entityID is a bare hostname rather than a URI
+  so the IdP cannot be federated as published, and the OAI-PMH endpoint emits record
+  identifiers that its own GetRecord verb rejects.
 type: Index
+x-type: university
+x-category: Public Research University
 deliveryModel:
   model: saas
   open_source: false
-  commercial: true
-  callable_host: false
-  label: Hosted service · you call their endpoint
-  confidence: medium
+  commercial: false
+  callable_host: true
+  label: Institution-operated endpoints · you call their host
+  confidence: high
   source:
-  - pricing
-  generated: '2026-08-28'
-  method: derived
+  - openapi
+  - authentication
+  generated: '2026-09-01'
+  method: probed
 accessModel:
   pricing: free
-  onboarding: unknown
+  onboarding: institutional
   trial: false
   try_now: false
-  public: false
-  label: Free
-  confidence: medium
+  public: true
+  label: Free · anonymous read on metadata endpoints, institutional affiliation for identity
+  confidence: high
   source:
-  - plans
-  generated: '2026-07-22'
-  method: derived
+  - authentication
+  - scopes
+  - lifecycle
+  generated: '2026-09-01'
+  method: probed
 position: Consumer
 access: 3rd-Party
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/qatar.png
 url: https://raw.githubusercontent.com/api-evangelist/qatar/refs/heads/main/apis.yml
 tags:
-  - Education
-  - Higher Education
-  - University
-  - Qatar
-  - Middle East
-  - Research
-  - Open Access
-  - Institutional Repository
-  - DSpace
-  - OAI-PMH
+- Education
+- Higher Education
+- University
+- Qatar
+- Middle East
+- Research
+- Identity Federation
+- Scholarly Publishing
+- Research Repository
+- Open Access
+- OAI-PMH
+- SAML
+- OpenID Connect
 created: '2026-06-03'
-modified: '2026-06-03'
+modified: '2026-09-01'
 specificationVersion: '0.23'
 apis:
-  - aid: qatar:qspace-oai
-    name: QSpace OAI-PMH Metadata Endpoint
-    description: >-
-      Open Archives Initiative Protocol for Metadata Harvesting (OAI-PMH 2.0)
-      endpoint for QSpace, the Qatar University institutional repository
-      (DSpace 7.6). Supports the standard Identify, ListRecords, ListSets,
-      ListMetadataFormats, GetRecord, and ListIdentifiers verbs for harvesting
-      repository metadata (Dublin Core and other formats). Verified live with
-      repositoryName "Qspace" and protocolVersion 2.0.
-    humanURL: https://libguides.qu.edu.qa/quir
-    baseURL: https://qspace.qu.edu.qa/server/oai/request
-    tags: [ OAI-PMH, Metadata, Institutional Repository, DSpace, Open Access, Research ]
-    properties:
-      - type: Documentation
-        url: https://libguides.qu.edu.qa/quir
-  - aid: qatar:qspace-rest
-    name: QSpace DSpace REST API
-    description: >-
-      Public DSpace 7.6 REST/HAL API backing the QSpace institutional
-      repository. The API root reports dspaceVersion "DSpace 7.6" and exposes
-      HAL-linked resources for communities, collections, items, bitstreams,
-      and discovery search. Read operations are public; write operations
-      require authentication.
-    humanURL: https://libguides.qu.edu.qa/quir
-    baseURL: https://qspace.qu.edu.qa/server/api
-    tags: [ REST, HAL, Institutional Repository, DSpace, Open Access, Research ]
-    properties:
-      - type: Documentation
-        url: https://libguides.qu.edu.qa/quir
+- aid: qatar:qu-sso-oidc
+  name: Qatar University Single Sign-On (OpenID Connect / OAuth 2.0)
+  description: >-
+    Qatar University's own OpenID Connect provider, running on a WSO2 Identity Server at
+    sso.qu.edu.qa. It publishes a complete OpenID Connect Discovery 1.0 document, a live JWKS
+    serving an RS256 signing key, and authorization, token, userinfo, introspection, revocation,
+    logout, session-check and dynamic-client-registration endpoints. Five scopes are supported —
+    the five OIDC standards, with nothing institution-specific — and thirty claims, including
+    the non-standard `groups` and `upn`. Client registration is institutional; there is no public
+    self-service onboarding. This is the most complete machine-readable contract in the profile
+    and it was entirely absent from the June 2026 pass. It is also, as published, unreadable to a
+    conformant client: the host serves an incomplete TLS chain, the issuer names the WSO2
+    management port, and the discovery document sits at a non-RFC-8414 location.
+  humanURL: https://sso.qu.edu.qa/
+  baseURL: https://sso.qu.edu.qa
+  tags: [ Identity Federation, OpenID Connect, OAuth 2.0, Single Sign-On, Authentication ]
+  properties:
+  - type: OpenAPI
+    url: openapi/qatar-qu-sso-oidc-openapi.yml
+  - type: JSONSchema
+    url: json-schema/qatar-qu-sso-openid-configuration.schema.json
+  - type: Authentication
+    url: authentication/qatar-authentication.yml
+  - type: Scopes
+    url: scopes/qatar-scopes.yml
+  - type: Errors
+    url: errors/qatar-errors.yml
+  - type: IdentityFederation
+    url: identity-federation/qatar-identity-federation.yml
+  - type: Discovery
+    url: https://sso.qu.edu.qa/oauth2/token/.well-known/openid-configuration
+  x-operator: institution
+  x-operator-basis: >-
+    sso.qu.edu.qa resolves to 185.37.110.99, netname QUNET, country QA (RIPE), with no CNAME
+    onto a managed identity platform. TLS subject is C=QA, L=Doha, O=Qatar University,
+    CN=*.qu.edu.qa, and the embedded SAML signing certificate is self-issued by C=QA, ST=Qatar,
+    L=Doha, O=Qatar University, OU=ITS. WSO2 wrote the software; Qatar University runs the
+    deployment, holds the keys and owns the identity data.
+- aid: qatar:qu-sso-saml
+  name: Qatar University SAML 2.0 Identity Provider
+  description: >-
+    The same host publishes a SAML 2.0 IDPSSODescriptor at /identity/metadata/saml2, entityID
+    `sso.qu.edu.qa`, with separate signing and encryption key descriptors, HTTP-POST and
+    HTTP-Redirect single sign-on bindings, and a SOAP artifact-resolution service. A university
+    running its own SAML IdP on its own address space is a stronger result than most of this
+    cohort, where a branded IdP hostname resolves onto a national federation's managed service.
+    Three publication defects keep it from being federatable as it stands: the entityID is a
+    bare hostname rather than a URI, validUntil is regenerated one hour ahead of every fetch, and
+    no NameIDFormat, Organization or ContactPerson element is declared. No Qatari national
+    research-and-education federation was found and the entity is not in eduGAIN.
+  humanURL: https://sso.qu.edu.qa/identity/metadata/saml2
+  baseURL: https://sso.qu.edu.qa/samlsso
+  tags: [ Identity Federation, SAML, Single Sign-On, Authentication ]
+  properties:
+  - type: IdentityFederation
+    url: identity-federation/qatar-identity-federation.yml
+  - type: Metadata
+    url: identity-federation/qatar-qu-sso-saml2-metadata.xml
+  - type: Conformance
+    url: conformance/qatar-conformance.yml
+  x-operator: institution
+  x-operator-basis: >-
+    Same host and same evidence as qatar:qu-sso-oidc — 185.37.110.99, QUNET, Qatar University,
+    no CNAME, Qatar University certificate.
+- aid: qatar:qupress-oai
+  name: QU Press Open Journal System OAI-PMH API
+  description: >-
+    Qatar University Press self-hosts Open Journal Systems 3.3.0.7 at journals.qu.edu.qa and
+    exposes an anonymous OAI-PMH 2.0 endpoint, site-wide and per journal. It identifies as
+    "QU Press Open Journal System", adminEmail mjaberi@qu.edu.qa, earliest datestamp 2017-12-26,
+    deletedRecord persistent, with gzip and deflate compression declared, four dissemination
+    formats, 100 sets across eight journals in Arabic and English, and completeListSize 3,186.
+    This is the institution's own OAI-PMH conformance — QSpace's is its hosting platform's. One
+    serious defect: the endpoint emits identifiers in the PKP shipped-default namespace
+    (oai:ojs.pkp.sfu.ca:article/N) that its own GetRecord verb rejects as malformed, so round-trip
+    harvesting is broken. The adjacent OJS REST API returns 403 to the public.
+  humanURL: https://journals.qu.edu.qa/
+  baseURL: https://journals.qu.edu.qa/index.php/index/oai
+  tags: [ OAI-PMH, Scholarly Publishing, Open Access, Metadata, Open Journal Systems ]
+  properties:
+  - type: OpenAPI
+    url: openapi/qatar-qupress-oai-pmh-openapi.yml
+  - type: JSONSchema
+    url: json-schema/qatar-oai-pmh-record.schema.json
+  - type: Errors
+    url: errors/qatar-errors.yml
+  - type: Conformance
+    url: conformance/qatar-conformance.yml
+  - type: Examples
+    url: examples/examples.yml
+  - type: Documentation
+    url: https://journals.qu.edu.qa/
+  x-operator: institution
+  x-operator-basis: >-
+    journals.qu.edu.qa resolves to 185.37.108.12, netname QUNET "Qatar University" (RIPE,
+    country QA), with no CNAME onto a hosting platform, on a C=QA, L=Doha, O=Qatar University,
+    CN=*.qu.edu.qa certificate. OJS is Public Knowledge Project open-source software that Qatar
+    University Press self-hosts and operates.
+- aid: qatar:qspace
+  name: QSpace Institutional Repository (Open Repository tenant)
+  description: >-
+    QSpace is Qatar University's institutional repository — 66,950 records, DSpace 7.6,
+    administered by Qatar University Library at quspace@qu.edu.qa, with every item carrying a
+    persistent identifier under Qatar University's Handle prefix 10576. It serves an anonymous
+    OAI-PMH 2.0 endpoint with twelve dissemination formats, a public DSpace REST/HAL read API,
+    and an OpenSearch 1.1 description document. All of that is real, and none of it is Qatar
+    University's engineering: qspace.qu.edu.qa CNAMEs to qataru.cname.openrepository.com and
+    resolves to Amazon eu-west-1, on a Let's Encrypt certificate rather than the Qatar University
+    DigiCert certificate its self-hosted services carry, and the API root advertises atmire-*
+    HAL links. Open Repository self-describes as "premium DSpace hosting". Recorded as a tenant
+    relationship — the repository is a genuine institutional fact and one of Qatar University's
+    few programmable surfaces — with the contract deliberately NOT saved here. Its Identify
+    response also leaks an unexpanded DSpace configuration placeholder as its repositoryIdentifier.
+  humanURL: https://qspace.qu.edu.qa/
+  baseURL: https://qspace.qu.edu.qa/server
+  tags: [ Research Repository, Institutional Repository, DSpace, OAI-PMH, Open Access ]
+  properties:
+  - type: ResearchRepository
+    url: https://qspace.qu.edu.qa/
+  - type: Documentation
+    url: https://libguides.qu.edu.qa/quir
+  - type: Evidence
+    url: examples/qatar-qspace-oai-identify.xml
+  - type: Conformance
+    url: conformance/qatar-conformance.yml
+  x-operator: tenant
+  x-operator-basis: >-
+    qspace.qu.edu.qa CNAMEs to qataru.cname.openrepository.com and resolves to 3.255.61.143,
+    Amazon Technologies eu-west-1. openrepository.com self-describes as "Open Repository —
+    premium DSpace hosting". The TLS certificate is Let's Encrypt-issued (CN=qspace.qu.edu.qa),
+    not the Qatar University DigiCert wildcard that sso. and journals. carry, and the DSpace
+    API root exposes atmire-versions, atmirefeatures and other Atmire module links. Qatar
+    University's hostname, content, Handle prefix and administrative contact; the hosting
+    provider's infrastructure and contracts. This is the correction the host-based audit could
+    not see, and it is the same pattern the pipeline names for scholarbank.nus.edu.sg.
+- aid: qatar:blackboard-learn
+  name: Qatar University Blackboard Learn (Anthology tenant)
+  description: >-
+    Qatar University's learning management system is a Blackboard Learn SaaS tenant at
+    elearning.qu.edu.qa. The Anthology Blackboard Learn REST API is reachable on the tenant —
+    /learn/api/public/v1/system/version answers 200 anonymously with build 4000.21.0
+    rel.28+435d029 — and every content route requires an OAuth 2.0 bearer token issued to a
+    developer-registered application, with /courses answering 401 without one. Blackboard Learn
+    is LTI 1.3 / LTI Advantage certified, so LTI conformance is present in Qatar University's
+    estate through this tenancy and is Anthology's engineering. The contract, the auth model,
+    the versioning and the deprecation policy are all Anthology's; only the tenancy is Qatar
+    University's.
+  humanURL: https://elearning.qu.edu.qa/
+  baseURL: https://elearning.qu.edu.qa/learn/api/public/v1
+  tags: [ Learning Management, LTI, Blackboard, Education Technology ]
+  properties:
+  - type: Authentication
+    url: authentication/qatar-authentication.yml
+  - type: Conformance
+    url: conformance/qatar-conformance.yml
+  x-operator: tenant
+  x-operator-basis: >-
+    elearning.qu.edu.qa CNAMEs to qataruniversity.blackboard.com, then to
+    learn.607ffd7bf052e.euc1.prod-01.core.blackboard.com, resolving to Amazon CloudFront
+    (99.84.234.x). An Anthology-hosted Blackboard Learn instance under a Qatar University
+    hostname.
+- aid: qatar:libguides
+  name: Qatar University Library Research Guides (Springshare tenant)
+  description: >-
+    Qatar University Library's research guides, including the QSpace institutional-repository
+    guide that is the only public documentation for the repository, run on Springshare LibGuides.
+    Springshare's LibGuides API is not enabled on this tenant and no machine-readable surface was
+    found; recorded as a tenancy for completeness because the guide is the documentation pointer
+    the repository entries depend on.
+  humanURL: https://libguides.qu.edu.qa/quir
+  baseURL: https://libguides.qu.edu.qa/
+  tags: [ Library, Research Guides, LibGuides ]
+  properties:
+  - type: Documentation
+    url: https://libguides.qu.edu.qa/quir
+  x-operator: tenant
+  x-operator-basis: 'libguides.qu.edu.qa CNAMEs to v2.libguides.com, then region-us.libguides.com — Springshare''s shared platform.'
+- aid: qatar:banner-sis
+  name: Qatar University Student Information System (Ellucian Banner)
+  description: >-
+    Qatar University runs Ellucian Banner Self-Service at mybanner.qu.edu.qa, on its own network
+    (netname QUNET). The host answers 200 with a real Banner menu, so the system is live and
+    institution-hosted, but nothing about it is public: the classic Banner course-catalog and
+    class-schedule modules (bwckctlg.p_disp_dyn_ctlg, bwckschd.p_disp_dyn_sched) both return
+    HTTP 500, the Ellucian Student Registration SSB class-search path returns 404, and no
+    Ethos or Banner API documentation was found. Recorded as an institution-operated surface
+    with no published contract — not as an API with a contract we do not have.
+  humanURL: https://mybanner.qu.edu.qa/
+  baseURL: https://mybanner.qu.edu.qa/
+  tags: [ Student Information System, Registrar, Banner, Course Catalog ]
+  properties:
+  - type: CourseCatalog
+    url: https://www.qu.edu.qa/en-us/students/registration/
+  x-operator: institution
+  x-operator-basis: >-
+    mybanner.qu.edu.qa resolves to 86.36.65.28, netname QUNET, country QA. Institution-hosted
+    Ellucian software; the deployment is Qatar University's, the product is Ellucian's, and no
+    contract is published by either.
+- aid: qatar:ror
+  name: Research Organization Registry membership
+  description: >-
+    Qatar University is registered in ROR as https://ror.org/00yhnba62 — status active,
+    established 1973, domain qu.edu.qa, located in Doha, Qatar — cross-walked to Funder Registry
+    501100004252, GRID grid.412603.2, ISNI and Wikidata. This is the machine-readable identity
+    anchor every other claim in this profile resolves against. The membership is a fact about
+    Qatar University; ROR's own API contract is not saved here.
+  humanURL: https://ror.org/00yhnba62
+  baseURL: https://api.ror.org/v2/organizations/00yhnba62
+  tags: [ Identifier Registry, ROR, Research Identity ]
+  properties:
+  - type: Evidence
+    url: examples/qatar-ror-record.json
+  - type: Conformance
+    url: conformance/qatar-conformance.yml
+  x-operator: registry
+  x-operator-basis: >-
+    An identifier registry Qatar University is REGISTERED IN, not a platform it rents. Shared
+    with every other registered organisation by design, which is a fact about the registry, not
+    a misattribution.
+- aid: qatar:crossref
+  name: Crossref membership (Qatar University Press)
+  description: >-
+    Qatar University Press is a Crossref member in its own right — member 11655, DOI prefix
+    10.29117, 2,533 DOIs registered (510 current, 2,023 backfile) — covering the journals it
+    publishes at journals.qu.edu.qa. Recorded as a registry membership; Crossref's own API
+    contract is not saved here.
+  humanURL: https://www.crossref.org/
+  baseURL: https://api.crossref.org/members/11655
+  tags: [ Identifier Registry, Crossref, DOI, Scholarly Publishing ]
+  properties:
+  - type: Evidence
+    url: examples/qatar-crossref-member.json
+  - type: Conformance
+    url: conformance/qatar-conformance.yml
+  x-operator: registry
+  x-operator-basis: An identifier registry Qatar University Press registers DOIs in. Verified against api.crossref.org/members/11655.
+- aid: qatar:handle
+  name: Handle.Net naming authority 10576
+  description: >-
+    Qatar University holds Handle.Net prefix 10576 and every QSpace item carries a persistent
+    identifier under it, resolving through hdl.handle.net to the repository. The prefix
+    registration is Qatar University's regardless of who hosts the repository it points at, which
+    is why it is recorded separately from the QSpace tenancy.
+  humanURL: https://hdl.handle.net/10576/62538
+  baseURL: https://hdl.handle.net/api/handles/10576
+  tags: [ Identifier Registry, Handle System, Persistent Identifiers ]
+  properties:
+  - type: Evidence
+    url: examples/qatar-handle-resolution.json
+  x-operator: registry
+  x-operator-basis: >-
+    The Handle System naming authority 0.NA/10576 resolves and its handles point at
+    qspace.qu.edu.qa. Registration is the institution's; the resolver is the Handle System's.
 common:
-  - type: DomainSecurity
-    url: security/qatar-domain-security.yml
-  - type: Website
-    url: https://www.qu.edu.qa/
-  - type: GitHub
-    url: https://github.com/qataruniversity
-  - type: LinkedIn
-    url: https://www.linkedin.com/school/qatar-university/
-  - type: Plans
-    url: plans/qatar-plans-pricing.yml
-  - type: RateLimits
-    url: rate-limits/qatar-rate-limits.yml
-  - type: FinOps
-    url: finops/qatar-finops.yml
-  - type: Review
-    url: review.yml
+- type: Website
+  url: https://www.qu.edu.qa/
+- type: IdentityFederation
+  url: identity-federation/qatar-identity-federation.yml
+- type: Conformance
+  url: conformance/qatar-conformance.yml
+- type: Authentication
+  url: authentication/qatar-authentication.yml
+- type: Scopes
+  url: scopes/qatar-scopes.yml
+- type: Errors
+  url: errors/qatar-errors.yml
+- type: Examples
+  url: examples/examples.yml
+- type: Vocabulary
+  url: vocabulary/qatar-vocabulary.yml
+- type: Lifecycle
+  url: lifecycle/qatar-lifecycle.yml
+- type: Rules
+  url: rules/qatar-rules.yml
+- type: ResearchRepository
+  url: https://qspace.qu.edu.qa/
+- type: ScholarlyPublishing
+  url: https://journals.qu.edu.qa/
+- type: LibraryCatalog
+  url: https://www.qu.edu.qa/en-us/library/
+- type: CourseCatalog
+  url: https://www.qu.edu.qa/en-us/students/registration/
+- type: Research
+  url: https://www.qu.edu.qa/en-us/research/
+- type: Documentation
+  url: https://libguides.qu.edu.qa/quir
+- type: LinkedIn
+  url: https://www.linkedin.com/school/qatar-university/
+- type: DomainSecurity
+  url: security/qatar-domain-security.yml
+- type: Plans
+  url: plans/qatar-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/qatar-rate-limits.yml
+- type: FinOps
+  url: finops/qatar-finops.yml
+- type: Review
+  url: review.yml
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
+x-coverage:
+  state: covered
+  reason: covered
+  detail: >-
+    Two institution-operated machine-readable contracts were found, verified live, and are
+    documented here with OpenAPI, JSON Schema, authentication, scopes, errors, vocabulary,
+    lifecycle and rules artifacts: Qatar University's own OpenID Connect / SAML 2.0 identity
+    provider at sso.qu.edu.qa, and Qatar University Press's self-hosted Open Journal Systems
+    OAI-PMH endpoint at journals.qu.edu.qa. Both resolve into QUNET, Qatar University's own RIPE
+    allocation, with no CNAME onto a managed platform, on Qatar University certificates. Neither
+    appeared in the June 2026 profile.
+
+    The headline result is a correction that LOWERS the apparent footprint. The June 2026 pass
+    recorded QSpace (qspace.qu.edu.qa) as Qatar University's own API on hostname evidence. DNS
+    says otherwise: it CNAMEs to qataru.cname.openrepository.com and terminates on Amazon
+    eu-west-1, behind Open Repository's commercial hosted-DSpace service, on a Let's Encrypt
+    certificate rather than the Qatar University DigiCert wildcard its self-hosted services
+    carry, with atmire-* modules exposed in the API root. Two OpenAPI documents and ten example
+    captures written for QSpace during this run were removed within the same run; the QSpace
+    relationship itself is retained as an apis[] entry with x-operator: tenant, because the
+    repository, its 66,950 records, its Handle prefix 10576 and its administration are genuine
+    institutional facts. Learning (Blackboard Learn) and library guides (Springshare LibGuides)
+    are tenancies on the same pattern. Three registry memberships — ROR 00yhnba62, Crossref
+    member 11655 with DOI prefix 10.29117, and Handle.Net prefix 10576 — are recorded as
+    memberships, never as contracts. DataCite was specifically checked and Qatar University has
+    no record; the only Qatari DataCite provider is Qatar National Library, a different
+    institution.
+
+    What is genuinely absent, after probing: no developer portal (developer.qu.edu.qa does not
+    resolve), no open data portal (data.qu.edu.qa and opendata.qu.edu.qa do not resolve), no
+    published OpenAPI for anything, no changelog, no status page, no API terms of service, no
+    llms.txt, and no real security.txt on either the main site or the repository. No Qatari
+    national research-and-education identity federation was found and the SAML entity is not in
+    eduGAIN. No AI policy or AI-tooling statement was located on the university or library
+    surfaces searched. Public Ellucian Banner course-catalog and class-schedule modules return
+    HTTP 500.
+
+    The most consequential gap is an API programme with no front door: api.qu.edu.qa resolves to
+    34.18.7.7 and answers HTTP 404 with a zero-length body and an F5 BIG-IP
+    `BIGipServerPROD-API-POOL` cookie, proving a production API pool runs behind it. Nothing
+    about it is public.
+
+    Two probe limitations, ours not Qatar University's, both worked around and both recorded as
+    findings in their own right: sso.qu.edu.qa and journals.qu.edu.qa serve an incomplete TLS
+    chain, so every capture from them was taken with certificate verification disabled, and
+    crt.sh was returning 502 during this run so subdomain enumeration was done by DNS probing a
+    curated candidate list rather than by certificate transparency. Arabic-language surfaces were
+    checked — www.qu.edu.qa serves Arabic by default and the OJS platform carries Arabic journal
+    sections — and no additional programmable surface was found on them.
+  assessed: '2026-09-01'
+  method: probed
+  evidence:
+  - url: 'https://journals.qu.edu.qa/index.php/index/oai?verb=Identify'
+    status: 200
+  - url: 'https://journals.qu.edu.qa/index.php/index/oai?verb=ListIdentifiers&metadataPrefix=oai_dc'
+    status: 200
+  - url: https://sso.qu.edu.qa/oauth2/token/.well-known/openid-configuration
+    status: 200
+  - url: https://sso.qu.edu.qa/identity/metadata/saml2
+    status: 200
+  - url: https://sso.qu.edu.qa/oauth2/jwks
+    status: 200
+  - url: 'https://qspace.qu.edu.qa/server/oai/request?verb=Identify'
+    status: 200
+  - url: https://qspace.qu.edu.qa/server/api
+    status: 200
+  - url: https://elearning.qu.edu.qa/learn/api/public/v1/system/version
+    status: 200
+  - url: https://api.ror.org/v2/organizations/00yhnba62
+    status: 200
+  - url: https://api.crossref.org/members/11655
+    status: 200
+  - url: 'https://hdl.handle.net/api/handles/10576/62538'
+    status: 200
+  - url: https://www.qu.edu.qa/
+    status: 200
+  - url: https://libguides.qu.edu.qa/quir
+    status: 200
+  - url: https://mybanner.qu.edu.qa/
+    status: 200
+  - url: 'https://api.datacite.org/repositories?query=Qatar+University'
+    status: 200
+  - url: https://sso.qu.edu.qa/oauth2/userinfo
+    status: 400
+  - url: 'https://journals.qu.edu.qa/index.php/jes/api/v1/issues'
+    status: 403
+  - url: https://elearning.qu.edu.qa/learn/api/public/v1/courses
+    status: 401
+  - url: https://api.qu.edu.qa/
+    status: 404
+  - url: https://www.qu.edu.qa/llms.txt
+    status: 404
+  - url: 'https://mybanner.qu.edu.qa/PROD/bwckctlg.p_disp_dyn_ctlg'
+    status: 500
+  - url: https://www.qu.edu.qa/.well-known/security.txt
+    status: 500
+  - url: https://data.qu.edu.qa/
+    status: 0
+  - url: https://developer.qu.edu.qa/
+    status: 0
+  - url: https://qupress.qu.edu.qa/
+    status: 0
+    note: 'Dangling CNAME to qup.press.ubiquity.website, which does not resolve — a broken Ubiquity Press tenancy, not claimed.'
