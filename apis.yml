@@ -372,16 +372,16 @@ apis:
     url: examples/examples.yml
   - type: Documentation
     url: https://journals.qu.edu.qa/
-- aid: qatar:qatar-oauth-api
-  name: Qatar University O Auth API
-  description: Token issuance, introspection and revocation.
+- aid: qatar:qatar-openid-connect-api
+  name: Qatar University OpenID Connect API
+  description: Authorization, user info and session management.
   humanURL: https://sso.qu.edu.qa/
   baseURL: https://sso.qu.edu.qa
   tags:
-  - OAuth
+  - OpenID Connect
   properties:
   - type: OpenAPI
-    url: openapi/qatar-oauth-api-openapi.yml
+    url: openapi/qatar-openid-connect-api-openapi.yml
   - type: JSONSchema
     url: json-schema/qatar-qu-sso-openid-configuration.schema.json
   - type: Authentication
@@ -402,16 +402,16 @@ apis:
     url: examples/examples.yml
   - type: Documentation
     url: https://journals.qu.edu.qa/
-- aid: qatar:qatar-openid-connect-api
-  name: Qatar University OpenID Connect API
-  description: Authorization, user info and session management.
-  humanURL: https://sso.qu.edu.qa/
-  baseURL: https://sso.qu.edu.qa
+- aid: qatar:qatar-oauth-api
+  name: Qatar University O Auth API
+  description: Token issuance, introspection and revocation.
+  humanURL: https://sso.qu.edu.qa/identity/metadata/saml2
+  baseURL: https://sso.qu.edu.qa/samlsso
   tags:
-  - OpenID Connect
+  - OAuth
   properties:
   - type: OpenAPI
-    url: openapi/qatar-openid-connect-api-openapi.yml
+    url: openapi/qatar-oauth-api-openapi.yml
   - type: JSONSchema
     url: json-schema/qatar-qu-sso-openid-configuration.schema.json
   - type: Authentication
