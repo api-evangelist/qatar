@@ -94,6 +94,11 @@ apis:
   tags:
   - Identity Federation
   - SAML
+  - SSO
+  - Authentication
+  tags_raw:
+  - Identity Federation
+  - SAML
   - Single Sign-On
   - Authentication
   properties:
@@ -408,6 +413,8 @@ apis:
   humanURL: https://sso.qu.edu.qa/identity/metadata/saml2
   baseURL: https://sso.qu.edu.qa/samlsso
   tags:
+  - Authentication
+  tags_raw:
   - OAuth
   properties:
   - type: OpenAPI
