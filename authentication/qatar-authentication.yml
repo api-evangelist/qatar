@@ -1,0 +1,143 @@
+specification: API Evangelist Authentication
+specificationVersion: '0.1'
+x-method: derived  # authorship, for build-provenance-manifest.py — API Evangelist wrote this file; see `method:` below for how the facts in it were obtained
+provider: Qatar University
+providerId: qatar
+generated: '2026-09-01'
+method: probed
+source: >-
+  Live probes on 2026-09-01 of every surface attributed to Qatar University, with no
+  credential of any kind presented to any endpoint. Replaces no earlier file — the repository
+  held no authentication artifact before this run.
+description: >-
+  Qatar University's public programmable surfaces divide cleanly. Everything that harvests or
+  reads scholarly metadata is open and anonymous — the QU Press OJS OAI-PMH endpoint that the
+  university operates itself, and the QSpace repository endpoints that its hosting provider
+  operates for it. Everything that touches a person is behind the university's own OpenID
+  Connect / SAML provider at sso.qu.edu.qa, and there is no public onboarding path to it.
+  No Qatar University surface issues API keys to the public, and none was found that documents
+  an authentication model in prose.
+summary:
+  types:
+    - none
+    - oauth2
+    - openIdConnect
+    - saml
+  institution_operated_public_apis_requiring_no_auth: 1
+  tenant_operated_public_apis_requiring_no_auth: 3
+  public_self_service_credential_available: false
+schemes:
+  - name: QSpaceOaiPublic
+    type: none
+    operator: tenant
+    operator_basis: >-
+      qspace.qu.edu.qa CNAMEs to qataru.cname.openrepository.com and resolves to 3.255.61.143
+      (Amazon eu-west-1). Open Repository is a commercial hosted-DSpace service; the hostname,
+      content and Handle prefix are Qatar University's, the deployment is not.
+    applies_to: https://qspace.qu.edu.qa/server/oai/request
+    description: >-
+      OAI-PMH harvesting is fully anonymous. Identify, ListMetadataFormats, ListSets,
+      ListIdentifiers, ListRecords and GetRecord all answer 200 with no credential and no
+      rate-limit header. The repository publishes no harvesting policy.
+    evidence:
+      url: 'https://qspace.qu.edu.qa/server/oai/request?verb=Identify'
+      status: 200
+  - name: QSpaceRestPublicRead
+    type: none
+    operator: tenant
+    applies_to: https://qspace.qu.edu.qa/server/api
+    description: >-
+      DSpace 7.6 read operations — the service root, communities, collections, items and
+      discovery search — are anonymous. Write operations require a DSpace account and a
+      CSRF token (DSpace's `DSPACE-XSRF-TOKEN` header exchange); no public registration
+      path was found, so the write half of the API is not reachable by the public.
+    evidence:
+      url: https://qspace.qu.edu.qa/server/api
+      status: 200
+  - name: QSpaceOpenSearchPublic
+    type: none
+    operator: tenant
+    applies_to: https://qspace.qu.edu.qa/server/opensearch
+    description: OpenSearch description and Atom/RSS result feeds are anonymous.
+    evidence:
+      url: https://qspace.qu.edu.qa/server/opensearch/service
+      status: 200
+  - name: QuPressOaiPublic
+    type: none
+    operator: institution
+    applies_to: https://journals.qu.edu.qa/index.php/index/oai
+    description: >-
+      QU Press OJS OAI-PMH harvesting is anonymous over all nine journals. The adjacent OJS
+      REST API at /index.php/{journal}/api/v1/ is NOT public — it returns 403 to
+      unauthenticated callers, and OJS gates it behind an API token issued per user account.
+    evidence:
+      url: 'https://journals.qu.edu.qa/index.php/index/oai?verb=Identify'
+      status: 200
+  - name: QuSsoOpenIdConnect
+    type: openIdConnect
+    operator: institution
+    applies_to: https://sso.qu.edu.qa
+    openIdConnectUrl: https://sso.qu.edu.qa/oauth2/token/.well-known/openid-configuration
+    description: >-
+      Qatar University's own WSO2 OpenID Connect provider. Discovery, JWKS and the
+      authorization, token, userinfo, introspection, revocation and logout endpoints are all
+      published. Client authentication is client_secret_basic or client_secret_post; PKCE is
+      supported with S256 and plain; subject_types is pairwise; ID tokens are RS256.
+      Ten grant types are advertised, including the legacy `password` grant and WSO2's
+      non-standard `iwa:ntlm` and `account_switch`.
+      A Dynamic Client Registration endpoint is advertised at
+      /api/identity/oauth2/dcr/v1.1/register, but no public self-service onboarding for it was
+      found: obtaining a client is an institutional process, not a developer signup.
+      Scopes are the five OIDC standard scopes only — see scopes/qatar-scopes.yml.
+    evidence:
+      url: https://sso.qu.edu.qa/oauth2/token/.well-known/openid-configuration
+      status: 200
+    caveats:
+      - >-
+        The discovery document is at a non-standard location. RFC 8414 says to append
+        /.well-known/openid-configuration to the issuer; here it is nested under /oauth2/token/,
+        and the issuer itself (https://sso.qu.edu.qa:9443/oauth2endpoints/token) points at the
+        WSO2 management port. A conformant client discovering by the book will not find it.
+      - >-
+        The host serves an incomplete TLS chain, so a default OpenSSL-based client cannot read
+        the discovery document at all. See identity-federation/qatar-identity-federation.yml.
+      - >-
+        /oauth2/userinfo answers 400 with {"error":"invalid_request","error_description":"Bearer
+        token missing"} rather than the RFC 6750 401 with a WWW-Authenticate header.
+  - name: QuSsoSaml2
+    type: saml
+    operator: institution
+    applies_to: https://sso.qu.edu.qa/samlsso
+    description: >-
+      The same provider publishes a SAML 2.0 IDPSSODescriptor at /identity/metadata/saml2
+      with HTTP-POST and HTTP-Redirect SSO bindings and separate signing and encryption keys.
+      Relying-party registration is institutional. The metadata declares no NameIDFormat and
+      no Organization or ContactPerson element.
+    evidence:
+      url: https://sso.qu.edu.qa/identity/metadata/saml2
+      status: 200
+  - name: BlackboardLearnRest
+    type: oauth2
+    operator: tenant
+    applies_to: https://elearning.qu.edu.qa/learn/api/public/v1
+    description: >-
+      Qatar University's Blackboard Learn tenant exposes the Anthology Blackboard Learn REST
+      API. /system/version is anonymous and answers 200 with the running build; every
+      content route requires an OAuth 2.0 bearer token issued to a developer-registered
+      application, and /courses answers 401 without one. The authentication model, the token
+      endpoint and the contract are Anthology's, not Qatar University's — recorded here for
+      completeness and scored against Blackboard.
+    evidence:
+      - url: https://elearning.qu.edu.qa/learn/api/public/v1/system/version
+        status: 200
+      - url: https://elearning.qu.edu.qa/learn/api/public/v1/courses
+        status: 401
+notes:
+  - >-
+    No Qatar University surface offers a public API key, developer account or self-service
+    credential. Where a credential is needed, the path is institutional affiliation.
+  - >-
+    An institutional API gateway exists but publishes nothing: api.qu.edu.qa resolves to
+    34.18.7.7 and answers 404 with a zero-length body and an F5 BIG-IP `BIGipServerPROD-API-POOL`
+    cookie. A production API pool is running behind it; no route, no documentation and no
+    authentication model for it is public.

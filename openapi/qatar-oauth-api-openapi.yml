@@ -1,0 +1,182 @@
+openapi: 3.2.0
+info:
+  title: Qatar University Single Sign-On (OpenID Connect / 2.0) O…
+  version: '1.0'
+  summary: Qatar University's own institution-operated OpenID Connect provider at sso.qu.edu.qa.
+  description: 'Qatar University operates its own identity provider at `sso.qu.edu.qa` on a WSO2 Identity
+
+    Server, and it is the strongest machine-readable contract in this profile.'
+  contact:
+    name: Qatar University
+    url: https://www.qu.edu.qa/
+  x-provenance:
+    generated: '2026-09-01'
+    method: derived
+    source: Transcribed from the live OpenID Connect discovery document at https://sso.qu.edu.qa/oauth2/token/.well-known/openid-configuration (200, application/json, captured to examples/qatar-qu-sso-openid-configuration.json), plus live probes on 2026-09-01 of https://sso.qu.edu.qa/oauth2/jwks (200, RS256 signing key), https://sso.qu.edu.qa/oauth2/userinfo (400, {"error":"invalid_request", "error_description":"Bearer token missing"}), https://sso.qu.edu.qa/oauth2/token (405 on GET) and https://sso.qu.edu.qa/identity/metadata/saml2 (200, application/xml, entityID sso.qu.edu.qa). No endpoint was called with a credential of any kind.
+    x-operator: institution
+servers:
+- url: https://sso.qu.edu.qa
+  description: Qatar University Single Sign-On (WSO2 Identity Server)
+security: []
+tags:
+- name: OAuth
+  description: Token issuance, introspection and revocation.
+paths:
+  /oauth2/token:
+    post:
+      tags:
+      - OAuth
+      operationId: issueToken
+      summary: OAuth 2.0 token endpoint
+      description: Exchanges a grant for tokens. Client authentication is `client_secret_basic` or `client_secret_post`. GET is not allowed and returns 405 with an empty body.
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                grant_type:
+                  type: string
+                  enum:
+                  - authorization_code
+                  - refresh_token
+                  - client_credentials
+                  - password
+                  - urn:ietf:params:oauth:grant-type:device_code
+                  - urn:ietf:params:oauth:grant-type:jwt-bearer
+                  - urn:ietf:params:oauth:grant-type:saml2-bearer
+                  - urn:ietf:params:oauth:grant-type:uma-ticket
+                  - account_switch
+                  - iwa:ntlm
+                code:
+                  type: string
+                redirect_uri:
+                  type: string
+                  format: uri
+                refresh_token:
+                  type: string
+                code_verifier:
+                  type: string
+              required:
+              - grant_type
+      security:
+      - clientSecretBasic: []
+      - clientSecretPost: []
+      responses:
+        '200':
+          description: Token response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenResponse'
+        '400':
+          description: OAuth 2.0 error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OAuthError'
+        '405':
+          description: Method not allowed. Observed on GET, with an empty body.
+  /oauth2/introspect:
+    post:
+      tags:
+      - OAuth
+      operationId: introspectToken
+      summary: RFC 7662 token introspection
+      security:
+      - clientSecretBasic: []
+      - clientSecretPost: []
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                token_type_hint:
+                  type: string
+              required:
+              - token
+      responses:
+        '200':
+          description: Introspection response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  active:
+                    type: boolean
+  /oauth2/revoke:
+    post:
+      tags:
+      - OAuth
+      operationId: revokeToken
+      summary: RFC 7009 token revocation
+      security:
+      - clientSecretBasic: []
+      - clientSecretPost: []
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                token_type_hint:
+                  type: string
+              required:
+              - token
+      responses:
+        '200':
+          description: Revocation acknowledged.
+components:
+  schemas:
+    OAuthError:
+      type: object
+      description: RFC 6749 section 5.2 error object.
+      properties:
+        error:
+          type: string
+        error_description:
+          type: string
+      required:
+      - error
+    TokenResponse:
+      type: object
+      properties:
+        access_token:
+          type: string
+        refresh_token:
+          type: string
+        id_token:
+          type: string
+        token_type:
+          type: string
+        expires_in:
+          type: integer
+        scope:
+          type: string
+      required:
+      - access_token
+      - token_type
+  securitySchemes:
+    bearerToken:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Access token issued by this provider, presented on the UserInfo endpoint.
+    clientSecretBasic:
+      type: http
+      scheme: basic
+      description: OAuth 2.0 client credentials in the Authorization header (client_secret_basic).
+    clientSecretPost:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: '`client_secret_post` — client_id and client_secret carried in the form body. Modelled here as a named scheme because OpenAPI has no first-class representation for it.'

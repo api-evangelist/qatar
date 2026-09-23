@@ -1,0 +1,181 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/qatar/refs/heads/main/json-schema/qatar-qu-sso-openid-configuration.schema.json",
+  "x-method": "derived",
+  "title": "Qatar University SSO — OpenID Provider Metadata",
+  "description": "Schema for the OpenID Connect discovery document Qatar University serves at https://sso.qu.edu.qa/oauth2/token/.well-known/openid-configuration. Derived by API Evangelist on 2026-09-01 from the live document (HTTP 200, application/json), archived at examples/qatar-qu-sso-openid-configuration.json. Not published by Qatar University.",
+  "x-provenance": {
+    "generated": "2026-09-01",
+    "method": "derived",
+    "source": "https://sso.qu.edu.qa/oauth2/token/.well-known/openid-configuration (HTTP 200, 2026-09-01)",
+    "x-operator": "institution"
+  },
+  "type": "object",
+  "required": [
+    "issuer",
+    "authorization_endpoint",
+    "token_endpoint",
+    "jwks_uri",
+    "scopes_supported",
+    "response_types_supported"
+  ],
+  "properties": {
+    "issuer": {
+      "type": "string",
+      "format": "uri",
+      "description": "Observed value is https://sso.qu.edu.qa:9443/oauth2endpoints/token — the WSO2 management port, inconsistent with the :443 endpoints alongside it. A client validating the iss claim against the discovery location will reject this provider."
+    },
+    "authorization_endpoint": {
+      "type": "string",
+      "format": "uri"
+    },
+    "token_endpoint": {
+      "type": "string",
+      "format": "uri"
+    },
+    "userinfo_endpoint": {
+      "type": "string",
+      "format": "uri"
+    },
+    "jwks_uri": {
+      "type": "string",
+      "format": "uri"
+    },
+    "registration_endpoint": {
+      "type": "string",
+      "format": "uri"
+    },
+    "introspection_endpoint": {
+      "type": "string",
+      "format": "uri"
+    },
+    "revocation_endpoint": {
+      "type": "string",
+      "format": "uri"
+    },
+    "end_session_endpoint": {
+      "type": "string",
+      "format": "uri"
+    },
+    "check_session_iframe": {
+      "type": "string",
+      "format": "uri"
+    },
+    "scopes_supported": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "openid",
+          "profile",
+          "email",
+          "address",
+          "phone"
+        ]
+      },
+      "description": "Exactly the five standard OpenID Connect scopes. No institution-specific scope is offered."
+    },
+    "response_types_supported": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "response_modes_supported": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "query",
+          "fragment",
+          "form_post"
+        ]
+      }
+    },
+    "grant_types_supported": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "claims_supported": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "subject_types_supported": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "pairwise",
+          "public"
+        ]
+      }
+    },
+    "id_token_signing_alg_values_supported": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "userinfo_signing_alg_values_supported": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "request_object_signing_alg_values_supported": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "token_endpoint_auth_methods_supported": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "client_secret_basic",
+          "client_secret_post"
+        ]
+      }
+    },
+    "introspection_endpoint_auth_methods_supported": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "revocation_endpoint_auth_methods_supported": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "code_challenge_methods_supported": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "S256",
+          "plain"
+        ]
+      }
+    },
+    "request_parameter_supported": {
+      "type": "boolean"
+    },
+    "claims_parameter_supported": {
+      "type": "boolean"
+    },
+    "backchannel_logout_supported": {
+      "type": "boolean"
+    },
+    "backchannel_logout_session_supported": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": true
+}

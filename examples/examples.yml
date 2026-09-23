@@ -1,0 +1,125 @@
+specification: API Evangelist Examples
+specificationVersion: '0.1'
+x-method: derived  # authorship, for build-provenance-manifest.py — API Evangelist wrote this file; see `method:` below for how the facts in it were obtained
+provider: Qatar University
+providerId: qatar
+generated: '2026-09-01'
+method: probed
+source: >-
+  Every file in this directory is a verbatim capture of a live HTTP response, taken on
+  2026-09-01 with no credential of any kind. Nothing here is synthesised, hand-written or
+  trimmed except where a JSON body was re-indented for readability.
+description: >-
+  Captured responses backing the contracts, conformance claims and defect reports in this
+  repository. Each entry names the exact URL called, the status returned, and which
+  x-operator the surface was settled at — because for a university that is the load-bearing
+  fact, and three of these captures come from platforms Qatar University does not operate.
+examples:
+  - file: qatar-qupress-oai-identify.xml
+    url: 'https://journals.qu.edu.qa/index.php/index/oai?verb=Identify'
+    status: 200
+    content_type: text/xml;charset=UTF-8
+    x-operator: institution
+    supports: openapi/qatar-qupress-oai-pmh-openapi.yml
+    note: Repository self-description — OJS 3.3.0.7, adminEmail mjaberi@qu.edu.qa, earliest datestamp 2017-12-26.
+  - file: qatar-qupress-oai-listidentifiers.xml
+    url: 'https://journals.qu.edu.qa/index.php/index/oai?verb=ListIdentifiers&metadataPrefix=oai_dc'
+    status: 200
+    content_type: text/xml;charset=UTF-8
+    x-operator: institution
+    note: 'completeListSize 3186. The emitted identifiers carry the PKP default namespace oai:ojs.pkp.sfu.ca — the defect this capture evidences.'
+  - file: qatar-qupress-oai-listmetadataformats.xml
+    url: 'https://journals.qu.edu.qa/index.php/index/oai?verb=ListMetadataFormats'
+    status: 200
+    content_type: text/xml;charset=UTF-8
+    x-operator: institution
+    note: 'Four dissemination formats: oai_dc, oai_marc, marcxml, rfc1807.'
+  - file: qatar-qupress-oai-getrecord.xml
+    url: 'https://journals.qu.edu.qa/index.php/index/oai?verb=GetRecord&metadataPrefix=oai_dc&identifier=oai:ojs.pkp.sfu.ca:article/11'
+    status: 200
+    content_type: text/xml;charset=UTF-8
+    x-operator: institution
+    note: >-
+      The endpoint rejecting an identifier it emitted seconds earlier, with
+      badArgument "Identifier is not in a valid format". Round-trip harvesting is broken.
+  - file: qatar-qupress-oai-error-badargument.xml
+    url: 'https://journals.qu.edu.qa/index.php/index/oai?verb=ListRecords'
+    status: 200
+    x-operator: institution
+    note: 'Protocol error carried in an HTTP 200 body: badArgument, "Missing metadataPrefix parameter".'
+  - file: qatar-qupress-oai-error-badverb.xml
+    url: 'https://journals.qu.edu.qa/index.php/index/oai?verb=Nope'
+    status: 200
+    x-operator: institution
+    note: 'badVerb, "Illegal OAI verb", also in an HTTP 200 body.'
+  - file: qatar-qu-sso-openid-configuration.json
+    url: https://sso.qu.edu.qa/oauth2/token/.well-known/openid-configuration
+    status: 200
+    content_type: application/json
+    x-operator: institution
+    supports:
+      - openapi/qatar-qu-sso-oidc-openapi.yml
+      - json-schema/qatar-qu-sso-openid-configuration.schema.json
+      - scopes/qatar-scopes.yml
+    note: >-
+      Qatar University's own OpenID Connect discovery document. Fetched with certificate
+      verification disabled — the host serves an incomplete TLS chain and a default client
+      cannot read it.
+  - file: qatar-ror-record.json
+    url: https://api.ror.org/v2/organizations/00yhnba62
+    status: 200
+    content_type: application/json
+    x-operator: registry
+    note: >-
+      Qatar University's ROR record — active, domain qu.edu.qa, cross-walked to Funder Registry
+      501100004252, GRID grid.412603.2, ISNI and Wikidata.
+  - file: qatar-crossref-member.json
+    url: https://api.crossref.org/members/11655
+    status: 200
+    content_type: application/json
+    x-operator: registry
+    note: 'Qatar University Press, Crossref member 11655, DOI prefix 10.29117, 2,533 DOIs registered.'
+  - file: qatar-handle-resolution.json
+    url: 'https://hdl.handle.net/api/handles/10576/62538'
+    status: 200
+    content_type: application/json
+    x-operator: registry
+    note: >-
+      Qatar University's Handle.Net prefix 10576 resolving onto its own repository. The prefix
+      registration is the institution's; the repository it points at is a hosted deployment.
+  - file: qatar-qspace-oai-identify.xml
+    url: 'https://qspace.qu.edu.qa/server/oai/request?verb=Identify'
+    status: 200
+    content_type: text/xml;charset=UTF-8
+    x-operator: tenant
+    supports: conformance/qatar-conformance.yml
+    note: >-
+      Retained as EVIDENCE OF THE TENANCY, not as a Qatar University contract. QSpace CNAMEs to
+      qataru.cname.openrepository.com, a commercial hosted-DSpace service. The capture names the
+      repository and its Qatar University administrative contact (quspace@qu.edu.qa), and shows
+      the unexpanded ${oai.identifier.prefix} configuration placeholder in the repository
+      identifier. The QSpace REST, OpenSearch and error captures taken during this run were
+      REMOVED, along with the two OpenAPI documents derived from them, because they describe
+      the hosting platform's engineering rather than Qatar University's.
+removed_this_run:
+  reason: vendor_contract_and_derived_artifacts
+  basis: >-
+    See STEP 1 of the university pipeline contract. qspace.qu.edu.qa was settled as tenant by
+    DNS, not by hostname, after the host-based audit had verdicted it institution.
+  files:
+    - openapi/qatar-qspace-oai-pmh-openapi.yml
+    - openapi/qatar-qspace-dspace-rest-openapi.yml
+    - openapi/_original/qatar-qspace-oai-pmh-openapi.yml
+    - openapi/_original/qatar-qspace-dspace-rest-openapi.yml
+    - examples/qatar-qspace-dspace-root.json
+    - examples/qatar-qspace-dspace-discover-search.json
+    - examples/qatar-qspace-opensearch-description.xml
+    - examples/qatar-qspace-oai-listmetadataformats.xml
+    - examples/qatar-qspace-oai-getrecord.xml
+    - examples/qatar-qspace-oai-error-badverb.xml
+    - examples/qatar-qspace-oai-error-badargument.xml
+    - examples/qatar-qspace-oai-error-cannotdisseminateformat.xml
+  note: >-
+    All twelve were created during this same run and removed within it; none was ever committed.
+    The QSpace relationship itself is NOT removed — it is recorded in apis.yml as an apis[]
+    entry with x-operator: tenant.

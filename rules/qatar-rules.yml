@@ -1,0 +1,134 @@
+specification: API Evangelist Rules
+specificationVersion: '0.1'
+provider: Qatar University
+providerId: qatar
+generated: '2026-09-01'
+method: derived
+source: >-
+  Derived on 2026-09-01 from the verified defects recorded in
+  identity-federation/qatar-identity-federation.yml, errors/qatar-errors.yml and
+  lifecycle/qatar-lifecycle.yml. Every rule below is written against a defect that was actually
+  reproduced against a live Qatar University host on 2026-09-01, not against a generic checklist.
+description: >-
+  A governance ruleset for Qatar University's institution-operated surfaces. This is not a
+  Spectral ruleset for an OpenAPI document — Qatar University publishes no OpenAPI, and the two
+  in this repository were written by API Evangelist. It is instead the set of assertions that
+  would have caught what is actually wrong with the contracts Qatar University does serve, all
+  of which are configuration and publication defects rather than design defects.
+  Every rule is stated so that it can be checked from outside with no credential.
+rules:
+  - id: tls-chain-must-be-complete
+    severity: error
+    applies_to: [sso.qu.edu.qa, journals.qu.edu.qa]
+    assertion: >-
+      The host must serve the full certificate chain, including the issuing intermediate CA,
+      so that a client with only a root store can verify it.
+    check: '`echo | openssl s_client -connect <host>:443 -servername <host>` must report `Verify return code: 0 (ok)`.'
+    observed: >-
+      Both hosts report verify error num=20 "unable to get local issuer certificate" and num=21
+      "unable to verify the first certificate". The leaf is a valid DigiCert-issued
+      `O=Qatar University, CN=*.qu.edu.qa` certificate; only the intermediate is missing.
+    impact: >-
+      Default Python, Go and Java clients fail before any request is made. On journals.qu.edu.qa
+      this breaks OAI-PMH harvesting, whose entire audience is automated clients; on
+      sso.qu.edu.qa it makes the OpenID Connect discovery document unreadable to a conformant client.
+    status: failing
+  - id: oai-identifiers-must-round-trip
+    severity: error
+    applies_to: [journals.qu.edu.qa]
+    assertion: >-
+      An identifier returned by ListIdentifiers must be accepted by GetRecord on the same endpoint.
+    check: >-
+      Take the first `<identifier>` from `?verb=ListIdentifiers&metadataPrefix=oai_dc` and pass it
+      to `?verb=GetRecord&metadataPrefix=oai_dc&identifier=<id>`. The response must not carry an
+      `<error>` element.
+    observed: >-
+      ListIdentifiers emits `oai:ojs.pkp.sfu.ca:article/11`; GetRecord answers
+      `badArgument: "Identifier is not in a valid format"`.
+    impact: Round-trip harvesting is impossible. The emitted namespace also collides with every unconfigured OJS installation worldwide.
+    status: failing
+  - id: oai-repository-identifier-must-be-configured
+    severity: error
+    applies_to: [journals.qu.edu.qa, qspace.qu.edu.qa]
+    assertion: >-
+      The `repositoryIdentifier` in the Identify response must be a configured, resolvable
+      domain, must match the namespace of emitted identifiers, and must not contain template syntax.
+    check: '`?verb=Identify` — `Identify/description/oai-identifier/repositoryIdentifier` must not match `\$\{.*\}` and must equal the namespace segment of an emitted identifier.'
+    observed: >-
+      journals.qu.edu.qa declares `ojs.journals.qu.edu.qa` but emits `ojs.pkp.sfu.ca`.
+      qspace.qu.edu.qa declares the literal string `${oai.identifier.prefix}` — an unexpanded
+      DSpace configuration placeholder — while emitting `qspace.qu.edu.qa`.
+    impact: A harvester that builds identifiers from the repository's self-description builds unresolvable ones.
+    status: failing on both
+    note: 'The QSpace instance is tenant-operated; the finding is reported to Qatar University but is Open Repository''s to fix.'
+  - id: saml-entityid-must-be-a-uri
+    severity: error
+    applies_to: [sso.qu.edu.qa]
+    assertion: >-
+      A SAML 2.0 EntityDescriptor's entityID must be a URI, and for federation registration an
+      absolute https URL that dereferences to the metadata.
+    check: '`GET /identity/metadata/saml2` — `EntityDescriptor/@entityID` must parse as an absolute URI.'
+    observed: 'entityID is the bare hostname string `sso.qu.edu.qa`.'
+    impact: The entity cannot be registered in eduGAIN or any interfederating national federation as published.
+    status: failing
+  - id: federation-metadata-must-outlive-a-cache-cycle
+    severity: warn
+    applies_to: [sso.qu.edu.qa]
+    assertion: 'Published SAML metadata must carry a validUntil far enough ahead that a relying party''s normal refresh cycle never holds expired metadata.'
+    check: '`EntityDescriptor/IDPSSODescriptor/@validUntil` must be at least 24 hours after the fetch time.'
+    observed: 'validUntil was exactly one hour after the fetch (2026-09-01T17:40:16.868Z for a 16:40:16 fetch); the value is regenerated per request.'
+    impact: Relying parties on a daily or weekly metadata refresh always hold expired metadata.
+    status: failing
+  - id: published-endpoints-must-use-the-public-listener
+    severity: error
+    applies_to: [sso.qu.edu.qa]
+    assertion: 'Every URL a provider publishes about itself must be reachable on the port it names, and the OIDC issuer must be consistent with the discovery location.'
+    check: 'In the discovery document, `issuer` and every `*_endpoint` must share a scheme, host and port with the URL the document was fetched from.'
+    observed: >-
+      `issuer` is `https://sso.qu.edu.qa:9443/oauth2endpoints/token` — the WSO2 management port —
+      while every endpoint alongside it is on :443. The SAML metadata likewise advertises SSO
+      bindings on both :9443 and :443.
+    impact: A strict OIDC client validating the `iss` claim rejects the provider; a SAML relying party may select an unreachable binding.
+    status: failing
+  - id: oidc-discovery-must-be-at-the-well-known-location
+    severity: warn
+    applies_to: [sso.qu.edu.qa]
+    assertion: 'Provider metadata must be discoverable by appending /.well-known/openid-configuration to the issuer, per RFC 8414.'
+    check: 'GET `<issuer>/.well-known/openid-configuration` must return the provider metadata.'
+    observed: 'The document is served from /oauth2/token/.well-known/openid-configuration; the issuer points at a different host:port entirely.'
+    impact: A client discovering the provider by the book will not find it.
+    status: failing
+  - id: missing-bearer-token-must-answer-401-with-a-challenge
+    severity: warn
+    applies_to: [sso.qu.edu.qa]
+    assertion: 'Per RFC 6750 §3.1, a protected resource called without a token must return 401 with a `WWW-Authenticate: Bearer` header.'
+    check: 'GET /oauth2/userinfo with no Authorization header.'
+    observed: '400 with `{"error":"invalid_request","error_description":"Bearer token missing"}` and no WWW-Authenticate header.'
+    impact: A client cannot discover the required authentication scheme from the failure response.
+    status: failing
+  - id: unmatched-well-known-paths-must-404
+    severity: warn
+    applies_to: [qspace.qu.edu.qa]
+    assertion: 'A request for a /.well-known/ resource that does not exist must return 404, not 200 with an application shell.'
+    check: 'GET /.well-known/security.txt — a 200 response must have content-type text/plain.'
+    observed: 'HTTP 200 with the DSpace Angular application shell (text/html).'
+    impact: 'Any automated probe that trusts the status code records a security.txt that does not exist — a soft-404 false credit.'
+    status: failing
+    note: Tenant-operated surface; reported, not credited.
+  - id: an-api-gateway-must-have-a-public-front-door
+    severity: warn
+    applies_to: [api.qu.edu.qa]
+    assertion: 'A host named `api.<institution>` that fronts a production API pool should publish, at minimum, a documentation or discovery route.'
+    check: 'GET https://api.qu.edu.qa/ — should return something other than an empty 404.'
+    observed: 'HTTP 404, content-length 0, with an F5 BIG-IP `BIGipServerPROD-API-POOL` cookie confirming a production API pool behind it.'
+    impact: 'An API programme exists and is entirely undiscoverable. This is the largest single gap in the profile.'
+    status: failing
+summary:
+  rules_total: 10
+  failing: 10
+  passing: 0
+  note: >-
+    Ten for ten failing is not a claim that Qatar University's engineering is poor — it is a
+    consequence of how these rules were written. Each one was derived FROM a reproduced defect,
+    so the set is by construction a defect register rather than a balanced audit. Read it as the
+    remediation list, not as a score.

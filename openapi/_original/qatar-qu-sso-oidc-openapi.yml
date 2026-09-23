@@ -1,0 +1,405 @@
+openapi: 3.1.0
+info:
+  title: Qatar University Single Sign-On (OpenID Connect / OAuth 2.0)
+  version: '1.0'
+  summary: Qatar University's own institution-operated OpenID Connect provider at sso.qu.edu.qa.
+  description: |
+    Qatar University operates its own identity provider at `sso.qu.edu.qa` on a WSO2 Identity
+    Server, and it is the strongest machine-readable contract in this profile. The host
+    publishes a complete OpenID Connect Discovery 1.0 document at
+    `/oauth2/token/.well-known/openid-configuration`, a live JWKS at `/oauth2/jwks`, an
+    RFC 7591/OpenID Dynamic Client Registration endpoint at
+    `/api/identity/oauth2/dcr/v1.1/register`, and — separately — SAML 2.0 IdP metadata at
+    `/identity/metadata/saml2` (entityID `sso.qu.edu.qa`), archived in this repository under
+    `identity-federation/`.
+
+    Client registration is institutional, not public: the discovery document advertises a DCR
+    endpoint, but no public onboarding path for it was found. The endpoints below are
+    documented because they are live and self-describing, not because Qatar University invites
+    third-party integration.
+
+    KNOWN DEFECT, verified 2026-09-01, three of them, all Qatar University's to fix:
+      1. TLS chain — `sso.qu.edu.qa` serves its `O=Qatar University, CN=*.qu.edu.qa` DigiCert
+         leaf WITHOUT the intermediate CA. OpenSSL reports `unable to get local issuer
+         certificate` / `unable to verify the first certificate`. Browsers and clients that
+         chase the AIA extension recover; a default Python, Go or Java client does not. An
+         agent using a standard TLS stack cannot read this discovery document.
+      2. `issuer` is `https://sso.qu.edu.qa:9443/oauth2endpoints/token` — the WSO2 internal
+         management port — while every other endpoint in the same document is on `:443`. A
+         strict OIDC client validating the `iss` claim against the discovery URL will reject
+         this provider.
+      3. Every endpoint URL carries an explicit `:443`, which is redundant and breaks
+         naive string comparison against the same URL written without the port.
+
+    This document is NOT published by Qatar University. It was written by API Evangelist by
+    transcribing the live discovery document and probing each endpoint it names.
+
+    Operator: institution. `sso.qu.edu.qa` resolves to 185.37.110.99, Qatari address space, on
+    a `C=QA, L=Doha, O=Qatar University` certificate, with no CNAME onto a managed identity
+    platform. Qatar University runs this itself.
+  contact:
+    name: Qatar University
+    url: https://www.qu.edu.qa/
+  x-provenance:
+    generated: '2026-09-01'
+    method: derived
+    source: >-
+      Transcribed from the live OpenID Connect discovery document at
+      https://sso.qu.edu.qa/oauth2/token/.well-known/openid-configuration (200,
+      application/json, captured to examples/qatar-qu-sso-openid-configuration.json), plus
+      live probes on 2026-09-01 of https://sso.qu.edu.qa/oauth2/jwks (200, RS256 signing key),
+      https://sso.qu.edu.qa/oauth2/userinfo (400, {"error":"invalid_request",
+      "error_description":"Bearer token missing"}), https://sso.qu.edu.qa/oauth2/token (405 on
+      GET) and https://sso.qu.edu.qa/identity/metadata/saml2 (200, application/xml, entityID
+      sso.qu.edu.qa). No endpoint was called with a credential of any kind.
+    x-operator: institution
+servers:
+  - url: https://sso.qu.edu.qa
+    description: Qatar University Single Sign-On (WSO2 Identity Server)
+tags:
+  - name: Discovery
+    description: Provider metadata and signing keys.
+  - name: OAuth
+    description: Token issuance, introspection and revocation.
+  - name: OpenID Connect
+    description: Authorization, user info and session management.
+  - name: Client Registration
+    description: OpenID Connect Dynamic Client Registration.
+paths:
+  /oauth2/token/.well-known/openid-configuration:
+    get:
+      tags: [Discovery]
+      operationId: getOpenIdConfiguration
+      summary: Get the OpenID Connect discovery document
+      description: >-
+        Returns the provider configuration. Note the non-standard location — the well-known
+        path is nested under `/oauth2/token/` rather than served from the host root, so a
+        client following RFC 8414 by appending `/.well-known/openid-configuration` to the
+        issuer will not find it.
+      responses:
+        '200':
+          description: OpenID Provider Metadata.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OpenIdConfiguration'
+              examples:
+                observed:
+                  summary: Observed 2026-09-01
+                  externalValue: ../../examples/qatar-qu-sso-openid-configuration.json
+  /oauth2/jwks:
+    get:
+      tags: [Discovery]
+      operationId: getJwks
+      summary: Get the JSON Web Key Set
+      description: Returns the RSA public key set used to verify ID token and userinfo signatures (RS256).
+      responses:
+        '200':
+          description: JWKS document.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Jwks'
+  /oauth2/authorize:
+    get:
+      tags: [OpenID Connect]
+      operationId: authorize
+      summary: OAuth 2.0 / OpenID Connect authorization endpoint
+      description: >-
+        Browser-facing authorization endpoint. Supported response types are `code`,
+        `id_token`, `token`, `id_token token` and `device`; response modes are `query`,
+        `fragment` and `form_post`; PKCE is supported with `S256` and `plain`.
+      parameters:
+        - name: response_type
+          in: query
+          required: true
+          schema:
+            type: string
+            enum: [code, id_token, token, 'id_token token', device]
+        - name: client_id
+          in: query
+          required: true
+          schema: { type: string }
+        - name: redirect_uri
+          in: query
+          required: true
+          schema: { type: string, format: uri }
+        - name: scope
+          in: query
+          required: false
+          schema:
+            type: string
+            examples: ['openid profile email']
+        - name: state
+          in: query
+          required: false
+          schema: { type: string }
+        - name: code_challenge
+          in: query
+          required: false
+          schema: { type: string }
+        - name: code_challenge_method
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [S256, plain]
+      responses:
+        '302':
+          description: Redirect back to the client's `redirect_uri` with a code, token or error.
+  /oauth2/token:
+    post:
+      tags: [OAuth]
+      operationId: issueToken
+      summary: OAuth 2.0 token endpoint
+      description: >-
+        Exchanges a grant for tokens. Client authentication is `client_secret_basic` or
+        `client_secret_post`. GET is not allowed and returns 405 with an empty body.
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                grant_type:
+                  type: string
+                  enum:
+                    - authorization_code
+                    - refresh_token
+                    - client_credentials
+                    - password
+                    - 'urn:ietf:params:oauth:grant-type:device_code'
+                    - 'urn:ietf:params:oauth:grant-type:jwt-bearer'
+                    - 'urn:ietf:params:oauth:grant-type:saml2-bearer'
+                    - 'urn:ietf:params:oauth:grant-type:uma-ticket'
+                    - account_switch
+                    - 'iwa:ntlm'
+                code: { type: string }
+                redirect_uri: { type: string, format: uri }
+                refresh_token: { type: string }
+                code_verifier: { type: string }
+              required: [grant_type]
+      security:
+        - clientSecretBasic: []
+        - clientSecretPost: []
+      responses:
+        '200':
+          description: Token response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenResponse'
+        '400':
+          description: OAuth 2.0 error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OAuthError'
+        '405':
+          description: Method not allowed. Observed on GET, with an empty body.
+  /oauth2/userinfo:
+    get:
+      tags: [OpenID Connect]
+      operationId: getUserInfo
+      summary: OpenID Connect UserInfo endpoint
+      description: >-
+        Returns claims about the authenticated end user. Responses may be signed with RS256.
+      security:
+        - bearerToken: []
+      responses:
+        '200':
+          description: UserInfo claims.
+          content:
+            application/json:
+              schema:
+                type: object
+        '400':
+          description: >-
+            Missing or malformed bearer token. Observed 2026-09-01 without a credential:
+            `{"error_description":"Bearer token missing","error":"invalid_request"}`. Note
+            this is a 400, not the RFC 6750 401 with a `WWW-Authenticate` header.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OAuthError'
+              examples:
+                observed:
+                  value:
+                    error: invalid_request
+                    error_description: Bearer token missing
+  /oauth2/introspect:
+    post:
+      tags: [OAuth]
+      operationId: introspectToken
+      summary: RFC 7662 token introspection
+      security:
+        - clientSecretBasic: []
+        - clientSecretPost: []
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                token: { type: string }
+                token_type_hint: { type: string }
+              required: [token]
+      responses:
+        '200':
+          description: Introspection response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  active: { type: boolean }
+  /oauth2/revoke:
+    post:
+      tags: [OAuth]
+      operationId: revokeToken
+      summary: RFC 7009 token revocation
+      security:
+        - clientSecretBasic: []
+        - clientSecretPost: []
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                token: { type: string }
+                token_type_hint: { type: string }
+              required: [token]
+      responses:
+        '200':
+          description: Revocation acknowledged.
+  /oidc/logout:
+    get:
+      tags: [OpenID Connect]
+      operationId: endSession
+      summary: RP-initiated logout
+      description: End-session endpoint. Back-channel logout is supported and session-aware.
+      responses:
+        '302':
+          description: Redirect after session termination.
+  /oidc/checksession:
+    get:
+      tags: [OpenID Connect]
+      operationId: checkSession
+      summary: OpenID Connect session-management check_session_iframe
+      responses:
+        '200':
+          description: Session management iframe.
+          content:
+            text/html:
+              schema: { type: string }
+  /api/identity/oauth2/dcr/v1.1/register:
+    post:
+      tags: [Client Registration]
+      operationId: registerClient
+      summary: OpenID Connect Dynamic Client Registration
+      description: >-
+        Advertised in the discovery document as `registration_endpoint`. Registration is
+        institutional; no public self-service onboarding path was found, and this operation
+        was not exercised.
+      responses:
+        '201':
+          description: Client registered.
+        '401':
+          description: Registration requires authorization.
+components:
+  securitySchemes:
+    bearerToken:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Access token issued by this provider, presented on the UserInfo endpoint.
+    clientSecretBasic:
+      type: http
+      scheme: basic
+      description: 'OAuth 2.0 client credentials in the Authorization header (client_secret_basic).'
+    clientSecretPost:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: >-
+        `client_secret_post` — client_id and client_secret carried in the form body. Modelled
+        here as a named scheme because OpenAPI has no first-class representation for it.
+  schemas:
+    OpenIdConfiguration:
+      type: object
+      description: OpenID Provider Metadata as served by this deployment.
+      properties:
+        issuer:
+          type: string
+          format: uri
+          description: >-
+            Observed value https://sso.qu.edu.qa:9443/oauth2endpoints/token — the WSO2
+            management port, inconsistent with the :443 endpoints in the same document.
+        authorization_endpoint: { type: string, format: uri }
+        token_endpoint: { type: string, format: uri }
+        userinfo_endpoint: { type: string, format: uri }
+        jwks_uri: { type: string, format: uri }
+        registration_endpoint: { type: string, format: uri }
+        introspection_endpoint: { type: string, format: uri }
+        revocation_endpoint: { type: string, format: uri }
+        end_session_endpoint: { type: string, format: uri }
+        check_session_iframe: { type: string, format: uri }
+        scopes_supported:
+          type: array
+          items: { type: string }
+        response_types_supported:
+          type: array
+          items: { type: string }
+        grant_types_supported:
+          type: array
+          items: { type: string }
+        claims_supported:
+          type: array
+          items: { type: string }
+        subject_types_supported:
+          type: array
+          items: { type: string, enum: [pairwise, public] }
+        id_token_signing_alg_values_supported:
+          type: array
+          items: { type: string }
+        code_challenge_methods_supported:
+          type: array
+          items: { type: string }
+      required: [issuer, authorization_endpoint, token_endpoint, jwks_uri]
+    Jwks:
+      type: object
+      properties:
+        keys:
+          type: array
+          items:
+            type: object
+            properties:
+              kty: { type: string }
+              use: { type: string }
+              kid: { type: string }
+              alg: { type: string }
+              n: { type: string }
+              e: { type: string }
+      required: [keys]
+    TokenResponse:
+      type: object
+      properties:
+        access_token: { type: string }
+        refresh_token: { type: string }
+        id_token: { type: string }
+        token_type: { type: string }
+        expires_in: { type: integer }
+        scope: { type: string }
+      required: [access_token, token_type]
+    OAuthError:
+      type: object
+      description: RFC 6749 section 5.2 error object.
+      properties:
+        error: { type: string }
+        error_description: { type: string }
+      required: [error]
+security: []

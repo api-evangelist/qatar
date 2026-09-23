@@ -1,0 +1,155 @@
+specification: API Evangelist Identity Federation
+specificationVersion: '0.1'
+x-method: derived  # authorship, for build-provenance-manifest.py — API Evangelist wrote this file; see `method:` below for how the facts in it were obtained
+provider: Qatar University
+providerId: qatar
+generated: '2026-09-01'
+method: probed
+source: >-
+  Live fetch on 2026-09-01 of https://sso.qu.edu.qa/identity/metadata/saml2 (HTTP 200,
+  application/xml;charset=UTF-8, 2,860 bytes, archived at
+  identity-federation/qatar-qu-sso-saml2-metadata.xml) and
+  https://sso.qu.edu.qa/oauth2/token/.well-known/openid-configuration (HTTP 200,
+  application/json, archived at examples/qatar-qu-sso-openid-configuration.json), plus
+  https://sso.qu.edu.qa/oauth2/jwks (HTTP 200), DNS resolution of sso.qu.edu.qa, and an
+  `openssl s_client` chain inspection of the TLS certificate it presents.
+description: >-
+  Qatar University operates its own identity provider. This is the strongest
+  institution-operated, machine-readable surface in the profile, and the 2026-06-03 pass
+  missed it entirely — that pass recorded only the QSpace repository.
+
+  sso.qu.edu.qa runs a WSO2 Identity Server (the host redirects to
+  /carbon/admin/login.jsp) and publishes both protocol contracts at once: a SAML 2.0
+  IDPSSODescriptor at /identity/metadata/saml2, and a full OpenID Connect Discovery 1.0
+  document at /oauth2/token/.well-known/openid-configuration. Operator is institution, not
+  tenant: the host resolves to 185.37.110.99 in Qatari address space with no CNAME onto a
+  managed identity platform, and presents a certificate subject
+  "C=QA, L=Doha, O=Qatar University, CN=*.qu.edu.qa". Qatar University runs this itself, in
+  contrast to the many institutions whose branded IdP terminates on a national federation's
+  managed service.
+
+  It is also, as published, not federatable and — for a default TLS client — not readable.
+  Four defects are recorded below, all of them Qatar University's to fix, and all of them
+  verified rather than inferred.
+
+identity_provider:
+  entityID: sso.qu.edu.qa
+  x-operator: institution
+  operator_basis: >-
+    sso.qu.edu.qa resolves to 185.37.110.99 (Qatari address space) with no CNAME onto a
+    vendor or federation platform. TLS subject is "C=QA, L=Doha, O=Qatar University,
+    CN=*.qu.edu.qa". The SAML signing certificate embedded in the metadata is self-issued by
+    "C=QA, ST=Qatar, L=Doha, O=Qatar University, OU=ITS, CN=*.qu.edu.qa", valid
+    2025-08-08 to 2035-08-06. Software is WSO2's; the deployment, keys and identity data are
+    Qatar University's.
+  software: WSO2 Identity Server
+  protocols:
+    - saml2
+    - openid-connect
+    - oauth2
+  saml:
+    metadata_url: https://sso.qu.edu.qa/identity/metadata/saml2
+    archived: identity-federation/qatar-qu-sso-saml2-metadata.xml
+    probed: '2026-09-01'
+    status: 200
+    role: IDPSSODescriptor
+    protocol_support: 'urn:oasis:names:tc:SAML:2.0:protocol'
+    want_authn_requests_signed: false
+    key_descriptors:
+      - use: signing
+      - use: encryption
+    single_sign_on_bindings:
+      - binding: 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST'
+        location: https://sso.qu.edu.qa/samlsso
+      - binding: 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect'
+        location: https://sso.qu.edu.qa/samlsso
+      - binding: 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST'
+        location: 'https://sso.qu.edu.qa:9443/samlsso'
+      - binding: 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect'
+        location: 'https://sso.qu.edu.qa:9443/samlsso'
+    artifact_resolution:
+      - binding: 'urn:oasis:names:tc:SAML:2.0:bindings:SOAP'
+        location: 'https://sso.qu.edu.qa:443/samlartresolve'
+    name_id_formats: []
+    organization_element: absent
+    contact_person_element: absent
+    mdui_element: absent
+  oidc:
+    discovery_url: https://sso.qu.edu.qa/oauth2/token/.well-known/openid-configuration
+    archived: examples/qatar-qu-sso-openid-configuration.json
+    probed: '2026-09-01'
+    status: 200
+    issuer: 'https://sso.qu.edu.qa:9443/oauth2endpoints/token'
+    jwks_uri: 'https://sso.qu.edu.qa:443/oauth2/jwks'
+    jwks_probed_status: 200
+    scopes_supported: [openid, profile, email, address, phone]
+    subject_types_supported: [pairwise]
+    id_token_signing_alg_values_supported: [RS256]
+    code_challenge_methods_supported: [S256, plain]
+    dynamic_client_registration_endpoint: 'https://sso.qu.edu.qa:443/api/identity/oauth2/dcr/v1.1/register'
+    backchannel_logout_supported: true
+    claims_supported_count: 30
+
+interfederation:
+  edugain: not_found
+  national_federation: not_found
+  basis: >-
+    No national research-and-education identity federation for Qatar was located, and the
+    entityID "sso.qu.edu.qa" is a bare hostname rather than an absolute URI, which disqualifies
+    it from registration in eduGAIN-connected federations as published. Recorded as
+    not_found rather than absent: this is the limit of what was probed, not proof that Qatar
+    University participates in no federation.
+
+defects:
+  - id: tls-chain-incomplete
+    severity: high
+    verified: '2026-09-01'
+    summary: >-
+      sso.qu.edu.qa serves its DigiCert-issued leaf certificate WITHOUT the intermediate CA.
+      `openssl s_client -connect sso.qu.edu.qa:443` reports "unable to get local issuer
+      certificate" (num=20) and "unable to verify the first certificate" (num=21). Browsers
+      and clients that chase the AIA extension recover; a default Python, Go or Java client
+      does not, and fails with CERTIFICATE_VERIFY_FAILED.
+    consequence: >-
+      An automated client — exactly the audience an OIDC discovery document exists for —
+      cannot read this provider's metadata without disabling certificate verification.
+    remedy: Serve the DigiCert Global G2 TLS RSA SHA256 2020 CA1 intermediate alongside the leaf.
+  - id: entityid-not-a-uri
+    severity: high
+    verified: '2026-09-01'
+    summary: >-
+      The SAML entityID is the bare string "sso.qu.edu.qa". SAML 2.0 metadata requires an
+      entityID that is a URI, and federation operators require an absolute https URL that
+      dereferences to the metadata.
+    consequence: The entity cannot be registered in eduGAIN or any interfederating national federation as published.
+    remedy: 'Set entityID to an absolute URI, conventionally https://sso.qu.edu.qa/identity/metadata/saml2.'
+  - id: metadata-validuntil-one-hour
+    severity: medium
+    verified: '2026-09-01'
+    summary: >-
+      IDPSSODescriptor carries validUntil="2026-09-01T17:40:16.868Z", exactly one hour after
+      the fetch — the metadata is regenerated per request with a one-hour window.
+    consequence: >-
+      Relying parties that cache federation metadata on the normal daily or weekly cycle will
+      always be holding expired metadata.
+    remedy: Publish metadata with a validUntil measured in days or weeks, and sign it.
+  - id: management-port-in-published-endpoints
+    severity: medium
+    verified: '2026-09-01'
+    summary: >-
+      Both contracts leak the WSO2 management port. The OIDC `issuer` is
+      https://sso.qu.edu.qa:9443/oauth2endpoints/token while every other endpoint in the same
+      document is on :443; the SAML metadata advertises SSO bindings on both :9443 and :443.
+    consequence: >-
+      A strict OIDC client validating the `iss` claim against the discovery location rejects
+      this provider; a SAML relying party may select a :9443 binding that is not publicly reachable.
+    remedy: Configure the WSO2 server's external hostname and port so published URLs match the public listener.
+
+notes:
+  - >-
+    No credential of any kind was used against this provider. The token, introspection,
+    revocation and registration endpoints were not exercised; /oauth2/userinfo was called
+    without a bearer token purely to record the unauthenticated error shape.
+  - >-
+    journals.qu.edu.qa carries the identical incomplete TLS chain, so the defect is a
+    Qatar University edge-configuration pattern rather than a single host's mistake.

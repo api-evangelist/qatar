@@ -1,0 +1,107 @@
+specification: API Evangelist Vocabulary
+specificationVersion: '0.1'
+provider: Qatar University
+providerId: qatar
+generated: '2026-09-01'
+method: derived
+source: >-
+  Derived on 2026-09-01 from the live responses captured under examples/ — the QU Press
+  OAI-PMH Identify, ListSets, ListIdentifiers and ListMetadataFormats responses, the Qatar
+  University OpenID Connect discovery document, the SAML 2.0 IdP metadata, the ROR record and
+  the Crossref member record. Every term below appears verbatim in a fetched response;
+  nothing is invented.
+description: >-
+  The vocabulary a client actually needs to talk to Qatar University's institution-operated
+  surfaces. It is small, and every term in it comes from an open standard rather than from
+  anything the university named itself — which is the honest shape of a university's
+  programmable footprint. The institution-specific vocabulary is confined to identifiers:
+  a ROR ID, a Handle prefix, a Crossref DOI prefix, journal path codes and OJS set names.
+terms:
+  - term: 'ROR 00yhnba62'
+    type: identifier
+    definition: >-
+      Qatar University's Research Organization Registry identifier — https://ror.org/00yhnba62.
+      The canonical machine-readable identity anchor for the institution.
+    source: examples/qatar-ror-record.json
+  - term: 'Handle prefix 10576'
+    type: identifier
+    definition: >-
+      Qatar University's Handle.Net naming authority. Every QSpace item carries a persistent
+      identifier of the form hdl.handle.net/10576/<n>, resolving to the repository.
+    source: examples/qatar-handle-resolution.json
+  - term: 'DOI prefix 10.29117'
+    type: identifier
+    definition: >-
+      Qatar University Press's Crossref DOI prefix, member 11655, carrying 2,533 registered DOIs.
+    source: examples/qatar-crossref-member.json
+  - term: QSpace
+    type: system
+    definition: >-
+      Qatar University's institutional repository, 66,950 records, running DSpace 7.6. Branded
+      and administered by Qatar University Library (quspace@qu.edu.qa); hosted by Open
+      Repository, so recorded here as a tenant surface.
+  - term: 'QU Press Open Journal System'
+    type: system
+    definition: >-
+      Qatar University Press's self-hosted Open Journal Systems 3.3.0.7 installation at
+      journals.qu.edu.qa, publishing eight journals with 3,186 OAI-harvestable records.
+    source: examples/qatar-qupress-oai-identify.xml
+  - term: 'sso.qu.edu.qa'
+    type: system
+    definition: >-
+      Qatar University's own WSO2 Identity Server, serving both a SAML 2.0 IDPSSODescriptor and
+      an OpenID Connect discovery document. The SAML entityID is the bare string `sso.qu.edu.qa`.
+    source: identity-federation/qatar-qu-sso-saml2-metadata.xml
+  - term: journal path code
+    type: parameter
+    definition: >-
+      The OJS URL segment identifying one journal, used both as an OAI set name and as the path
+      component of a journal-scoped OAI endpoint. Confirmed values: jes, sharia, tajseer, IRL,
+      SBE, ANDD, ANSQ, CIC.
+    source: openapi/qatar-qupress-oai-pmh-openapi.yml
+  - term: 'setSpec `<journal>:<section>`'
+    type: parameter
+    definition: >-
+      An OAI set naming a journal section, e.g. `sharia:ART`. A trailing `_ar` marks the
+      Arabic-language section of the same journal, e.g. `sharia:TC_ar`. 100 sets in total.
+    source: 'https://journals.qu.edu.qa/index.php/index/oai?verb=ListSets'
+standards_vocabulary:
+  - term: OAI-PMH 2.0
+    verbs: [Identify, ListMetadataFormats, ListSets, ListIdentifiers, ListRecords, GetRecord]
+    error_codes: [badVerb, badArgument, badResumptionToken, cannotDisseminateFormat, idDoesNotExist, noRecordsMatch, noMetadataFormats, noSetHierarchy]
+    metadata_prefixes_qupress: [oai_dc, oai_marc, marcxml, rfc1807]
+    note: Protocol vocabulary, not Qatar University's. Listed because it is the whole interface.
+  - term: 'OpenID Connect / OAuth 2.0'
+    scopes: [openid, profile, email, address, phone]
+    grant_types:
+      - authorization_code
+      - refresh_token
+      - client_credentials
+      - password
+      - 'urn:ietf:params:oauth:grant-type:device_code'
+      - 'urn:ietf:params:oauth:grant-type:jwt-bearer'
+      - 'urn:ietf:params:oauth:grant-type:saml2-bearer'
+      - 'urn:ietf:params:oauth:grant-type:uma-ticket'
+      - account_switch
+      - 'iwa:ntlm'
+    non_standard_claims: [groups, upn]
+    note: >-
+      `account_switch` and `iwa:ntlm` are WSO2 extensions, not IETF grant types. `upn` indicates
+      an Active Directory identity store behind the provider.
+  - term: 'SAML 2.0'
+    bindings:
+      - 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST'
+      - 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect'
+      - 'urn:oasis:names:tc:SAML:2.0:bindings:SOAP'
+    note: No NameIDFormat, Organization or ContactPerson element is declared in the published metadata.
+absent:
+  - term: eduPerson attribute vocabulary
+    note: >-
+      No eduPersonAffiliation, eduPersonScopedAffiliation or eduPersonEntitlement release is
+      declared in the SAML metadata, and no equivalent OIDC scope exists. A relying party cannot
+      learn from the published contracts whether a subject is a student, staff member or faculty.
+  - term: course, enrolment and timetable vocabulary
+    note: >-
+      Qatar University runs Ellucian Banner at mybanner.qu.edu.qa on its own network, but the
+      public Banner self-service catalog and schedule modules return HTTP 500, so no course
+      vocabulary is publicly evidenced.

@@ -4,29 +4,47 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Qatar University
 providerId: qatar
 created: '2026-06-03'
-modified: '2026-06-03'
-reconciled: false
+modified: '2026-09-01'
+reconciled: true
 tags:
 - Education
 - Higher Education
 - University
 - Rate Limiting
 description: >-
-  Qatar University does not publish a unified public rate-limit table across its APIs. Open
-  metadata and harvesting endpoints (OAI-PMH, IIIF, library) may throttle large-scale
-  or automated harvesting; clients should harvest politely, honor Retry-After, and
-  contact the relevant service for bulk access.
-notes: Confirm per-service limits with each API's documentation; harvest responsibly.
+  Qatar University publishes no rate-limit policy for any surface, and none of its endpoints
+  emits a rate-limit header. Verified by probe on 2026-09-01 against the QU Press OAI-PMH
+  endpoint (journals.qu.edu.qa), the OpenID Connect provider (sso.qu.edu.qa) and the QSpace
+  repository (qspace.qu.edu.qa): no X-RateLimit-*, no RateLimit-* (RFC 9239 draft), no
+  Retry-After, and no documented harvesting policy on any of them. The absence is the finding;
+  it is not evidence that harvesting is unlimited, and a large harvest may still be throttled
+  or blocked at the edge without notice.
+  Corrects the 2026-06-03 text, which described throttling on "OAI-PMH, IIIF, library"
+  endpoints — Qatar University operates no IIIF service and no public library-catalog API, so
+  two of those three surfaces do not exist.
+notes: >-
+  No per-service documentation to confirm against — none is published. Harvest responsibly:
+  the QU Press OAI-PMH endpoint pages at the server's chosen size, and QSpace's pages 100
+  records at a time via resumptionToken.
 sources:
 - https://raw.githubusercontent.com/api-evangelist/qatar/refs/heads/main/apis.yml
+- url: 'https://journals.qu.edu.qa/index.php/index/oai?verb=Identify'
+  status: 200
+  observed: no rate-limit or Retry-After header
+- url: https://sso.qu.edu.qa/oauth2/token/.well-known/openid-configuration
+  status: 200
+  observed: no rate-limit or Retry-After header
 responseCodes:
   throttled: 429
+  observed: none — no 429 was returned by any endpoint during this run
 limits:
 - name: Default
   scope: client
   metric: requests-per-minute
-  limit: see service documentation
-  notes: No published global limit; large harvests may be rate-limited.
+  limit: none published
+  notes: >-
+    No published global limit and no observed limit. Verified absent rather than assumed: no
+    rate-limit header was returned by any Qatar University endpoint probed on 2026-09-01.
 policies:
 - name: Backoff Strategy
   description: Exponential backoff with jitter; honor Retry-After; harvest during off-peak hours.

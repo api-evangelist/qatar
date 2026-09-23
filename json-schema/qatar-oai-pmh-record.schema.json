@@ -1,0 +1,157 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/qatar/refs/heads/main/json-schema/qatar-oai-pmh-record.schema.json",
+  "x-method": "derived",
+  "title": "QU Press OAI-PMH Record (JSON projection)",
+  "description": "A JSON projection of the OAI-PMH 2.0 record structure served by Qatar University Press's Open Journal Systems endpoint at https://journals.qu.edu.qa/index.php/index/oai. OAI-PMH is an XML protocol; this schema exists so agents and pipelines that work in JSON can validate a parsed record. Derived by API Evangelist on 2026-09-01 from live Identify, ListIdentifiers and ListMetadataFormats responses. Not published by Qatar University, and not a substitute for the OAI-PMH 2.0 XSD at http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd.",
+  "x-provenance": {
+    "generated": "2026-09-01",
+    "method": "derived",
+    "source": "https://journals.qu.edu.qa/index.php/index/oai?verb=ListIdentifiers&metadataPrefix=oai_dc (HTTP 200, completeListSize 3186, 2026-09-01) and ?verb=Identify (HTTP 200)",
+    "x-operator": "institution"
+  },
+  "type": "object",
+  "required": [
+    "header"
+  ],
+  "properties": {
+    "header": {
+      "type": "object",
+      "required": [
+        "identifier",
+        "datestamp"
+      ],
+      "properties": {
+        "identifier": {
+          "type": "string",
+          "description": "OAI identifier. This endpoint DECLARES the namespace ojs.journals.qu.edu.qa in its Identify response but EMITS oai:ojs.pkp.sfu.ca:article/N, the PKP shipped default, and its own GetRecord verb rejects the emitted form with badArgument. Both patterns are permitted here because both are observed in the wild from this endpoint.",
+          "anyOf": [
+            {
+              "pattern": "^oai:ojs\\.journals\\.qu\\.edu\\.qa:article/[0-9]+$"
+            },
+            {
+              "pattern": "^oai:ojs\\.pkp\\.sfu\\.ca:article/[0-9]+$"
+            }
+          ]
+        },
+        "datestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "setSpec": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": "A journal (e.g. sharia) or a journal section (e.g. sharia:ART). An _ar suffix marks an Arabic-language section. 100 sets were returned by ListSets on 2026-09-01."
+          }
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "deleted"
+          ],
+          "description": "Present only on a deleted record. This repository declares deletedRecord: persistent."
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Dissemination payload in the requested metadataPrefix. Four formats are declared: oai_dc, oai_marc, marcxml, rfc1807.",
+      "properties": {
+        "oai_dc": {
+          "type": "object",
+          "description": "Dublin Core element set. Every element is repeatable, so every value is an array.",
+          "properties": {
+            "title": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "creator": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "subject": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "description": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "publisher": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "date": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "type": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "format": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "identifier": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "source": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "language": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "relation": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "rights": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "about": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  },
+  "additionalProperties": false
+}

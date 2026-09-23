@@ -1,0 +1,325 @@
+{
+  "status": "ok",
+  "message-type": "member",
+  "message-version": "1.0.0",
+  "message": {
+    "last-status-check-time": 1788218581917,
+    "primary-name": "Qatar University Press",
+    "counts": {
+      "current-dois": 510,
+      "backfile-dois": 2023,
+      "total-dois": 2533
+    },
+    "breakdowns": {
+      "dois-by-issued-year": [
+        [
+          2020,
+          543
+        ],
+        [
+          2021,
+          462
+        ],
+        [
+          2023,
+          339
+        ],
+        [
+          2025,
+          201
+        ],
+        [
+          2024,
+          189
+        ],
+        [
+          2022,
+          178
+        ],
+        [
+          2019,
+          122
+        ],
+        [
+          2026,
+          120
+        ],
+        [
+          2017,
+          86
+        ],
+        [
+          2018,
+          64
+        ],
+        [
+          2015,
+          49
+        ],
+        [
+          2016,
+          38
+        ],
+        [
+          2013,
+          38
+        ],
+        [
+          2014,
+          24
+        ],
+        [
+          2012,
+          15
+        ],
+        [
+          2006,
+          15
+        ],
+        [
+          2008,
+          13
+        ],
+        [
+          2007,
+          13
+        ],
+        [
+          2005,
+          9
+        ],
+        [
+          2010,
+          8
+        ],
+        [
+          2011,
+          7
+        ]
+      ]
+    },
+    "prefixes": [
+      "10.29117"
+    ],
+    "coverage": {
+      "affiliations-current": 0.0,
+      "affiliation-ror-ids-backfile": 0.0,
+      "similarity-checking-current": 0.9607843137254902,
+      "descriptions-current": 0.0,
+      "ror-ids-current": 0.0,
+      "funders-backfile": 0.0,
+      "licenses-backfile": 0.2837370242214533,
+      "funders-current": 0.0,
+      "affiliations-backfile": 0.004943153732081068,
+      "resource-links-backfile": 0.291646070192783,
+      "orcids-backfile": 0.0,
+      "funder-ror-ids-current": 0.0,
+      "update-policies-current": 0.0,
+      "ror-ids-backfile": 0.0,
+      "orcids-current": 0.3607843137254902,
+      "similarity-checking-backfile": 0.02570439940682155,
+      "references-backfile": 0.2723677706376668,
+      "descriptions-backfile": 0.0,
+      "award-numbers-backfile": 0.0,
+      "update-policies-backfile": 0.0,
+      "licenses-current": 0.9803921568627451,
+      "award-numbers-current": 0.0,
+      "abstracts-backfile": 0.6183885318833416,
+      "resource-links-current": 0.9784313725490196,
+      "affiliation-ror-ids-current": 0.0,
+      "funder-ror-ids-backfile": 0.0,
+      "abstracts-current": 0.5901960784313725,
+      "references-current": 0.5549019607843138
+    },
+    "prefix": [
+      {
+        "name": "Qatar University Press",
+        "value": "10.29117"
+      }
+    ],
+    "id": 11655,
+    "tokens": [
+      "qatar",
+      "university",
+      "press"
+    ],
+    "counts-type": {
+      "all": {
+        "journal-article": 1677,
+        "proceedings-article": 853,
+        "proceedings": 3
+      },
+      "backfile": {
+        "journal-article": 1167,
+        "proceedings-article": 853,
+        "proceedings": 3
+      },
+      "current": {
+        "journal-article": 510
+      }
+    },
+    "coverage-type": {
+      "all": {
+        "journal-article": {
+          "last-status-check-time": 1788218581917,
+          "affiliations": 0.005963029218843172,
+          "abstracts": 0.4889683959451401,
+          "orcids": 0.1097197376267144,
+          "affiliation-ror-ids": 0.0,
+          "licenses": 0.6404293381037567,
+          "references": 0.3887895050685748,
+          "funders": 0.0,
+          "similarity-checking": 0.3231961836612999,
+          "funder-ror-ids": 0.0,
+          "award-numbers": 0.0,
+          "ror-ids": 0.0,
+          "update-policies": 0.0,
+          "resource-links": 0.6493738819320215,
+          "descriptions": 0.0
+        },
+        "proceedings-article": {
+          "last-status-check-time": 1788218581917,
+          "affiliations": 0.0,
+          "abstracts": 0.858147713950762,
+          "orcids": 0.0,
+          "affiliation-ror-ids": 0.0,
+          "licenses": 0.0,
+          "references": 0.2133645955451348,
+          "funders": 0.0,
+          "similarity-checking": 0.0,
+          "funder-ror-ids": 0.0,
+          "award-numbers": 0.0,
+          "ror-ids": 0.0,
+          "update-policies": 0.0,
+          "resource-links": 0.0,
+          "descriptions": 0.0
+        },
+        "proceedings": {
+          "last-status-check-time": 1788218581917,
+          "affiliations": 0.0,
+          "abstracts": 0.0,
+          "orcids": 0.0,
+          "affiliation-ror-ids": 0.0,
+          "licenses": 0.0,
+          "references": 0.0,
+          "funders": 0.0,
+          "similarity-checking": 0.0,
+          "funder-ror-ids": 0.0,
+          "award-numbers": 0.0,
+          "ror-ids": 0.0,
+          "update-policies": 0.0,
+          "resource-links": 0.0,
+          "descriptions": 0.0
+        }
+      },
+      "backfile": {
+        "journal-article": {
+          "last-status-check-time": 1788218581917,
+          "affiliations": 0.00856898029134533,
+          "abstracts": 0.4447300771208226,
+          "orcids": 0.0,
+          "affiliation-ror-ids": 0.0,
+          "licenses": 0.4918594687232219,
+          "references": 0.3161953727506427,
+          "funders": 0.0,
+          "similarity-checking": 0.04455869751499572,
+          "funder-ror-ids": 0.0,
+          "award-numbers": 0.0,
+          "ror-ids": 0.0,
+          "update-policies": 0.0,
+          "resource-links": 0.5055698371893745,
+          "descriptions": 0.0
+        },
+        "proceedings-article": {
+          "last-status-check-time": 1788218581917,
+          "affiliations": 0.0,
+          "abstracts": 0.858147713950762,
+          "orcids": 0.0,
+          "affiliation-ror-ids": 0.0,
+          "licenses": 0.0,
+          "references": 0.2133645955451348,
+          "funders": 0.0,
+          "similarity-checking": 0.0,
+          "funder-ror-ids": 0.0,
+          "award-numbers": 0.0,
+          "ror-ids": 0.0,
+          "update-policies": 0.0,
+          "resource-links": 0.0,
+          "descriptions": 0.0
+        },
+        "proceedings": {
+          "last-status-check-time": 1788218581917,
+          "affiliations": 0.0,
+          "abstracts": 0.0,
+          "orcids": 0.0,
+          "affiliation-ror-ids": 0.0,
+          "licenses": 0.0,
+          "references": 0.0,
+          "funders": 0.0,
+          "similarity-checking": 0.0,
+          "funder-ror-ids": 0.0,
+          "award-numbers": 0.0,
+          "ror-ids": 0.0,
+          "update-policies": 0.0,
+          "resource-links": 0.0,
+          "descriptions": 0.0
+        }
+      },
+      "current": {
+        "journal-article": {
+          "last-status-check-time": 1788218581917,
+          "affiliations": 0.0,
+          "abstracts": 0.5901960784313725,
+          "orcids": 0.3607843137254902,
+          "affiliation-ror-ids": 0.0,
+          "licenses": 0.9803921568627451,
+          "references": 0.5549019607843138,
+          "funders": 0.0,
+          "similarity-checking": 0.9607843137254902,
+          "funder-ror-ids": 0.0,
+          "award-numbers": 0.0,
+          "ror-ids": 0.0,
+          "update-policies": 0.0,
+          "resource-links": 0.9784313725490196,
+          "descriptions": 0.0
+        }
+      }
+    },
+    "flags": {
+      "deposits-abstracts-current": true,
+      "deposits-orcids-current": true,
+      "deposits-affiliation-ror-ids-current": false,
+      "deposits": true,
+      "deposits-affiliations-backfile": true,
+      "deposits-update-policies-backfile": false,
+      "deposits-similarity-checking-backfile": true,
+      "deposits-award-numbers-current": false,
+      "deposits-resource-links-current": true,
+      "deposits-ror-ids-current": false,
+      "deposits-articles": true,
+      "deposits-affiliations-current": false,
+      "deposits-affiliation-ror-ids-backfile": false,
+      "deposits-funders-current": false,
+      "deposits-references-backfile": true,
+      "deposits-funder-ror-ids-current": false,
+      "deposits-ror-ids-backfile": false,
+      "deposits-abstracts-backfile": true,
+      "deposits-licenses-backfile": true,
+      "deposits-award-numbers-backfile": false,
+      "deposits-descriptions-current": false,
+      "deposits-references-current": true,
+      "deposits-resource-links-backfile": true,
+      "deposits-descriptions-backfile": false,
+      "deposits-orcids-backfile": false,
+      "deposits-funders-backfile": false,
+      "deposits-funder-ror-ids-backfile": false,
+      "deposits-update-policies-current": false,
+      "deposits-similarity-checking-current": true,
+      "deposits-licenses-current": true
+    },
+    "location": "Doha, Qatar",
+    "names": [
+      "Qatar University Press"
+    ]
+  }
+}

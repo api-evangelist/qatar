@@ -1,0 +1,209 @@
+openapi: 3.2.0
+info:
+  title: QU Press Open Journal System OAI PMH API
+  version: '2.0'
+  summary: OAI-PMH 2.0 harvesting interface for Qatar University Press's self-hosted journal platform.
+  description: 'Qatar University Press runs its own Open Journal Systems installation (PKP OJS 3.3.0.7) at
+
+    `journals.qu.edu.qa`, on Qatar University''s own network.'
+  contact:
+    name: Qatar University Press
+    email: mjaberi@qu.edu.qa
+    url: https://journals.qu.edu.qa/
+  x-provenance:
+    generated: '2026-09-01'
+    method: derived
+    source: Derived from live probes on 2026-09-01 of https://journals.qu.edu.qa/index.php/index/oai — verb=Identify (200, OJS 3.3.0.7), verb=ListSets (200, 100 setSpec entries), verb=ListMetadataFormats (200, four formats), verb=ListIdentifiers&metadataPrefix=oai_dc (200, completeListSize 3186), verb=GetRecord with an emitted identifier (200 carrying error badArgument), verb=ListRecords with no metadataPrefix (200 carrying error badArgument), verb=Nope (200 carrying error badVerb) — plus verb=Identify against each of the eight journal-scoped endpoints, and 403 responses from /index.php/jes/api/v1/issues and /contexts. Captured responses are stored under examples/.
+    x-operator: institution
+    x-operator-basis: journals.qu.edu.qa resolves to 185.37.108.12, netname QUNET "Qatar University" (RIPE, country QA), with no CNAME. TLS subject C=QA, L=Doha, O=Qatar University, CN=*.qu.edu.qa. OJS is open-source software from the Public Knowledge Project that Qatar University Press self-hosts and operates; the journals, editorial workflow and content are its own.
+servers:
+- url: https://journals.qu.edu.qa/index.php
+  description: QU Press Open Journal Systems 3.3.0.7 (Qatar University Press)
+security: []
+tags:
+- name: oai pmh
+  description: The six OAI-PMH 2.0 protocol verbs, site-wide and per journal.
+paths:
+  /index/oai:
+    get:
+      tags:
+      - oai pmh
+      operationId: oaiRequestAllJournals
+      summary: Issue an OAI-PMH 2.0 request across every QU Press journal
+      description: Site-wide OAI-PMH endpoint. Always answers HTTP 200 with `text/xml`; protocol failures are reported as an `` element inside the body, never as a non-2xx status. A client that branches on the HTTP status alone will read every malformed request as an empty success.
+      parameters:
+      - $ref: '#/components/parameters/Verb'
+      - $ref: '#/components/parameters/MetadataPrefix'
+      - $ref: '#/components/parameters/Identifier'
+      - $ref: '#/components/parameters/Set'
+      - $ref: '#/components/parameters/From'
+      - $ref: '#/components/parameters/Until'
+      - $ref: '#/components/parameters/ResumptionToken'
+      responses:
+        '200':
+          description: OAI-PMH XML response, carrying either a payload or an `<error>` element.
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/OaiPmhResponse'
+              examples:
+                identify:
+                  summary: Identify — repository self-description (observed 2026-09-01)
+                  externalValue: ../../examples/qatar-qupress-oai-identify.xml
+                listIdentifiers:
+                  summary: ListIdentifiers — completeListSize 3186 (observed 2026-09-01)
+                  externalValue: ../../examples/qatar-qupress-oai-listidentifiers.xml
+                listMetadataFormats:
+                  summary: ListMetadataFormats — four supported formats (observed 2026-09-01)
+                  externalValue: ../../examples/qatar-qupress-oai-listmetadataformats.xml
+                getRecordRejectsOwnIdentifier:
+                  summary: GetRecord with an identifier this endpoint itself emitted — returns badArgument "Identifier is not in a valid format" (observed 2026-09-01)
+                  externalValue: ../../examples/qatar-qupress-oai-getrecord.xml
+                badArgument:
+                  summary: 'Error: ListRecords with no metadataPrefix, returned with HTTP 200'
+                  externalValue: ../../examples/qatar-qupress-oai-error-badargument.xml
+                badVerb:
+                  summary: 'Error: illegal verb, returned with HTTP 200'
+                  externalValue: ../../examples/qatar-qupress-oai-error-badverb.xml
+  /{journal}/oai:
+    get:
+      tags:
+      - oai pmh
+      operationId: oaiRequestSingleJournal
+      summary: Issue an OAI-PMH 2.0 request scoped to one journal
+      description: Per-journal OAI-PMH endpoint. Each journal reports its own `repositoryName` while sharing the site-wide `repositoryIdentifier` of `ojs.journals.qu.edu.qa`. All eight were confirmed live on 2026-09-01.
+      parameters:
+      - name: journal
+        in: path
+        required: true
+        description: "Journal path identifier as used in the OJS URL. Confirmed values and the\n`repositoryName` each returns:\n  * `jes` — Journal of Educational Sciences – Qatar University\n  * `sharia` — Journal of College of Sharia and Islamic Studies\n  * `tajseer` — Tajseer Journal\n  * `IRL` — International Review of Law\n  * `SBE` — Studies in Business and Economics\n  * `ANDD` — Academic Network for Development Dialogue (ANDD) Paper Series\n  * `ANSQ` — ANSAQ Journal\n  * `CIC` — Proceedings of the International Conference on Civil Infrastructure and Construction\n"
+        schema:
+          type: string
+          enum:
+          - jes
+          - sharia
+          - tajseer
+          - IRL
+          - SBE
+          - ANDD
+          - ANSQ
+          - CIC
+        example: jes
+      - $ref: '#/components/parameters/Verb'
+      - $ref: '#/components/parameters/MetadataPrefix'
+      - $ref: '#/components/parameters/Identifier'
+      - $ref: '#/components/parameters/Set'
+      - $ref: '#/components/parameters/From'
+      - $ref: '#/components/parameters/Until'
+      - $ref: '#/components/parameters/ResumptionToken'
+      responses:
+        '200':
+          description: OAI-PMH XML response scoped to the named journal.
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/OaiPmhResponse'
+components:
+  parameters:
+    ResumptionToken:
+      name: resumptionToken
+      in: query
+      required: false
+      description: Continuation token from a previous incomplete list response.
+      schema:
+        type: string
+    Verb:
+      name: verb
+      in: query
+      required: true
+      description: The OAI-PMH verb to execute.
+      schema:
+        type: string
+        enum:
+        - Identify
+        - ListMetadataFormats
+        - ListSets
+        - ListIdentifiers
+        - ListRecords
+        - GetRecord
+      example: Identify
+    MetadataPrefix:
+      name: metadataPrefix
+      in: query
+      required: false
+      description: Dissemination format. Required for ListIdentifiers, ListRecords and GetRecord. ListMetadataFormats declares four.
+      schema:
+        type: string
+        enum:
+        - oai_dc
+        - oai_marc
+        - marcxml
+        - rfc1807
+      example: oai_dc
+    Until:
+      name: until
+      in: query
+      required: false
+      description: Upper bound on record datestamp, at the declared granularity.
+      schema:
+        type: string
+        format: date-time
+      example: '2025-12-31T23:59:59Z'
+    From:
+      name: from
+      in: query
+      required: false
+      description: Lower bound on record datestamp, at the declared granularity.
+      schema:
+        type: string
+        format: date-time
+      example: '2025-01-01T00:00:00Z'
+    Identifier:
+      name: identifier
+      in: query
+      required: false
+      description: OAI identifier of a single record. Required for GetRecord. The repository's Identify response declares the form `oai:ojs.journals.qu.edu.qa:article/<id>`, but the records it actually emits carry `oai:ojs.pkp.sfu.ca:article/<id>` and GetRecord rejects that form with badArgument. Neither form was observed to succeed; see the defect note in `info.description`.
+      schema:
+        type: string
+      example: oai:ojs.journals.qu.edu.qa:article/11
+    Set:
+      name: set
+      in: query
+      required: false
+      description: One of the 100 sets ListSets returns — a journal (`sharia`) or a journal section (`sharia:ART`), with `_ar` suffixes marking Arabic-language sections.
+      schema:
+        type: string
+      example: sharia:ART
+  schemas:
+    OaiPmhResponse:
+      type: object
+      description: Root `OAI-PMH` element in namespace http://www.openarchives.org/OAI/2.0/. Described structurally; the authoritative schema is the OAI-PMH 2.0 XSD at http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd.
+      properties:
+        responseDate:
+          type: string
+          format: date-time
+        request:
+          type: string
+          format: uri
+        error:
+          $ref: '#/components/schemas/OaiPmhError'
+      additionalProperties: true
+    OaiPmhError:
+      type: object
+      description: OAI-PMH protocol error, carried in an HTTP 200 response body.
+      properties:
+        code:
+          type: string
+          enum:
+          - badVerb
+          - badArgument
+          - badResumptionToken
+          - cannotDisseminateFormat
+          - idDoesNotExist
+          - noRecordsMatch
+          - noMetadataFormats
+          - noSetHierarchy
+        message:
+          type: string
+      required:
+      - code

@@ -1,0 +1,279 @@
+specification: API Evangelist Domain Standard Conformance
+specificationVersion: '0.1'
+x-method: derived  # authorship, for build-provenance-manifest.py — API Evangelist wrote this file; see `method:` below for how the facts in it were obtained
+provider: Qatar University
+providerId: qatar
+regime: education
+generated: '2026-09-01'
+method: probed
+source: >-
+  Live probes on 2026-09-01 of https://journals.qu.edu.qa/index.php/index/oai (OAI-PMH 2.0
+  Identify, ListMetadataFormats, ListSets, ListIdentifiers, GetRecord, ListRecords — all HTTP
+  200) plus the eight journal-scoped endpoints under it,
+  https://qspace.qu.edu.qa/server/oai/request (HTTP 200, recorded as tenant),
+  https://sso.qu.edu.qa/identity/metadata/saml2 (SAML 2.0 IDPSSODescriptor, HTTP 200),
+  https://sso.qu.edu.qa/oauth2/token/.well-known/openid-configuration (OpenID Connect
+  Discovery 1.0, HTTP 200), https://api.ror.org/v2/organizations/00yhnba62 (HTTP 200),
+  https://api.crossref.org/members/11655 (HTTP 200),
+  https://hdl.handle.net/api/handles/10576/62538 (HTTP 200) and
+  https://api.datacite.org/providers?query=Qatar (HTTP 200, no Qatar University record).
+  Captured responses are stored under examples/.
+description: >-
+  Conformance against the Kin Score `education` regime standards list (scim, lti, oneroster,
+  ed-fi, caliper, qti, oai-pmh, shibboleth, saml, orcid, datacite, crossref). Reward-only: a
+  standard is recorded as conformant only where an INSTITUTION-OPERATED contract demonstrates
+  it. Standards reachable only through a vendor platform running under a Qatar University
+  hostname are listed separately as tenant-operated, because that conformance belongs to the
+  platform's engineering.
+
+  Operator was settled by DNS and IP ownership, not by hostname, and that check changed the
+  answer. The obvious candidate — QSpace, the institutional repository at qspace.qu.edu.qa, the
+  only surface the 2026-06-03 profile recorded — is NOT institution-operated: it CNAMEs to
+  qataru.cname.openrepository.com and terminates on Amazon eu-west-1. Open Repository is a
+  commercial hosted-DSpace service, and its DSpace REST and OAI-PMH contracts are its
+  engineering, not Qatar University's. The repository, its 66,950 records, its Handle prefix and
+  its administrative contact are Qatar University's; the deployment is not.
+
+  What survives the check is genuinely the institution's own, and it is not what the earlier
+  profile recorded. Qatar University Press self-hosts Open Journal Systems at journals.qu.edu.qa
+  on QUNET, Qatar University's own RIPE allocation, and that endpoint carries the institution's
+  OAI-PMH conformance. Qatar University runs its own WSO2 identity provider at sso.qu.edu.qa,
+  also on QUNET, publishing SAML 2.0 IdP metadata and an OpenID Connect discovery document —
+  a stronger result than most of this cohort, where a branded IdP hostname resolves onto a
+  national federation's managed service. Crossref membership is real and belongs to Qatar
+  University Press. DataCite membership was specifically checked and does NOT exist.
+
+conforms:
+  - standard: oai-pmh
+    name: 'OAI-PMH 2.0 (Open Archives Initiative Protocol for Metadata Harvesting)'
+    status: conformant
+    x-operator: institution
+    confidence: high
+    evidence:
+      url: 'https://journals.qu.edu.qa/index.php/index/oai?verb=Identify'
+      status: 200
+      locations:
+        - 'OAI-PMH/Identify/protocolVersion = 2.0'
+        - 'OAI-PMH/Identify/repositoryName = QU Press Open Journal System'
+        - 'OAI-PMH/Identify/baseURL = https://journals.qu.edu.qa/index.php/index/oai'
+        - 'OAI-PMH/Identify/adminEmail = mjaberi@qu.edu.qa'
+        - 'OAI-PMH/Identify/earliestDatestamp = 2017-12-26T04:51:23Z'
+        - 'OAI-PMH/Identify/granularity = YYYY-MM-DDThh:mm:ssZ'
+        - 'OAI-PMH/Identify/deletedRecord = persistent'
+        - 'OAI-PMH/Identify/description/oai-identifier/repositoryIdentifier = ojs.journals.qu.edu.qa'
+      corroboration:
+        verbs_exercised: [Identify, ListMetadataFormats, ListSets, ListIdentifiers, GetRecord, ListRecords]
+        error_codes_provoked: [badVerb, badArgument]
+        contract: openapi/qatar-qupress-oai-pmh-openapi.yml
+        complete_list_size: 3186
+        sets: 100
+        metadata_formats: [oai_dc, oai_marc, marcxml, rfc1807]
+        journals_confirmed_live: 8
+        software: 'PKP Open Journal Systems 3.3.0.7'
+        host_operator_basis: >-
+          journals.qu.edu.qa resolves to 185.37.108.12, netname QUNET "Qatar University" (RIPE,
+          country QA), with no CNAME onto a hosting platform, on a TLS certificate with subject
+          C=QA, L=Doha, O=Qatar University, CN=*.qu.edu.qa. Qatar University Press self-hosts
+          and operates this installation.
+    note: >-
+      A valid OAI-PMH 2.0 data provider with compression negotiation, a full set hierarchy across
+      eight journals in English and Arabic, and four dissemination formats. Conformance is
+      recorded with one serious caveat that does not void it but should be fixed: the endpoint
+      emits identifiers in the PKP default namespace (oai:ojs.pkp.sfu.ca:article/N) that its own
+      GetRecord verb rejects as malformed, so round-trip harvesting is broken. Detail and remedy
+      in errors/qatar-errors.yml and openapi/qatar-qupress-oai-pmh-openapi.yml.
+    caveat_second_endpoint: >-
+      Qatar University's other OAI-PMH endpoint, QSpace at qspace.qu.edu.qa, is NOT counted here.
+      It is a hosted Open Repository deployment and its conformance is that platform's — see
+      tenant_operated below. This is the correction that distinguishes this pass from the
+      2026-06-03 profile, which recorded QSpace as Qatar University's own.
+
+  - standard: saml
+    name: 'SAML 2.0'
+    status: conformant
+    x-operator: institution
+    confidence: high
+    evidence:
+      url: https://sso.qu.edu.qa/identity/metadata/saml2
+      status: 200
+      content_type: application/xml;charset=UTF-8
+      locations:
+        - 'EntityDescriptor[@entityID="sso.qu.edu.qa"]'
+        - 'EntityDescriptor/IDPSSODescriptor[@protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol"]'
+        - 'IDPSSODescriptor/KeyDescriptor[@use="signing"]'
+        - 'IDPSSODescriptor/KeyDescriptor[@use="encryption"]'
+        - 'IDPSSODescriptor/SingleSignOnService[@Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"]'
+        - 'IDPSSODescriptor/SingleSignOnService[@Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"]'
+        - 'IDPSSODescriptor/ArtifactResolutionService[@Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP"]'
+      corroboration:
+        resolved_ip: 185.37.110.99
+        tls_subject: 'C=QA, L=Doha, O=Qatar University, CN=*.qu.edu.qa'
+        saml_signing_cert_subject: 'C=QA, ST=Qatar, L=Doha, O=Qatar University, OU=ITS, CN=*.qu.edu.qa'
+        cname_onto_managed_platform: none
+        software: WSO2 Identity Server
+    note: >-
+      Qatar University runs its own SAML identity provider on its own infrastructure. That is
+      a stronger result than most of this cohort, where a branded IdP hostname resolves onto a
+      national federation's managed service. The metadata is nonetheless not federation-ready
+      as published — the entityID is a bare hostname rather than a URI, validUntil is one hour,
+      and no NameIDFormat, Organization or ContactPerson element is declared. Detail and remedies
+      in identity-federation/qatar-identity-federation.yml. Conformance is recorded because a
+      valid SAML 2.0 IDPSSODescriptor with real keys and real bindings is served; the defects
+      are registration-readiness defects, not protocol failures.
+
+  - standard: crossref
+    name: 'Crossref DOI registration'
+    status: conformant
+    x-operator: registry
+    confidence: high
+    evidence:
+      url: https://api.crossref.org/members/11655
+      status: 200
+      locations:
+        - 'message.id = 11655'
+        - 'message.primary-name = Qatar University Press'
+        - 'message.prefixes = ["10.29117"]'
+        - 'message.counts.total-dois = 2533'
+    note: >-
+      Qatar University Press is a Crossref member in its own right, registering DOIs under
+      prefix 10.29117 for the journals it publishes at journals.qu.edu.qa. This is a fact about
+      the institution, recorded as a membership; Crossref's own API contract is not saved here.
+
+not_conformant:
+  - standard: datacite
+    status: not_found
+    checked: '2026-09-01'
+    evidence:
+      url: 'https://api.datacite.org/providers?query=Qatar'
+      status: 200
+    basis: >-
+      The DataCite provider search returns Qatar National Library (symbol ICJU) and no Qatar
+      University record; https://api.datacite.org/repositories?query=Qatar+University returns
+      zero results. QSpace mints Handles under prefix 10576, not DataCite DOIs. Explicitly
+      recorded as not-found rather than omitted, because attributing Qatar National Library's
+      DataCite membership to Qatar University is precisely the cohort-level misattribution this
+      pipeline exists to prevent.
+  - standard: shibboleth
+    status: not_found
+    checked: '2026-09-01'
+    basis: >-
+      Qatar University's SAML implementation is WSO2 Identity Server, not Shibboleth, and no
+      Shibboleth IdP or SP was located under qu.edu.qa. No national research-and-education
+      federation for Qatar was found, and the entityID is not registered in eduGAIN.
+  - standard: orcid
+    status: not_found
+    checked: '2026-09-01'
+    basis: >-
+      No ORCID member record, ORCID integration endpoint or ORCID-bearing metadata field was
+      evidenced on any institution-operated surface. DSpace 7.6 supports ORCID integration but
+      no configured ORCID authority was observed in the QSpace API responses examined.
+  - standard: lti
+    status: not_found
+    checked: '2026-09-01'
+    basis: >-
+      LTI is present in Qatar University's estate only through its Blackboard Learn tenant at
+      elearning.qu.edu.qa, whose LTI conformance is Anthology's engineering, not the
+      institution's. See tenant_operated below.
+  - standard: scim
+    status: not_found
+    checked: '2026-09-01'
+    basis: >-
+      WSO2 Identity Server ships SCIM 2.0, but no SCIM endpoint was found published on
+      sso.qu.edu.qa and the OpenID Connect discovery document advertises none. Not claimed.
+  - standard: oneroster
+    status: not_found
+    checked: '2026-09-01'
+  - standard: ed-fi
+    status: not_found
+    checked: '2026-09-01'
+  - standard: caliper
+    status: not_found
+    checked: '2026-09-01'
+  - standard: qti
+    status: not_found
+    checked: '2026-09-01'
+
+tenant_operated:
+  - standard: oai-pmh
+    platform: 'Open Repository (hosted DSpace 7.6)'
+    host: qspace.qu.edu.qa
+    evidence:
+      url: 'https://qspace.qu.edu.qa/server/oai/request?verb=Identify'
+      status: 200
+      locations:
+        - 'OAI-PMH/Identify/repositoryName = Qspace'
+        - 'OAI-PMH/Identify/adminEmail = quspace@qu.edu.qa'
+        - 'OAI-PMH/Identify/earliestDatestamp = 2009-11-25T12:41:15Z'
+      example: examples/qatar-qspace-oai-identify.xml
+    basis: >-
+      qspace.qu.edu.qa CNAMEs to qataru.cname.openrepository.com and resolves to 3.255.61.143,
+      Amazon eu-west-1, on a Let's Encrypt certificate rather than the Qatar University DigiCert
+      certificate its self-hosted services carry. openrepository.com self-describes as
+      "Open Repository - premium DSpace hosting". The API root advertises atmire-* HAL links,
+      confirming an Atmire-serviced DSpace. A fully conformant OAI-PMH 2.0 endpoint with twelve
+      dissemination formats and 66,950 records — and the conformance is the hosting platform's
+      engineering. The records, the Handle prefix 10576 and the administrative contact are Qatar
+      University's; recorded as a tenant relationship, not deleted and not credited.
+  - standard: lti
+    platform: Anthology Blackboard Learn
+    host: elearning.qu.edu.qa
+    evidence:
+      url: https://elearning.qu.edu.qa/learn/api/public/v1/system/version
+      status: 200
+      body: '{"learn":{"major":4000,"minor":21,"patch":0,"build":"rel.28+435d029"}}'
+    basis: >-
+      Qatar University's learning management system is a Blackboard Learn SaaS tenant —
+      elearning.qu.edu.qa resolves to 99.84.234.122, Amazon CloudFront, not Qatari address
+      space. Blackboard Learn is LTI 1.3 / LTI Advantage certified and exposes the Anthology
+      REST API, and the deployment is Qatar University's; the conformance is Anthology's.
+      Recorded, not credited.
+
+other_standards_evidenced:
+  - standard: openid-connect
+    name: 'OpenID Connect Discovery 1.0 / OAuth 2.0'
+    x-operator: institution
+    evidence:
+      url: https://sso.qu.edu.qa/oauth2/token/.well-known/openid-configuration
+      status: 200
+    note: >-
+      Not in the education regime standards list, but a genuine institution-operated
+      machine-readable contract and the most complete one in this profile. Documented at
+      openapi/qatar-qu-sso-oidc-openapi.yml.
+  - standard: opensearch
+    name: 'OpenSearch 1.1 description document'
+    x-operator: tenant
+    evidence:
+      url: https://qspace.qu.edu.qa/server/opensearch/service
+      status: 200
+      content_type: application/opensearchdescription+xml
+    note: >-
+      Served by the hosted QSpace deployment, so the descriptor is Open Repository's. Listed
+      because it is the only self-describing machine-readable document in Qatar University's
+      repository estate, not because the institution authored it.
+  - standard: handle-system
+    name: 'Handle System (Handle.Net) prefix 10576'
+    x-operator: registry
+    evidence:
+      url: 'https://hdl.handle.net/api/handles/10576/62538'
+      status: 200
+      locations:
+        - 'values[0].type = URL'
+        - 'values[0].data.value = https://qspace.qu.edu.qa/handle/10576/62538'
+    note: >-
+      Qatar University holds Handle.Net prefix 10576 and resolves it onto its own repository.
+      Every QSpace item carries a 10576 handle as its persistent identifier.
+  - standard: ror
+    name: 'Research Organization Registry'
+    x-operator: registry
+    evidence:
+      url: https://api.ror.org/v2/organizations/00yhnba62
+      status: 200
+      locations:
+        - 'id = https://ror.org/00yhnba62'
+        - 'domains = ["qu.edu.qa"]'
+        - 'status = active'
+        - 'external_ids types = [fundref, grid, isni, wikidata]'
+    note: >-
+      Qatar University is registered in ROR with an active record naming qu.edu.qa as its
+      domain, cross-walked to Funder Registry 501100004252, GRID grid.412603.2 and ISNI.
+      This is the machine-readable identity anchor for everything else in this profile.

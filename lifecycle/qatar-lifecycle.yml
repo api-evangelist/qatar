@@ -1,0 +1,115 @@
+specification: API Evangelist Lifecycle
+specificationVersion: '0.1'
+x-method: derived  # authorship, for build-provenance-manifest.py — API Evangelist wrote this file; see `method:` below for how the facts in it were obtained
+provider: Qatar University
+providerId: qatar
+generated: '2026-09-01'
+method: probed
+source: >-
+  Live probes on 2026-09-01 of every surface attributed to Qatar University, plus DNS and TLS
+  inspection of each host, plus a search for a developer portal, changelog, status page,
+  deprecation policy or terms of service governing any of them.
+description: >-
+  Qatar University operates real machine-readable surfaces and governs none of them in public.
+  There is no developer portal, no changelog, no status page, no versioning statement, no
+  deprecation policy and no terms of service for any API in this profile. Version information
+  exists only as software build strings the platforms emit about themselves — OJS 3.3.0.7,
+  DSpace 7.6, Blackboard Learn 4000.21.0 — which are not contract versions and carry no
+  compatibility promise to a caller.
+
+  That is the ordinary condition for a university and it is recorded rather than padded. What
+  is worth naming is that the absence is uneven: the SSO provider publishes a full OpenID
+  Connect discovery document, which is a machine-readable contract, and still says nothing
+  about who may use it, under what terms, or what happens when it changes.
+surfaces:
+  - aid: 'qatar:qupress-oai'
+    operator: institution
+    versioning:
+      contract_version: none published
+      protocol_version: 'OAI-PMH 2.0, declared in the Identify response'
+      software_version: 'PKP Open Journal Systems 3.3.0.7, declared in the Identify toolkit block'
+      note: >-
+        The protocol version is fixed by the standard, not chosen by Qatar University. The OJS
+        version is a build string; 3.3.0.7 is a maintenance release of a line PKP superseded
+        with OJS 3.4 and 3.5, so this installation is behind.
+    change_management:
+      changelog: none
+      deprecation_policy: none
+      breaking_change_notice: none
+    availability:
+      status_page: none
+      uptime_commitment: none
+      probed_status: 200
+    terms:
+      terms_of_service: none for the API
+      acceptable_use: none published for harvesting
+      rate_limit_policy: none published, and no rate-limit header observed
+    licensing:
+      api_terms: none
+      content_licence: >-
+        Per-article licensing is declared inside individual records rather than at the endpoint;
+        no repository-wide licence statement is served with the OAI responses.
+  - aid: 'qatar:qu-sso-oidc'
+    operator: institution
+    versioning:
+      contract_version: none published
+      protocol_version: 'OpenID Connect Discovery 1.0 / OAuth 2.0'
+      software_version: 'WSO2 Identity Server, exact version not disclosed'
+      note: >-
+        The DCR endpoint is versioned in its path (/api/identity/oauth2/dcr/v1.1/register) —
+        the only version marker anywhere in Qatar University's estate that belongs to an
+        interface rather than to a product build.
+    change_management:
+      changelog: none
+      deprecation_policy: none
+      key_rotation_policy: >-
+        None published. The JWKS is live and serves a single RS256 key; the embedded SAML
+        signing certificate is valid 2025-08-08 to 2035-08-06, a ten-year lifetime.
+    availability:
+      status_page: none
+      uptime_commitment: none
+      probed_status: 200
+      caveat: >-
+        Reachability is conditional. The host serves an incomplete TLS chain, so the effective
+        availability to a default OpenSSL-based client is zero. See
+        identity-federation/qatar-identity-federation.yml.
+    onboarding:
+      self_service: false
+      documented_process: none found
+      note: >-
+        A Dynamic Client Registration endpoint is advertised but there is no published route to
+        being allowed to call it. Access is by institutional arrangement.
+    terms:
+      terms_of_service: none for the API
+      privacy_policy: none found governing the claims released
+  - aid: 'qatar:qspace'
+    operator: tenant
+    note: >-
+      Governed by Qatar University Library operationally (quspace@qu.edu.qa) and by Open
+      Repository technically. No changelog, status page or deprecation policy published on
+      either side. Its DSpace 7.6 build and twelve OAI dissemination formats are the hosting
+      platform's decisions.
+  - aid: 'qatar:blackboard-learn'
+    operator: tenant
+    note: >-
+      Version and release cadence are Anthology's — /learn/api/public/v1/system/version reports
+      build 4000.21.0 rel.28+435d029. Anthology publishes the API's own lifecycle and deprecation
+      policy; Qatar University publishes nothing about its tenant.
+institution_wide:
+  developer_portal: none
+  api_documentation_site: none
+  status_page: none
+  changelog: none
+  deprecation_policy: none
+  api_terms_of_service: none
+  security_txt: >-
+    None. qspace.qu.edu.qa/.well-known/security.txt answers HTTP 200 with an application shell
+    (a soft 404); www.qu.edu.qa/.well-known/security.txt answers HTTP 500.
+  llms_txt: 'none — https://www.qu.edu.qa/llms.txt returns 404'
+  api_gateway_note: >-
+    An institutional API gateway exists and is entirely undocumented: api.qu.edu.qa resolves to
+    34.18.7.7 and answers HTTP 404 with a zero-length body and an F5 BIG-IP
+    `BIGipServerPROD-API-POOL` cookie. A production API pool is running behind it. Nothing about
+    it — routes, versioning, terms, or how to obtain access — is public. This is the single
+    largest lifecycle gap in the profile: the university has built an API programme and has
+    published no front door to it.

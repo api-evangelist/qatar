@@ -1,0 +1,2514 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="https://journals.qu.edu.qa/lib/pkp/xml/oai2.xsl" ?>
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/
+		http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+	<responseDate>2026-09-01T16:51:07Z</responseDate>
+	<request verb="ListIdentifiers" metadataPrefix="oai_dc">https://journals.qu.edu.qa/index.php/index/oai</request>
+	<ListIdentifiers>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/11</identifier>
+			<datestamp>2017-12-27T06:10:32Z</datestamp>
+			<setSpec>sharia:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/17</identifier>
+			<datestamp>2017-12-26T04:51:27Z</datestamp>
+			<setSpec>sharia:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/22</identifier>
+			<datestamp>2017-12-26T04:51:27Z</datestamp>
+			<setSpec>sharia:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/23</identifier>
+			<datestamp>2017-12-26T04:51:27Z</datestamp>
+			<setSpec>sharia:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/24</identifier>
+			<datestamp>2017-12-26T04:51:27Z</datestamp>
+			<setSpec>sharia:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/25</identifier>
+			<datestamp>2017-12-26T04:51:23Z</datestamp>
+			<setSpec>sharia:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/26</identifier>
+			<datestamp>2017-12-26T05:46:27Z</datestamp>
+			<setSpec>sharia:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/27</identifier>
+			<datestamp>2017-12-26T05:46:27Z</datestamp>
+			<setSpec>sharia:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/28</identifier>
+			<datestamp>2017-12-26T05:46:27Z</datestamp>
+			<setSpec>sharia:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/29</identifier>
+			<datestamp>2017-12-26T05:46:27Z</datestamp>
+			<setSpec>sharia:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/35</identifier>
+			<datestamp>2017-12-26T05:54:29Z</datestamp>
+			<setSpec>sharia:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/36</identifier>
+			<datestamp>2017-12-26T05:54:29Z</datestamp>
+			<setSpec>sharia:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/37</identifier>
+			<datestamp>2017-12-26T05:54:29Z</datestamp>
+			<setSpec>sharia:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/38</identifier>
+			<datestamp>2017-12-26T05:54:30Z</datestamp>
+			<setSpec>sharia:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/39</identifier>
+			<datestamp>2017-12-26T05:58:43Z</datestamp>
+			<setSpec>sharia:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/40</identifier>
+			<datestamp>2017-12-26T05:58:43Z</datestamp>
+			<setSpec>sharia:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/41</identifier>
+			<datestamp>2017-12-26T05:58:43Z</datestamp>
+			<setSpec>sharia:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/42</identifier>
+			<datestamp>2017-12-26T05:58:43Z</datestamp>
+			<setSpec>sharia:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/44</identifier>
+			<datestamp>2017-12-26T06:51:31Z</datestamp>
+			<setSpec>sharia:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/45</identifier>
+			<datestamp>2017-12-26T06:59:44Z</datestamp>
+			<setSpec>sharia:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/46</identifier>
+			<datestamp>2017-12-26T06:59:44Z</datestamp>
+			<setSpec>sharia:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/47</identifier>
+			<datestamp>2017-12-26T06:59:51Z</datestamp>
+			<setSpec>sharia:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/48</identifier>
+			<datestamp>2017-12-26T06:59:47Z</datestamp>
+			<setSpec>sharia:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/49</identifier>
+			<datestamp>2017-12-26T07:01:28Z</datestamp>
+			<setSpec>sharia:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/50</identifier>
+			<datestamp>2017-12-26T07:18:19Z</datestamp>
+			<setSpec>sharia:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/51</identifier>
+			<datestamp>2017-12-27T06:10:32Z</datestamp>
+			<setSpec>sharia:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/53</identifier>
+			<datestamp>2017-12-27T06:10:32Z</datestamp>
+			<setSpec>sharia:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/54</identifier>
+			<datestamp>2017-12-27T06:10:32Z</datestamp>
+			<setSpec>sharia:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/55</identifier>
+			<datestamp>2017-12-27T06:10:32Z</datestamp>
+			<setSpec>sharia:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/56</identifier>
+			<datestamp>2017-12-27T06:10:32Z</datestamp>
+			<setSpec>sharia:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/57</identifier>
+			<datestamp>2017-12-27T06:10:32Z</datestamp>
+			<setSpec>sharia:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/58</identifier>
+			<datestamp>2017-12-27T06:10:32Z</datestamp>
+			<setSpec>sharia:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/59</identifier>
+			<datestamp>2017-12-27T06:10:32Z</datestamp>
+			<setSpec>sharia:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/60</identifier>
+			<datestamp>2017-12-27T06:10:32Z</datestamp>
+			<setSpec>sharia:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/67</identifier>
+			<datestamp>2017-12-28T07:33:47Z</datestamp>
+			<setSpec>sharia:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/68</identifier>
+			<datestamp>2018-01-10T08:06:03Z</datestamp>
+			<setSpec>sharia:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/69</identifier>
+			<datestamp>2018-01-02T05:02:34Z</datestamp>
+			<setSpec>sharia:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/70</identifier>
+			<datestamp>2018-01-02T05:26:36Z</datestamp>
+			<setSpec>sharia:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/78</identifier>
+			<datestamp>2018-01-10T05:21:51Z</datestamp>
+			<setSpec>sharia:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/81</identifier>
+			<datestamp>2018-01-10T08:05:53Z</datestamp>
+			<setSpec>sharia:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/82</identifier>
+			<datestamp>2018-01-10T08:04:59Z</datestamp>
+			<setSpec>sharia:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/94</identifier>
+			<datestamp>2018-01-11T07:14:15Z</datestamp>
+			<setSpec>sharia:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/214</identifier>
+			<datestamp>2018-03-12T02:30:27Z</datestamp>
+			<setSpec>sharia:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/280</identifier>
+			<datestamp>2018-10-03T08:20:44Z</datestamp>
+			<setSpec>sharia:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/281</identifier>
+			<datestamp>2018-10-31T08:17:41Z</datestamp>
+			<setSpec>sharia:FM</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/284</identifier>
+			<datestamp>2018-10-31T08:13:32Z</datestamp>
+			<setSpec>sharia:FM_ar</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/319</identifier>
+			<datestamp>2019-02-13T06:56:04Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/320</identifier>
+			<datestamp>2019-02-13T06:56:04Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/321</identifier>
+			<datestamp>2019-02-13T06:56:04Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/322</identifier>
+			<datestamp>2019-02-13T06:56:04Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/323</identifier>
+			<datestamp>2019-02-13T06:56:04Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/332</identifier>
+			<datestamp>2020-01-28T05:34:52Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/333</identifier>
+			<datestamp>2020-01-28T05:35:27Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/334</identifier>
+			<datestamp>2020-01-28T05:35:35Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/335</identifier>
+			<datestamp>2020-01-28T05:35:48Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/336</identifier>
+			<datestamp>2020-01-28T05:35:56Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/337</identifier>
+			<datestamp>2020-01-28T05:36:19Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/338</identifier>
+			<datestamp>2020-01-28T05:36:11Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/339</identifier>
+			<datestamp>2020-01-28T05:36:00Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/341</identifier>
+			<datestamp>2020-01-28T07:26:04Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/342</identifier>
+			<datestamp>2020-01-28T07:26:48Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/343</identifier>
+			<datestamp>2020-01-28T07:26:32Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/344</identifier>
+			<datestamp>2020-01-28T07:26:56Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/345</identifier>
+			<datestamp>2020-01-28T07:27:16Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/346</identifier>
+			<datestamp>2020-01-28T07:30:03Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/347</identifier>
+			<datestamp>2020-01-28T07:28:29Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/348</identifier>
+			<datestamp>2020-01-28T07:25:33Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/349</identifier>
+			<datestamp>2020-01-28T07:25:22Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/350</identifier>
+			<datestamp>2020-01-28T07:25:09Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/351</identifier>
+			<datestamp>2020-01-28T07:25:01Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/352</identifier>
+			<datestamp>2020-01-28T07:24:52Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/354</identifier>
+			<datestamp>2020-01-28T07:23:52Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/367</identifier>
+			<datestamp>2020-01-28T07:24:22Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/368</identifier>
+			<datestamp>2020-01-29T19:16:40Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/369</identifier>
+			<datestamp>2020-01-29T19:11:50Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/370</identifier>
+			<datestamp>2020-01-29T19:27:31Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/371</identifier>
+			<datestamp>2020-01-29T19:14:21Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/372</identifier>
+			<datestamp>2020-01-29T19:09:44Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/373</identifier>
+			<datestamp>2020-01-29T19:35:37Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/374</identifier>
+			<datestamp>2020-01-29T19:37:05Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/375</identifier>
+			<datestamp>2020-01-29T19:34:06Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/376</identifier>
+			<datestamp>2020-01-29T19:29:50Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/377</identifier>
+			<datestamp>2020-01-29T19:16:21Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/378</identifier>
+			<datestamp>2020-01-29T19:38:45Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/380</identifier>
+			<datestamp>2020-01-29T19:42:50Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/381</identifier>
+			<datestamp>2020-01-29T19:26:40Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/394</identifier>
+			<datestamp>2020-01-29T19:06:14Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/397</identifier>
+			<datestamp>2020-01-29T19:10:23Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/404</identifier>
+			<datestamp>2020-01-26T11:16:50Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/405</identifier>
+			<datestamp>2020-01-26T11:16:43Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/406</identifier>
+			<datestamp>2020-01-26T11:16:40Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/407</identifier>
+			<datestamp>2020-01-26T11:16:37Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/408</identifier>
+			<datestamp>2020-01-26T11:16:34Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/409</identifier>
+			<datestamp>2020-01-26T11:16:31Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/416</identifier>
+			<datestamp>2020-01-26T11:22:29Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/417</identifier>
+			<datestamp>2020-01-26T11:22:24Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/418</identifier>
+			<datestamp>2020-01-26T11:22:21Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/419</identifier>
+			<datestamp>2020-01-26T11:22:18Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/420</identifier>
+			<datestamp>2020-01-26T11:22:15Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/421</identifier>
+			<datestamp>2020-01-26T11:22:12Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/422</identifier>
+			<datestamp>2019-03-19T13:47:08Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/423</identifier>
+			<datestamp>2019-03-19T13:47:08Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/424</identifier>
+			<datestamp>2019-03-19T13:47:08Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/425</identifier>
+			<datestamp>2019-03-19T13:47:08Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/426</identifier>
+			<datestamp>2019-03-19T13:47:08Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/427</identifier>
+			<datestamp>2019-03-19T13:47:08Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/428</identifier>
+			<datestamp>2019-03-19T13:47:08Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/429</identifier>
+			<datestamp>2019-03-19T13:47:08Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/430</identifier>
+			<datestamp>2019-03-19T13:47:08Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/431</identifier>
+			<datestamp>2019-03-19T13:47:08Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/432</identifier>
+			<datestamp>2019-03-19T13:47:08Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/433</identifier>
+			<datestamp>2019-03-19T13:47:08Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/434</identifier>
+			<datestamp>2019-03-19T13:47:08Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/435</identifier>
+			<datestamp>2019-03-19T13:47:08Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/436</identifier>
+			<datestamp>2019-03-19T13:47:08Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/437</identifier>
+			<datestamp>2019-03-19T13:47:08Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/445</identifier>
+			<datestamp>2020-01-26T09:30:12Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/446</identifier>
+			<datestamp>2020-01-26T09:30:07Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/447</identifier>
+			<datestamp>2020-01-26T09:30:02Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/448</identifier>
+			<datestamp>2020-01-26T09:29:59Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/449</identifier>
+			<datestamp>2020-01-26T09:29:57Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/450</identifier>
+			<datestamp>2020-01-26T09:29:54Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/451</identifier>
+			<datestamp>2020-01-26T09:29:51Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/460</identifier>
+			<datestamp>2020-01-26T08:15:22Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/461</identifier>
+			<datestamp>2020-01-26T08:15:29Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/462</identifier>
+			<datestamp>2020-01-26T08:15:35Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/463</identifier>
+			<datestamp>2020-01-26T08:15:40Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/464</identifier>
+			<datestamp>2020-01-26T08:15:45Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/465</identifier>
+			<datestamp>2020-01-26T08:15:55Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/466</identifier>
+			<datestamp>2020-01-26T08:16:00Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/467</identifier>
+			<datestamp>2020-01-26T08:16:04Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/468</identifier>
+			<datestamp>2019-03-19T13:55:59Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/469</identifier>
+			<datestamp>2019-03-19T13:55:59Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/470</identifier>
+			<datestamp>2019-03-19T13:55:59Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/471</identifier>
+			<datestamp>2019-03-19T13:55:59Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/472</identifier>
+			<datestamp>2019-03-19T13:55:59Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/473</identifier>
+			<datestamp>2019-03-19T13:55:59Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/474</identifier>
+			<datestamp>2019-03-19T13:55:59Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/475</identifier>
+			<datestamp>2019-03-19T13:55:59Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/476</identifier>
+			<datestamp>2019-03-19T13:55:59Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/477</identifier>
+			<datestamp>2019-03-19T13:55:59Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/478</identifier>
+			<datestamp>2019-03-19T13:55:59Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/479</identifier>
+			<datestamp>2019-03-19T13:55:59Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/480</identifier>
+			<datestamp>2019-03-19T13:55:59Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/481</identifier>
+			<datestamp>2019-03-19T13:55:59Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/482</identifier>
+			<datestamp>2019-03-19T13:55:59Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/483</identifier>
+			<datestamp>2019-03-19T13:55:59Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/484</identifier>
+			<datestamp>2019-03-19T14:11:49Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/485</identifier>
+			<datestamp>2019-03-19T14:11:49Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/486</identifier>
+			<datestamp>2019-03-19T14:11:49Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/487</identifier>
+			<datestamp>2019-03-19T14:11:49Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/488</identifier>
+			<datestamp>2019-03-19T14:11:49Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/489</identifier>
+			<datestamp>2019-03-19T14:11:49Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/490</identifier>
+			<datestamp>2019-03-19T14:11:49Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/491</identifier>
+			<datestamp>2019-03-19T14:11:49Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/492</identifier>
+			<datestamp>2019-03-19T14:11:49Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/493</identifier>
+			<datestamp>2019-03-19T14:11:49Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/494</identifier>
+			<datestamp>2019-03-19T14:11:49Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/495</identifier>
+			<datestamp>2019-03-19T14:11:49Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/496</identifier>
+			<datestamp>2019-03-19T14:11:49Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/497</identifier>
+			<datestamp>2019-03-19T14:11:49Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/498</identifier>
+			<datestamp>2019-03-19T14:11:49Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/499</identifier>
+			<datestamp>2019-03-19T14:11:49Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/500</identifier>
+			<datestamp>2019-03-19T14:11:49Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/501</identifier>
+			<datestamp>2019-03-19T14:11:49Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/502</identifier>
+			<datestamp>2019-03-19T14:11:39Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/503</identifier>
+			<datestamp>2019-03-19T14:11:39Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/504</identifier>
+			<datestamp>2019-03-19T14:11:39Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/505</identifier>
+			<datestamp>2019-03-19T14:11:39Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/506</identifier>
+			<datestamp>2019-03-19T14:11:39Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/507</identifier>
+			<datestamp>2019-03-19T14:11:39Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/508</identifier>
+			<datestamp>2019-03-19T14:11:39Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/509</identifier>
+			<datestamp>2019-03-19T14:11:39Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/510</identifier>
+			<datestamp>2019-03-19T14:11:39Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/511</identifier>
+			<datestamp>2019-03-19T14:11:39Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/512</identifier>
+			<datestamp>2019-03-19T14:11:39Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/513</identifier>
+			<datestamp>2019-03-19T14:11:39Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/514</identifier>
+			<datestamp>2019-03-19T14:11:39Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/515</identifier>
+			<datestamp>2019-03-19T14:11:39Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/516</identifier>
+			<datestamp>2019-03-19T14:11:39Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/517</identifier>
+			<datestamp>2019-03-19T14:11:39Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/518</identifier>
+			<datestamp>2019-03-19T14:11:25Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/519</identifier>
+			<datestamp>2019-03-19T14:11:25Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/520</identifier>
+			<datestamp>2019-03-19T14:11:25Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/521</identifier>
+			<datestamp>2019-03-19T14:11:25Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/522</identifier>
+			<datestamp>2019-03-19T14:11:25Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/523</identifier>
+			<datestamp>2019-03-19T14:11:25Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/524</identifier>
+			<datestamp>2019-03-19T14:11:25Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/525</identifier>
+			<datestamp>2019-03-19T14:11:25Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/526</identifier>
+			<datestamp>2019-03-19T14:11:25Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/527</identifier>
+			<datestamp>2019-03-19T14:11:25Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/528</identifier>
+			<datestamp>2019-03-19T14:11:25Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/529</identifier>
+			<datestamp>2019-03-19T14:11:25Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/530</identifier>
+			<datestamp>2019-03-19T14:11:25Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/531</identifier>
+			<datestamp>2019-03-19T14:11:25Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/532</identifier>
+			<datestamp>2019-03-19T14:11:25Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/533</identifier>
+			<datestamp>2019-03-19T14:11:25Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/534</identifier>
+			<datestamp>2019-03-19T14:11:25Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/535</identifier>
+			<datestamp>2019-03-19T14:11:25Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/536</identifier>
+			<datestamp>2019-03-19T14:11:25Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/537</identifier>
+			<datestamp>2019-03-19T14:11:25Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/538</identifier>
+			<datestamp>2019-03-19T14:11:25Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/539</identifier>
+			<datestamp>2019-03-19T14:11:25Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/543</identifier>
+			<datestamp>2020-01-27T10:52:12Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/544</identifier>
+			<datestamp>2020-01-27T10:55:00Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/545</identifier>
+			<datestamp>2020-01-27T10:54:51Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/546</identifier>
+			<datestamp>2020-01-27T10:47:40Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/548</identifier>
+			<datestamp>2020-01-27T10:47:31Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/549</identifier>
+			<datestamp>2020-01-27T10:47:14Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/550</identifier>
+			<datestamp>2020-01-27T10:47:01Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/551</identifier>
+			<datestamp>2020-01-27T10:49:54Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/552</identifier>
+			<datestamp>2020-01-27T10:46:01Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/553</identifier>
+			<datestamp>2020-01-27T10:54:36Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/558</identifier>
+			<datestamp>2020-01-27T10:52:21Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/562</identifier>
+			<datestamp>2019-03-19T14:23:25Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/563</identifier>
+			<datestamp>2019-03-19T14:23:25Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/564</identifier>
+			<datestamp>2019-03-19T14:23:25Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/565</identifier>
+			<datestamp>2019-03-19T14:23:25Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/566</identifier>
+			<datestamp>2019-03-19T14:23:25Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/567</identifier>
+			<datestamp>2019-03-19T14:23:25Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/568</identifier>
+			<datestamp>2019-03-19T14:23:25Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/569</identifier>
+			<datestamp>2019-03-19T14:23:25Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/570</identifier>
+			<datestamp>2019-03-19T14:23:25Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/571</identifier>
+			<datestamp>2019-03-19T14:23:25Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/572</identifier>
+			<datestamp>2019-03-19T14:23:25Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/573</identifier>
+			<datestamp>2019-03-19T14:23:25Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/574</identifier>
+			<datestamp>2019-03-19T14:23:30Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/575</identifier>
+			<datestamp>2019-03-19T14:23:30Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/576</identifier>
+			<datestamp>2019-03-19T14:23:30Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/577</identifier>
+			<datestamp>2019-03-19T14:23:30Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/578</identifier>
+			<datestamp>2019-03-19T14:23:30Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/579</identifier>
+			<datestamp>2019-03-19T14:23:30Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/580</identifier>
+			<datestamp>2019-03-19T14:23:30Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/581</identifier>
+			<datestamp>2019-03-19T14:23:30Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/582</identifier>
+			<datestamp>2019-03-19T14:23:30Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/583</identifier>
+			<datestamp>2019-03-19T14:23:30Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/584</identifier>
+			<datestamp>2019-03-19T14:24:21Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/585</identifier>
+			<datestamp>2019-03-19T14:24:21Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/586</identifier>
+			<datestamp>2019-03-19T14:24:21Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/587</identifier>
+			<datestamp>2019-03-19T14:24:21Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/588</identifier>
+			<datestamp>2019-03-19T14:24:21Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/589</identifier>
+			<datestamp>2019-03-19T14:24:21Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/590</identifier>
+			<datestamp>2019-03-19T14:24:21Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/591</identifier>
+			<datestamp>2019-03-19T14:24:21Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/592</identifier>
+			<datestamp>2019-03-19T14:24:21Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/593</identifier>
+			<datestamp>2019-03-19T14:24:21Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/594</identifier>
+			<datestamp>2019-03-19T14:24:21Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/595</identifier>
+			<datestamp>2019-03-19T14:24:21Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/596</identifier>
+			<datestamp>2019-03-19T14:24:21Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/597</identifier>
+			<datestamp>2019-03-19T14:24:21Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/598</identifier>
+			<datestamp>2019-03-19T14:24:26Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/599</identifier>
+			<datestamp>2019-03-19T14:24:26Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/600</identifier>
+			<datestamp>2019-03-19T14:24:26Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/601</identifier>
+			<datestamp>2019-03-19T14:24:26Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/602</identifier>
+			<datestamp>2019-03-19T14:24:26Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/603</identifier>
+			<datestamp>2019-03-19T14:24:26Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/604</identifier>
+			<datestamp>2019-03-19T14:24:26Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/605</identifier>
+			<datestamp>2019-03-19T14:24:26Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/606</identifier>
+			<datestamp>2019-03-19T14:24:26Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/607</identifier>
+			<datestamp>2019-03-19T14:24:26Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/608</identifier>
+			<datestamp>2019-03-19T14:24:26Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/609</identifier>
+			<datestamp>2019-03-19T14:24:26Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/610</identifier>
+			<datestamp>2019-03-19T14:24:26Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/611</identifier>
+			<datestamp>2019-03-19T14:24:30Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/612</identifier>
+			<datestamp>2019-03-19T14:24:30Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/613</identifier>
+			<datestamp>2019-03-19T14:24:30Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/614</identifier>
+			<datestamp>2019-03-19T14:24:30Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/615</identifier>
+			<datestamp>2019-03-19T14:24:30Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/697</identifier>
+			<datestamp>2019-02-19T10:54:41Z</datestamp>
+			<setSpec>SBE:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/702</identifier>
+			<datestamp>2019-02-19T10:55:13Z</datestamp>
+			<setSpec>SBE:FM</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/703</identifier>
+			<datestamp>2019-02-19T10:55:16Z</datestamp>
+			<setSpec>SBE:TC</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/704</identifier>
+			<datestamp>2019-02-19T10:54:56Z</datestamp>
+			<setSpec>SBE:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/707</identifier>
+			<datestamp>2019-02-19T10:54:59Z</datestamp>
+			<setSpec>SBE:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/709</identifier>
+			<datestamp>2019-02-19T10:55:02Z</datestamp>
+			<setSpec>SBE:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/710</identifier>
+			<datestamp>2019-02-19T10:55:06Z</datestamp>
+			<setSpec>SBE:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/711</identifier>
+			<datestamp>2019-02-19T10:55:09Z</datestamp>
+			<setSpec>SBE:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.journals.qu.edu.qa:article/769</identifier>
+			<datestamp>2023-12-31T13:26:29Z</datestamp>
+			<setSpec>test:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.journals.qu.edu.qa:article/770</identifier>
+			<datestamp>2023-12-31T13:26:29Z</datestamp>
+			<setSpec>test:FM</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.journals.qu.edu.qa:article/771</identifier>
+			<datestamp>2023-12-31T13:26:29Z</datestamp>
+			<setSpec>test:TC</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.journals.qu.edu.qa:article/772</identifier>
+			<datestamp>2023-12-31T13:26:29Z</datestamp>
+			<setSpec>test:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.journals.qu.edu.qa:article/773</identifier>
+			<datestamp>2023-12-31T13:26:29Z</datestamp>
+			<setSpec>test:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.journals.qu.edu.qa:article/774</identifier>
+			<datestamp>2023-12-31T13:26:29Z</datestamp>
+			<setSpec>test:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.journals.qu.edu.qa:article/775</identifier>
+			<datestamp>2023-12-31T13:26:29Z</datestamp>
+			<setSpec>test:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.journals.qu.edu.qa:article/776</identifier>
+			<datestamp>2023-12-31T13:26:29Z</datestamp>
+			<setSpec>test:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/777</identifier>
+			<datestamp>2019-03-20T10:57:00Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/778</identifier>
+			<datestamp>2019-03-20T10:57:00Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/779</identifier>
+			<datestamp>2019-03-20T10:57:00Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/780</identifier>
+			<datestamp>2019-03-20T10:57:00Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/781</identifier>
+			<datestamp>2019-03-20T10:57:00Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/782</identifier>
+			<datestamp>2019-03-20T10:56:57Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/783</identifier>
+			<datestamp>2019-03-20T10:56:57Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/784</identifier>
+			<datestamp>2019-03-20T10:56:57Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/785</identifier>
+			<datestamp>2019-03-20T10:56:57Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/786</identifier>
+			<datestamp>2019-03-20T10:56:57Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/787</identifier>
+			<datestamp>2019-03-20T10:56:57Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/788</identifier>
+			<datestamp>2019-03-20T10:56:53Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/789</identifier>
+			<datestamp>2019-03-20T10:56:53Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/790</identifier>
+			<datestamp>2019-03-20T10:56:53Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/791</identifier>
+			<datestamp>2019-03-20T10:56:53Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/792</identifier>
+			<datestamp>2019-03-20T10:56:53Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/793</identifier>
+			<datestamp>2019-03-20T10:56:53Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/794</identifier>
+			<datestamp>2019-03-20T10:56:46Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/795</identifier>
+			<datestamp>2019-03-20T10:56:46Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/796</identifier>
+			<datestamp>2019-03-20T10:56:46Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/797</identifier>
+			<datestamp>2019-03-20T10:56:46Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/798</identifier>
+			<datestamp>2019-03-20T10:56:46Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/799</identifier>
+			<datestamp>2019-03-20T10:56:41Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/800</identifier>
+			<datestamp>2019-03-20T10:56:41Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/801</identifier>
+			<datestamp>2019-03-20T10:56:41Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/802</identifier>
+			<datestamp>2019-03-20T10:56:41Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/803</identifier>
+			<datestamp>2019-03-20T10:57:16Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/804</identifier>
+			<datestamp>2019-03-20T10:57:17Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/805</identifier>
+			<datestamp>2019-03-20T10:57:17Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/806</identifier>
+			<datestamp>2019-03-20T10:57:17Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/807</identifier>
+			<datestamp>2019-03-20T10:57:17Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/808</identifier>
+			<datestamp>2019-03-20T10:57:17Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/809</identifier>
+			<datestamp>2019-03-20T10:57:17Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/810</identifier>
+			<datestamp>2019-03-20T10:57:17Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/811</identifier>
+			<datestamp>2019-03-20T10:57:17Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/812</identifier>
+			<datestamp>2019-03-20T10:57:17Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/813</identifier>
+			<datestamp>2019-03-20T10:57:17Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/814</identifier>
+			<datestamp>2019-03-20T10:57:17Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/815</identifier>
+			<datestamp>2019-03-20T10:57:17Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/816</identifier>
+			<datestamp>2019-03-20T10:57:14Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/817</identifier>
+			<datestamp>2019-03-20T10:57:14Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/818</identifier>
+			<datestamp>2019-03-20T10:57:14Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/819</identifier>
+			<datestamp>2019-03-20T10:57:14Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/820</identifier>
+			<datestamp>2019-03-20T10:57:14Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/821</identifier>
+			<datestamp>2019-03-20T10:57:14Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/822</identifier>
+			<datestamp>2019-03-20T10:57:14Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/823</identifier>
+			<datestamp>2019-03-20T10:57:14Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/824</identifier>
+			<datestamp>2019-03-20T10:57:14Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/825</identifier>
+			<datestamp>2019-03-20T10:57:14Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/826</identifier>
+			<datestamp>2019-03-20T10:57:14Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/827</identifier>
+			<datestamp>2019-03-20T10:57:12Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/828</identifier>
+			<datestamp>2019-03-20T10:57:12Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/829</identifier>
+			<datestamp>2019-03-20T10:57:12Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/830</identifier>
+			<datestamp>2019-03-20T10:57:12Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/831</identifier>
+			<datestamp>2019-03-20T10:57:12Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/832</identifier>
+			<datestamp>2019-03-20T10:57:12Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/833</identifier>
+			<datestamp>2019-03-20T10:57:12Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/834</identifier>
+			<datestamp>2019-03-20T10:57:09Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/835</identifier>
+			<datestamp>2019-03-20T10:57:09Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/836</identifier>
+			<datestamp>2019-03-20T10:57:09Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/837</identifier>
+			<datestamp>2019-03-20T10:57:09Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/838</identifier>
+			<datestamp>2019-03-20T10:57:09Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/839</identifier>
+			<datestamp>2019-03-20T10:57:06Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/840</identifier>
+			<datestamp>2019-03-20T10:57:06Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/841</identifier>
+			<datestamp>2019-03-20T10:57:06Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/842</identifier>
+			<datestamp>2019-03-20T10:57:06Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/843</identifier>
+			<datestamp>2019-03-20T10:57:06Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/844</identifier>
+			<datestamp>2019-03-20T10:57:03Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/845</identifier>
+			<datestamp>2019-03-20T10:57:03Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/846</identifier>
+			<datestamp>2019-03-20T10:57:03Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/847</identifier>
+			<datestamp>2019-03-20T10:57:03Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/848</identifier>
+			<datestamp>2019-03-20T10:57:03Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/849</identifier>
+			<datestamp>2019-03-20T10:56:38Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/850</identifier>
+			<datestamp>2019-03-20T10:56:38Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/851</identifier>
+			<datestamp>2019-03-20T10:56:38Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/852</identifier>
+			<datestamp>2019-03-20T10:56:38Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/853</identifier>
+			<datestamp>2019-03-20T10:56:38Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/854</identifier>
+			<datestamp>2019-03-20T10:56:35Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/855</identifier>
+			<datestamp>2019-03-20T10:56:35Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/856</identifier>
+			<datestamp>2019-03-20T10:56:35Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/857</identifier>
+			<datestamp>2019-03-20T10:56:31Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/858</identifier>
+			<datestamp>2019-03-20T10:56:31Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/859</identifier>
+			<datestamp>2019-03-20T10:56:31Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/860</identifier>
+			<datestamp>2019-03-20T10:56:31Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/861</identifier>
+			<datestamp>2019-03-20T10:56:27Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/862</identifier>
+			<datestamp>2019-03-20T10:56:27Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/863</identifier>
+			<datestamp>2019-03-20T10:56:27Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/864</identifier>
+			<datestamp>2019-03-20T10:56:27Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/865</identifier>
+			<datestamp>2019-03-20T10:56:27Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/866</identifier>
+			<datestamp>2019-03-20T10:56:24Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/867</identifier>
+			<datestamp>2019-03-20T10:56:24Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/868</identifier>
+			<datestamp>2019-03-20T10:56:24Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/869</identifier>
+			<datestamp>2019-03-20T10:56:24Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/870</identifier>
+			<datestamp>2019-03-20T10:56:24Z</datestamp>
+			<setSpec>IRL:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.journals.qu.edu.qa:article/871</identifier>
+			<datestamp>2023-12-31T13:26:29Z</datestamp>
+			<setSpec>test:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.journals.qu.edu.qa:article/872</identifier>
+			<datestamp>2023-12-31T13:26:29Z</datestamp>
+			<setSpec>test:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.journals.qu.edu.qa:article/873</identifier>
+			<datestamp>2023-12-31T13:26:29Z</datestamp>
+			<setSpec>test:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.journals.qu.edu.qa:article/874</identifier>
+			<datestamp>2023-12-31T13:26:29Z</datestamp>
+			<setSpec>test:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.journals.qu.edu.qa:article/875</identifier>
+			<datestamp>2023-12-31T13:26:29Z</datestamp>
+			<setSpec>test:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.journals.qu.edu.qa:article/876</identifier>
+			<datestamp>2023-12-31T13:26:29Z</datestamp>
+			<setSpec>test:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.journals.qu.edu.qa:article/877</identifier>
+			<datestamp>2023-12-31T13:26:29Z</datestamp>
+			<setSpec>test:FM</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.journals.qu.edu.qa:article/878</identifier>
+			<datestamp>2023-12-31T13:26:29Z</datestamp>
+			<setSpec>test:TC</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.journals.qu.edu.qa:article/879</identifier>
+			<datestamp>2023-12-31T13:26:29Z</datestamp>
+			<setSpec>test:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.journals.qu.edu.qa:article/880</identifier>
+			<datestamp>2023-12-31T13:26:29Z</datestamp>
+			<setSpec>test:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.journals.qu.edu.qa:article/881</identifier>
+			<datestamp>2023-12-31T13:26:29Z</datestamp>
+			<setSpec>test:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.journals.qu.edu.qa:article/882</identifier>
+			<datestamp>2023-12-31T13:26:29Z</datestamp>
+			<setSpec>test:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.journals.qu.edu.qa:article/883</identifier>
+			<datestamp>2023-12-31T13:26:29Z</datestamp>
+			<setSpec>test:FM</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.journals.qu.edu.qa:article/884</identifier>
+			<datestamp>2023-12-31T13:26:29Z</datestamp>
+			<setSpec>test:TC</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.journals.qu.edu.qa:article/885</identifier>
+			<datestamp>2023-12-31T13:26:29Z</datestamp>
+			<setSpec>test:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.journals.qu.edu.qa:article/886</identifier>
+			<datestamp>2023-12-31T13:26:29Z</datestamp>
+			<setSpec>test:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.journals.qu.edu.qa:article/887</identifier>
+			<datestamp>2023-12-31T13:26:29Z</datestamp>
+			<setSpec>test:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.journals.qu.edu.qa:article/888</identifier>
+			<datestamp>2023-12-31T13:26:29Z</datestamp>
+			<setSpec>test:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.journals.qu.edu.qa:article/889</identifier>
+			<datestamp>2023-12-31T13:26:29Z</datestamp>
+			<setSpec>test:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.journals.qu.edu.qa:article/890</identifier>
+			<datestamp>2023-12-31T13:26:29Z</datestamp>
+			<setSpec>test:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/894</identifier>
+			<datestamp>2019-04-02T10:58:05Z</datestamp>
+			<setSpec>IRL:EF</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/903</identifier>
+			<datestamp>2020-01-26T08:47:39Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/904</identifier>
+			<datestamp>2020-01-26T08:47:33Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/905</identifier>
+			<datestamp>2020-01-26T08:47:27Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/906</identifier>
+			<datestamp>2020-01-26T08:47:25Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/907</identifier>
+			<datestamp>2020-01-26T08:47:19Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/908</identifier>
+			<datestamp>2020-01-26T08:47:16Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/909</identifier>
+			<datestamp>2020-01-26T08:47:13Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/910</identifier>
+			<datestamp>2020-01-26T08:47:10Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/911</identifier>
+			<datestamp>2020-01-26T08:29:07Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/912</identifier>
+			<datestamp>2020-01-26T08:28:18Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/913</identifier>
+			<datestamp>2020-01-26T08:28:21Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/914</identifier>
+			<datestamp>2020-01-26T08:28:24Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/915</identifier>
+			<datestamp>2020-01-26T08:28:28Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/916</identifier>
+			<datestamp>2020-01-26T08:28:31Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/917</identifier>
+			<datestamp>2020-01-26T08:28:35Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/918</identifier>
+			<datestamp>2020-01-26T08:28:37Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/919</identifier>
+			<datestamp>2020-01-26T08:26:27Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/920</identifier>
+			<datestamp>2020-01-26T08:28:40Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/921</identifier>
+			<datestamp>2020-01-26T08:28:44Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/922</identifier>
+			<datestamp>2020-01-26T08:28:51Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/923</identifier>
+			<datestamp>2020-01-26T08:28:54Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/924</identifier>
+			<datestamp>2020-01-26T08:28:57Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/925</identifier>
+			<datestamp>2020-01-26T08:29:01Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/926</identifier>
+			<datestamp>2020-01-26T08:29:04Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/929</identifier>
+			<datestamp>2020-01-26T08:27:27Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/930</identifier>
+			<datestamp>2020-01-26T08:27:33Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/931</identifier>
+			<datestamp>2020-01-26T08:27:38Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/932</identifier>
+			<datestamp>2020-01-26T08:27:45Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/933</identifier>
+			<datestamp>2020-01-26T08:27:52Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/934</identifier>
+			<datestamp>2020-01-26T08:28:00Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/935</identifier>
+			<datestamp>2020-01-26T08:26:38Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/936</identifier>
+			<datestamp>2020-01-26T08:26:32Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/944</identifier>
+			<datestamp>2020-01-29T10:13:35Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/945</identifier>
+			<datestamp>2020-01-29T10:13:51Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/946</identifier>
+			<datestamp>2020-01-29T10:13:24Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/947</identifier>
+			<datestamp>2020-01-29T10:13:19Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/948</identifier>
+			<datestamp>2020-01-29T10:13:01Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/949</identifier>
+			<datestamp>2020-01-29T10:12:52Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/950</identifier>
+			<datestamp>2020-01-29T10:12:41Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/952</identifier>
+			<datestamp>2020-01-29T10:12:01Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/960</identifier>
+			<datestamp>2020-01-29T10:12:30Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/969</identifier>
+			<datestamp>2020-01-29T10:38:01Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/970</identifier>
+			<datestamp>2020-01-29T10:37:48Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/971</identifier>
+			<datestamp>2020-01-29T10:37:41Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/972</identifier>
+			<datestamp>2020-01-29T10:37:36Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/973</identifier>
+			<datestamp>2020-01-29T10:37:31Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/974</identifier>
+			<datestamp>2020-01-29T10:37:21Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/975</identifier>
+			<datestamp>2020-01-29T10:37:18Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/976</identifier>
+			<datestamp>2020-01-29T10:37:26Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/977</identifier>
+			<datestamp>2019-03-19T14:14:37Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/978</identifier>
+			<datestamp>2019-03-19T14:14:37Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/979</identifier>
+			<datestamp>2019-03-19T14:14:37Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/980</identifier>
+			<datestamp>2019-03-19T14:14:37Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/981</identifier>
+			<datestamp>2019-03-19T14:14:37Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/982</identifier>
+			<datestamp>2019-03-19T14:14:37Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/983</identifier>
+			<datestamp>2019-03-19T14:14:37Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/984</identifier>
+			<datestamp>2019-03-19T14:14:37Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/985</identifier>
+			<datestamp>2019-03-19T14:14:37Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/986</identifier>
+			<datestamp>2019-03-19T14:14:37Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/987</identifier>
+			<datestamp>2019-03-19T14:14:37Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/988</identifier>
+			<datestamp>2019-03-19T14:14:37Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/989</identifier>
+			<datestamp>2019-03-19T14:14:37Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/990</identifier>
+			<datestamp>2019-03-19T14:14:37Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/991</identifier>
+			<datestamp>2019-03-19T14:14:37Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/992</identifier>
+			<datestamp>2019-03-19T14:14:37Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/993</identifier>
+			<datestamp>2019-03-19T14:14:37Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/994</identifier>
+			<datestamp>2019-03-19T14:14:37Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/995</identifier>
+			<datestamp>2019-03-19T14:14:37Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/996</identifier>
+			<datestamp>2019-03-19T14:14:37Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/997</identifier>
+			<datestamp>2019-03-19T14:14:37Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/998</identifier>
+			<datestamp>2019-03-19T14:14:37Z</datestamp>
+			<setSpec>jse:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/1000</identifier>
+			<datestamp>2020-01-28T07:51:11Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/1001</identifier>
+			<datestamp>2020-01-28T07:51:03Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/1002</identifier>
+			<datestamp>2020-01-28T07:50:57Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/1003</identifier>
+			<datestamp>2020-01-28T07:50:49Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/1004</identifier>
+			<datestamp>2020-01-28T07:50:43Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/1005</identifier>
+			<datestamp>2020-01-28T07:50:35Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/1006</identifier>
+			<datestamp>2020-01-28T07:51:33Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/1007</identifier>
+			<datestamp>2020-01-28T07:50:28Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/1008</identifier>
+			<datestamp>2020-01-28T07:50:20Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/1010</identifier>
+			<datestamp>2020-01-28T07:50:04Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/1020</identifier>
+			<datestamp>2020-01-28T07:51:16Z</datestamp>
+			<setSpec>jes:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/1021</identifier>
+			<datestamp>2019-03-19T14:34:37Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/1022</identifier>
+			<datestamp>2019-03-19T14:34:37Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/1023</identifier>
+			<datestamp>2019-03-19T14:34:37Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/1024</identifier>
+			<datestamp>2019-03-19T14:34:37Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/1025</identifier>
+			<datestamp>2019-03-19T14:34:37Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/1026</identifier>
+			<datestamp>2019-03-19T14:34:37Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/1027</identifier>
+			<datestamp>2019-03-19T14:34:37Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/1028</identifier>
+			<datestamp>2019-03-19T14:34:37Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/1029</identifier>
+			<datestamp>2019-03-19T14:34:37Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/1030</identifier>
+			<datestamp>2019-03-19T14:34:37Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/1031</identifier>
+			<datestamp>2019-03-19T14:34:37Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/1032</identifier>
+			<datestamp>2019-03-19T14:34:37Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/1033</identifier>
+			<datestamp>2019-03-19T14:34:43Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/1034</identifier>
+			<datestamp>2019-03-19T14:34:43Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/1035</identifier>
+			<datestamp>2019-03-19T14:34:43Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/1036</identifier>
+			<datestamp>2019-03-19T14:34:43Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/1037</identifier>
+			<datestamp>2019-03-19T14:34:43Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/1038</identifier>
+			<datestamp>2019-03-19T14:34:43Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<header status="deleted">
+			<identifier>oai:ojs.pkp.sfu.ca:article/1039</identifier>
+			<datestamp>2019-03-19T14:34:43Z</datestamp>
+			<setSpec>ANSQ:ART</setSpec>
+		</header>
+		<resumptionToken expirationDate="2026-09-02T16:51:07Z"
+			completeListSize="3186"
+			cursor="0">99d2d080289e5c36f1337043accea638</resumptionToken>
+	</ListIdentifiers>
+</OAI-PMH>

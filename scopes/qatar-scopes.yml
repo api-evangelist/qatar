@@ -1,0 +1,116 @@
+specification: API Evangelist Scopes
+specificationVersion: '0.1'
+x-method: derived  # authorship, for build-provenance-manifest.py — API Evangelist wrote this file; see `method:` below for how the facts in it were obtained
+provider: Qatar University
+providerId: qatar
+generated: '2026-09-01'
+method: probed
+source: >-
+  Read directly from the `scopes_supported` and `claims_supported` arrays of the live OpenID
+  Connect discovery document at
+  https://sso.qu.edu.qa/oauth2/token/.well-known/openid-configuration (HTTP 200, 2026-09-01),
+  archived at examples/qatar-qu-sso-openid-configuration.json. Not inferred, not generated:
+  this is the provider's own declaration, transcribed.
+description: >-
+  Qatar University declares an authorization scope model on exactly one surface — its own
+  OpenID Connect provider at sso.qu.edu.qa. Five scopes are supported, and they are the five
+  standard OpenID Connect scopes with nothing institution-specific added: no scope
+  distinguishes a student from staff, no scope names a system, and there is no read/write
+  split. Thirty claims are supported, including the non-standard `groups` and `upn`, which is
+  where any role information would actually travel.
+
+  Every other surface in the profile is either anonymous (the QU Press OAI-PMH endpoint Qatar
+  University operates, plus the QSpace endpoints its hosting provider operates) or gated by
+  institutional affiliation with no published scope model.
+surfaces:
+  - aid: 'qatar:qu-sso-oidc'
+    operator: institution
+    url: https://sso.qu.edu.qa
+    model: oauth2-openid-connect
+    scopes:
+      - name: openid
+        standard: 'OpenID Connect Core 1.0'
+        description: Required to request an ID token. Marks the request as an OpenID Connect request.
+      - name: profile
+        standard: 'OpenID Connect Core 1.0'
+        description: >-
+          Default profile claims — name, family_name, given_name, middle_name, nickname,
+          preferred_username, picture, website, gender, birthdate, zoneinfo, locale, updated_at.
+      - name: email
+        standard: 'OpenID Connect Core 1.0'
+        description: email and email_verified claims.
+      - name: address
+        standard: 'OpenID Connect Core 1.0'
+        description: The address claim — formatted, street_address, locality, region, postal_code, country.
+      - name: phone
+        standard: 'OpenID Connect Core 1.0'
+        description: phone_number and phone_number_verified claims.
+    claims_supported:
+      - sub
+      - iss
+      - acr
+      - name
+      - given_name
+      - family_name
+      - middle_name
+      - nickname
+      - preferred_username
+      - profile
+      - picture
+      - website
+      - gender
+      - birthdate
+      - zoneinfo
+      - locale
+      - updated_at
+      - email
+      - email_verified
+      - address
+      - formatted
+      - street_address
+      - locality
+      - region
+      - postal_code
+      - country
+      - phone_number
+      - phone_number_verified
+      - groups
+      - upn
+    non_standard_claims:
+      - name: groups
+        note: >-
+          Not an OpenID Connect Core claim. In a WSO2 deployment this carries the user's
+          directory group membership, and it is the only route by which role or affiliation
+          information reaches a relying party — there is no scope that expresses it.
+      - name: upn
+        note: >-
+          User Principal Name, an Active Directory / Microsoft convention rather than an
+          OpenID Connect claim. Its presence indicates the identity store behind this provider
+          is an AD or LDAP directory.
+    gaps:
+      - >-
+        No institution-specific scopes. A university's interesting authorizations —
+        eduPersonAffiliation, student vs staff vs faculty, enrolment, entitlement — are not
+        expressible in this scope set. eduPerson attributes travel, if at all, over the SAML
+        side of the same provider, where the published metadata declares no attribute release.
+      - >-
+        No read/write or least-privilege distinction on any scope.
+      - >-
+        Dynamic Client Registration is advertised, but with only these five scopes available
+        a dynamically registered client cannot request anything narrower than "everything
+        about this person".
+  - aid: 'qatar:qspace'
+    operator: tenant
+    model: none
+    note: >-
+      Anonymous OAI-PMH harvesting and anonymous DSpace 7.6 read operations. No scope model;
+      access is all-or-nothing and it is all. DSpace's own authorization model (EPerson, Group,
+      ResourcePolicy) governs writes, but it is not exposed as OAuth scopes and no public
+      account can reach it. Operator is tenant: qspace.qu.edu.qa CNAMEs to
+      qataru.cname.openrepository.com, a commercial hosted-DSpace service.
+  - aid: 'qatar:qupress-oai'
+    operator: institution
+    model: none
+    note: >-
+      Anonymous OAI-PMH harvesting across nine journals. The adjacent OJS REST API uses a
+      per-user API token, not scopes, and is 403 to the public.

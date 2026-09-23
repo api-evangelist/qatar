@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="sso.qu.edu.qa"><IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol" validUntil="2026-09-01T17:40:16.868Z"><KeyDescriptor use="signing"><KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#"><X509Data><X509Certificate>MIIDdTCCAl2gAwIBAgIETsNdTzANBgkqhkiG9w0BAQsFADBrMQswCQYDVQQGEwJRQTEOMAwGA1UE
+CBMFUWF0YXIxDTALBgNVBAcTBERvaGExGTAXBgNVBAoTEFFhdGFyIFVuaXZlcnNpdHkxDDAKBgNV
+BAsTA0lUUzEUMBIGA1UEAwwLKi5xdS5lZHUucWEwHhcNMjUwODA4MDQ0MzQ4WhcNMzUwODA2MDQ0
+MzQ4WjBrMQswCQYDVQQGEwJRQTEOMAwGA1UECBMFUWF0YXIxDTALBgNVBAcTBERvaGExGTAXBgNV
+BAoTEFFhdGFyIFVuaXZlcnNpdHkxDDAKBgNVBAsTA0lUUzEUMBIGA1UEAwwLKi5xdS5lZHUucWEw
+ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCFyTLDMmYV+BjmBpkDv80+PISTTyR8+A4Y
+b7t6F8KXPAtDwQQjwJT/uIIZ44owbOR3UvznZVBD9KXcvaxyIxeuh6H+MAYySrBSeVnLhKt8RAvY
+r1pJ8iS6qBJIi3qD3LfkzQZHDFCs+900asCbIQJ2Iafpg8uirj33/uNAYy3ESg0e5dqVSdCNIlup
+zD3zgUk7cmumnC84JJOWSkXBRtOXcRIdua8l8ECFheyOq3fByYVwxIIfPXpe9a3lJuAjGx1RVjpP
+1VqQKonjtL5lw9Lmces2KkT7ZiRlYu2nBKT1Xi6Q91FTOqVzB/iTB1Yogwgug4Ot+DGB9wBLI6EX
+I3+hAgMBAAGjITAfMB0GA1UdDgQWBBQlDSiDp/tXoS7h0L1fFAYyF8DDwjANBgkqhkiG9w0BAQsF
+AAOCAQEAA3VmvacWtdAQXHkcOUut5IaWacINIyhbQl7vyqbyowlNG2Hs063HFwwUC/67vNd8vElr
+CJNiKwOedJcexyKLORI6aI4ZYQdOPjgcRdORd4Wy1yDR133vYpJkN73TGP3serfmKp+9W+O/l47C
+Og36LD8R3pBU8ZpChOinnUbLKoN96fBa6hHzBgBHVZCY/KmIMB69JHy3eXJ3/Fh4a9T139rFLHTC
+N6W7qd393au/olVktes5keDkQHBeIrhC/JxUzrNKMKh4JCUq3B8HjAAVmmExTe08T8EmMXytD73H
+jrfeyzYPZ1CYqaSqqVXQQso92fq1orQ/6G+iAsklOmlU4Q==</X509Certificate></X509Data></KeyInfo></KeyDescriptor><ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sso.qu.edu.qa:443/samlartresolve" index="1"/><SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sso.qu.edu.qa:9443/samlsso" ResponseLocation="https://sso.qu.edu.qa:9443/samlsso"/><SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sso.qu.edu.qa:9443/samlsso" ResponseLocation="https://sso.qu.edu.qa:9443/samlsso"/><SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sso.qu.edu.qa:9443/samlsso" ResponseLocation="https://sso.qu.edu.qa:9443/samlsso"/><SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sso.qu.edu.qa:9443/samlsso"/><SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sso.qu.edu.qa:9443/samlsso"/><SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sso.qu.edu.qa/samlsso"/><SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sso.qu.edu.qa/samlsso"/></IDPSSODescriptor></EntityDescriptor>

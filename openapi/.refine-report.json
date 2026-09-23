@@ -1,0 +1,36 @@
+{
+  "provider": "qatar",
+  "sources": [
+    "_original/qatar-qu-sso-oidc-openapi.yml",
+    "_original/qatar-qupress-oai-pmh-openapi.yml"
+  ],
+  "outputs": [
+    "qatar-client-registration-api-openapi.yml",
+    "qatar-discovery-api-openapi.yml",
+    "qatar-oauth-api-openapi.yml",
+    "qatar-openid-connect-api-openapi.yml",
+    "qatar-oai-pmh-api-openapi.yml"
+  ],
+  "archived": [
+    "deleted 1 superseded output(s) from the previous generation"
+  ],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "2 archived document(s) dropped as subsets of other archived documents",
+    "sourced from openapi/_original/ (2 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "qatar-qu-sso-oidc-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "qatar-qupress-oai-pmh-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "superseded outputs removed: qatar-o-auth-api-openapi.yml",
+    "apis.yml register: written (+1 apis, 13 total)"
+  ],
+  "skipped": [
+    "_original/qatar-qupress-oai-pmh-openapi_2.yml: archived document superseded by a larger archived document",
+    "_original/qatar-qu-sso-oidc-openapi_2.yml: archived document superseded by a larger archived document",
+    "qatar-client-registration-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "qatar-discovery-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "qatar-o-auth-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "qatar-oai-pmh-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "qatar-openid-connect-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
+}

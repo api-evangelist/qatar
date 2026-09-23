@@ -1,0 +1,186 @@
+specification: API Evangelist Errors
+specificationVersion: '0.1'
+x-method: derived  # authorship, for build-provenance-manifest.py — API Evangelist wrote this file; see `method:` below for how the facts in it were obtained
+provider: Qatar University
+providerId: qatar
+generated: '2026-09-01'
+method: probed
+source: >-
+  Live error probes on 2026-09-01 of https://journals.qu.edu.qa/index.php/index/oai,
+  https://sso.qu.edu.qa, and — for the tenant section only —
+  https://qspace.qu.edu.qa/server/oai/request and https://qspace.qu.edu.qa/server/api.
+  Qatar University publishes no error reference for any surface; every entry below is an
+  observed response, not a documented one. Captured bodies are stored under examples/.
+description: >-
+  Two institution-operated surfaces, two different error dialects, and neither signals failure
+  in the HTTP status in the way a naive client expects. The QU Press OAI-PMH endpoint answers
+  HTTP 200 to a malformed request and reports the failure inside the XML body — correct
+  OAI-PMH behaviour and a trap for any client that checks the status code alone. The OpenID
+  Connect provider returns RFC 6749 error objects, but uses 400 where RFC 6750 specifies 401,
+  and emits no WWW-Authenticate challenge.
+
+  No Qatar University surface emits a Retry-After, a rate-limit header, a correlation or
+  request ID, or an RFC 9457 problem-details type URI.
+
+  One error behaviour here is a hard defect rather than a dialect: the QU Press endpoint emits
+  OAI identifiers that its own GetRecord verb rejects as malformed.
+apis:
+  - aid: 'qatar:qupress-oai'
+    operator: institution
+    envelope:
+      shape: '<OAI-PMH ...><responseDate/><request/><error code="..."/></OAI-PMH>'
+      content_type: text/xml;charset=UTF-8
+      http_status_on_error: 200
+      note: >-
+        OAI-PMH 2.0 mandates this: protocol errors travel in a 200 response. A client that
+        branches on `response.ok` treats every malformed request as a success with no results.
+    errors:
+      - code: badVerb
+        status: 200
+        message: Illegal OAI verb
+        trigger: 'verb= is missing, repeated, or not one of the six OAI-PMH verbs.'
+        evidence:
+          url: 'https://journals.qu.edu.qa/index.php/index/oai?verb=Nope'
+          status: 200
+        example: examples/qatar-qupress-oai-error-badverb.xml
+      - code: badArgument
+        status: 200
+        message: Missing metadataPrefix parameter
+        trigger: A required argument for the chosen verb is missing.
+        evidence:
+          url: 'https://journals.qu.edu.qa/index.php/index/oai?verb=ListRecords'
+          status: 200
+        example: examples/qatar-qupress-oai-error-badargument.xml
+      - code: badArgument
+        status: 200
+        message: Identifier is not in a valid format
+        trigger: >-
+          GetRecord with the identifier this very endpoint emitted from ListIdentifiers.
+        evidence:
+          url: 'https://journals.qu.edu.qa/index.php/index/oai?verb=GetRecord&metadataPrefix=oai_dc&identifier=oai:ojs.pkp.sfu.ca:article/11'
+          status: 200
+        example: examples/qatar-qupress-oai-getrecord.xml
+      - code: cannotDisseminateFormat
+        status: 200
+        trigger: 'metadataPrefix outside {oai_dc, oai_marc, marcxml, rfc1807}. Declared by the protocol; not provoked in this run.'
+        observed: false
+      - code: idDoesNotExist
+        status: 200
+        trigger: Declared by the protocol; not reachable in this run because no identifier form was accepted.
+        observed: false
+    defects:
+      - id: emits-identifiers-it-rejects
+        severity: high
+        verified: '2026-09-01'
+        summary: >-
+          ListIdentifiers emits `oai:ojs.pkp.sfu.ca:article/11` — the PKP shipped default
+          repository identifier — while the Identify response declares
+          `repositoryIdentifier: ojs.journals.qu.edu.qa`. Passing an emitted identifier back
+          into GetRecord returns `badArgument: "Identifier is not in a valid format"`.
+        consequence: >-
+          Round-trip harvesting is broken: a harvester cannot fetch a record it has just been
+          told exists. The emitted namespace also collides with every other OJS installation
+          that has never set this value, so QU Press records are not globally unique.
+        remedy: >-
+          Set the OAI repository identifier in config.inc.php to journals.qu.edu.qa so emitted
+          identifiers match the declared namespace and GetRecord accepts them.
+      - id: tls-chain-incomplete
+        severity: high
+        verified: '2026-09-01'
+        summary: >-
+          journals.qu.edu.qa serves its DigiCert-issued `O=Qatar University, CN=*.qu.edu.qa`
+          leaf without the intermediate CA. `openssl s_client` reports "unable to verify the
+          first certificate"; a default Python, Go or Java harvester fails before any HTTP
+          error is reachable.
+        consequence: The failure lands on automated harvesters, which are the entire audience for OAI-PMH.
+        remedy: Serve the DigiCert Global G2 TLS RSA SHA256 2020 CA1 intermediate alongside the leaf.
+  - aid: 'qatar:qu-sso-oidc'
+    operator: institution
+    envelope:
+      shape: '{"error":"...","error_description":"..."}'
+      content_type: application/json
+      note: RFC 6749 section 5.2 error object.
+    errors:
+      - status: 400
+        error: invalid_request
+        error_description: Bearer token missing
+        trigger: GET /oauth2/userinfo with no Authorization header.
+        evidence:
+          url: https://sso.qu.edu.qa/oauth2/userinfo
+          status: 400
+        defect: >-
+          RFC 6750 section 3.1 specifies 401 with a `WWW-Authenticate: Bearer` challenge for a
+          missing token. This provider returns 400 with no challenge header, so a client cannot
+          discover the authentication scheme from the failure.
+      - status: 405
+        trigger: GET /oauth2/token.
+        body: empty
+        evidence:
+          url: https://sso.qu.edu.qa/oauth2/token
+          status: 405
+        note: 'Empty body; no Allow header observed.'
+    transport_defect:
+      id: tls-chain-incomplete
+      severity: high
+      summary: >-
+        Before any HTTP error is reachable, a default OpenSSL-based client fails certificate
+        verification against sso.qu.edu.qa — the intermediate CA is not served. Full detail and
+        remedy in identity-federation/qatar-identity-federation.yml.
+
+tenant_operated:
+  note: >-
+    The surfaces below run under Qatar University hostnames but on platforms Qatar University
+    does not operate. Their error behaviour is the platform's engineering and is NOT credited
+    to Qatar University. Recorded because the defects are visible under Qatar University's name
+    and are worth reporting to it, not because they belong to it.
+  apis:
+    - aid: 'qatar:qspace'
+      operator: tenant
+      platform: 'Open Repository (hosted DSpace 7.6)'
+      operator_basis: 'qspace.qu.edu.qa CNAMEs to qataru.cname.openrepository.com; resolves to 3.255.61.143 (Amazon eu-west-1).'
+      observed:
+        - surface: OAI-PMH
+          envelope: '<OAI-PMH ...><error code="..."/></OAI-PMH>, HTTP 200'
+          codes_provoked: [badVerb, badArgument, cannotDisseminateFormat, idDoesNotExist]
+          evidence:
+            url: 'https://qspace.qu.edu.qa/server/oai/request?verb=BadVerb'
+            status: 200
+        - surface: DSpace REST
+          envelope: '{"timestamp":"...","status":404,"error":"Not Found","message":"An exception has occurred","path":"..."}'
+          note: >-
+            Spring Boot default envelope. The `message` is a constant, so a client cannot tell
+            "this item does not exist" from "this endpoint does not exist" — both 404 responses
+            were byte-identical apart from `path` and `timestamp`.
+          evidence:
+            url: 'https://qspace.qu.edu.qa/server/api/core/items/00000000-0000-0000-0000-000000000000'
+            status: 404
+      defects_worth_reporting:
+        - id: unresolved-config-placeholder-in-identify
+          severity: medium
+          summary: >-
+            The QSpace Identify response returns literal DSpace configuration placeholders:
+            `<repositoryIdentifier>${oai.identifier.prefix}</repositoryIdentifier>` and
+            `<sampleIdentifier>oai:${oai.identifier.prefix}:10576/1234</sampleIdentifier>`.
+            A harvester building identifiers from the repository's self-description builds
+            unresolvable ones; the real prefix, read from ListIdentifiers, is
+            `oai:qspace.qu.edu.qa:`.
+          evidence:
+            url: 'https://qspace.qu.edu.qa/server/oai/request?verb=Identify'
+            status: 200
+          example: examples/qatar-qspace-oai-identify.xml
+        - id: soft-404-on-well-known
+          severity: low
+          summary: >-
+            https://qspace.qu.edu.qa/.well-known/security.txt answers HTTP 200 with the DSpace
+            Angular application shell — not a security.txt and not a 404. Any probe that trusts
+            the status code records a security.txt that does not exist.
+          evidence:
+            url: https://qspace.qu.edu.qa/.well-known/security.txt
+            status: 200
+
+cross_cutting:
+  rate_limit_headers: absent
+  retry_after: absent
+  correlation_id: absent
+  problem_details_rfc9457: absent
+  documented_error_reference: none published by Qatar University for any surface
