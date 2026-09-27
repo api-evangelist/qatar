@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Qatar University Single Sign-On (OpenID Connect / 2.0) O…
+  title: Qatar University Single Sign-On (OpenID Connect / 2.0)…
   version: '1.0'
   summary: Qatar University's own institution-operated OpenID Connect provider at sso.qu.edu.qa.
   description: 'Qatar University operates its own identity provider at `sso.qu.edu.qa` on a WSO2 Identity
