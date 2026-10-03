@@ -56,6 +56,28 @@ paths:
                 $ref: '#/components/schemas/Jwks'
 components:
   schemas:
+    Jwks:
+      type: object
+      properties:
+        keys:
+          type: array
+          items:
+            type: object
+            properties:
+              kty:
+                type: string
+              use:
+                type: string
+              kid:
+                type: string
+              alg:
+                type: string
+              n:
+                type: string
+              e:
+                type: string
+      required:
+      - keys
     OpenIdConfiguration:
       type: object
       description: OpenID Provider Metadata as served by this deployment.
@@ -127,28 +149,6 @@ components:
       - authorization_endpoint
       - token_endpoint
       - jwks_uri
-    Jwks:
-      type: object
-      properties:
-        keys:
-          type: array
-          items:
-            type: object
-            properties:
-              kty:
-                type: string
-              use:
-                type: string
-              kid:
-                type: string
-              alg:
-                type: string
-              n:
-                type: string
-              e:
-                type: string
-      required:
-      - keys
   securitySchemes:
     bearerToken:
       type: http
