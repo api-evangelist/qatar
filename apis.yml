@@ -73,7 +73,6 @@ tags:
 - Open Access
 - OAI-PMH
 - SAML
-- OpenID Connect
 created: '2026-06-03'
 modified: '2026-09-01'
 specificationVersion: '0.23'
@@ -590,3 +589,5 @@ x-coverage:
   - url: https://qupress.qu.edu.qa/
     status: 0
     note: 'Dangling CNAME to qup.press.ubiquity.website, which does not resolve — a broken Ubiquity Press tenancy, not claimed.'
+x-tags-removed:
+- OpenID Connect
