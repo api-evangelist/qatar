@@ -104,6 +104,76 @@ paths:
               schema:
                 $ref: '#/components/schemas/OaiPmhResponse'
 components:
+  parameters:
+    Until:
+      name: until
+      in: query
+      required: false
+      description: Upper bound on record datestamp, at the declared granularity.
+      schema:
+        type: string
+        format: date-time
+      example: '2025-12-31T23:59:59Z'
+    Set:
+      name: set
+      in: query
+      required: false
+      description: One of the 100 sets ListSets returns — a journal (`sharia`) or a journal section (`sharia:ART`), with `_ar` suffixes marking Arabic-language sections.
+      schema:
+        type: string
+      example: sharia:ART
+    Identifier:
+      name: identifier
+      in: query
+      required: false
+      description: OAI identifier of a single record. Required for GetRecord. The repository's Identify response declares the form `oai:ojs.journals.qu.edu.qa:article/<id>`, but the records it actually emits carry `oai:ojs.pkp.sfu.ca:article/<id>` and GetRecord rejects that form with badArgument. Neither form was observed to succeed; see the defect note in `info.description`.
+      schema:
+        type: string
+      example: oai:ojs.journals.qu.edu.qa:article/11
+    Verb:
+      name: verb
+      in: query
+      required: true
+      description: The OAI-PMH verb to execute.
+      schema:
+        type: string
+        enum:
+        - Identify
+        - ListMetadataFormats
+        - ListSets
+        - ListIdentifiers
+        - ListRecords
+        - GetRecord
+      example: Identify
+    MetadataPrefix:
+      name: metadataPrefix
+      in: query
+      required: false
+      description: Dissemination format. Required for ListIdentifiers, ListRecords and GetRecord. ListMetadataFormats declares four.
+      schema:
+        type: string
+        enum:
+        - oai_dc
+        - oai_marc
+        - marcxml
+        - rfc1807
+      example: oai_dc
+    From:
+      name: from
+      in: query
+      required: false
+      description: Lower bound on record datestamp, at the declared granularity.
+      schema:
+        type: string
+        format: date-time
+      example: '2025-01-01T00:00:00Z'
+    ResumptionToken:
+      name: resumptionToken
+      in: query
+      required: false
+      description: Continuation token from a previous incomplete list response.
+      schema:
+        type: string
   schemas:
     OaiPmhError:
       type: object
@@ -137,73 +207,3 @@ components:
         error:
           $ref: '#/components/schemas/OaiPmhError'
       additionalProperties: true
-  parameters:
-    Set:
-      name: set
-      in: query
-      required: false
-      description: One of the 100 sets ListSets returns — a journal (`sharia`) or a journal section (`sharia:ART`), with `_ar` suffixes marking Arabic-language sections.
-      schema:
-        type: string
-      example: sharia:ART
-    Identifier:
-      name: identifier
-      in: query
-      required: false
-      description: OAI identifier of a single record. Required for GetRecord. The repository's Identify response declares the form `oai:ojs.journals.qu.edu.qa:article/<id>`, but the records it actually emits carry `oai:ojs.pkp.sfu.ca:article/<id>` and GetRecord rejects that form with badArgument. Neither form was observed to succeed; see the defect note in `info.description`.
-      schema:
-        type: string
-      example: oai:ojs.journals.qu.edu.qa:article/11
-    Verb:
-      name: verb
-      in: query
-      required: true
-      description: The OAI-PMH verb to execute.
-      schema:
-        type: string
-        enum:
-        - Identify
-        - ListMetadataFormats
-        - ListSets
-        - ListIdentifiers
-        - ListRecords
-        - GetRecord
-      example: Identify
-    From:
-      name: from
-      in: query
-      required: false
-      description: Lower bound on record datestamp, at the declared granularity.
-      schema:
-        type: string
-        format: date-time
-      example: '2025-01-01T00:00:00Z'
-    MetadataPrefix:
-      name: metadataPrefix
-      in: query
-      required: false
-      description: Dissemination format. Required for ListIdentifiers, ListRecords and GetRecord. ListMetadataFormats declares four.
-      schema:
-        type: string
-        enum:
-        - oai_dc
-        - oai_marc
-        - marcxml
-        - rfc1807
-      example: oai_dc
-    ResumptionToken:
-      name: resumptionToken
-      in: query
-      required: false
-      description: Continuation token from a previous incomplete list response.
-      schema:
-        type: string
-    Until:
-      name: until
-      in: query
-      required: false
-      description: Upper bound on record datestamp, at the declared granularity.
-      schema:
-        type: string
-        format: date-time
-      example: '2025-12-31T23:59:59Z'
