@@ -1,4 +1,4 @@
-# Qatar University (qatar)
+# Qatar University
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,46 +64,149 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Qatar University is the national public research university of the State of Qatar, located in Doha, and ranked #122 in the QS World University Rankings 2025. This repository catalogs the university's public developer/API footprint as an [APIs.json](https://apisjson.org) profile. The strongest confirmed surface is QSpace, the institutional repository running on DSpace 7.6, which exposes a public OAI-PMH metadata endpoint and a public DSpace REST/HAL API.
+Qatar University is the national public research university of the State of Qatar, in Doha, founded 1973 and registered as https://ror.org/00yhnba62. Its institution-operated programmable footprint is small, real, and not where the June 2026 profile said it was. That pass recorded QSpace — the institutional repository at qspace.qu.edu.qa — as Qatar University's own API. It is not: qspace.qu.edu.qa CNAMEs to qataru.cname.openrepository.com and terminates on Amazon eu-west-1, making it a tenant of Open Repository, a commercial hosted-DSpace service. The 66,950 records, the Handle prefix 10576 and the administrative contact are Qatar University's; the DSpace REST and OAI-PMH contracts are the hosting platform's engineering, and they are recorded here as a tenancy rather than saved as Qatar University's contracts. What the earlier pass missed is the part Qatar University actually runs. It operates its own identity provider at sso.qu.edu.qa — a WSO2 Identity Server on QUNET, its own RIPE allocation — publishing both a SAML 2.0 IdP metadata document and a complete OpenID Connect discovery document, which together are the strongest machine-readable contract in this profile. Qatar University Press self-hosts Open Journal Systems 3.3.0.7 at journals.qu.edu.qa, also on QUNET, serving an anonymous OAI-PMH 2.0 endpoint over eight journals and 3,186 records in Arabic and English, and registers DOIs as Crossref member 11655 under prefix 10.29117. Learning is a Blackboard Learn tenant and library guides are a Springshare tenant. There is no developer portal, no changelog, no status page, no API terms of service, and no published OpenAPI for anything — and there is an institutional API gateway at api.qu.edu.qa that fronts a live production API pool while publishing no route, documentation or access path whatsoever. Three verified defects sit on the surfaces Qatar University does run: sso.qu.edu.qa and journals.qu.edu.qa both serve an incomplete TLS chain that a default client cannot verify, the SAML entityID is a bare hostname rather than a URI so the IdP cannot be federated as published, and the OAI-PMH endpoint emits record identifiers that its own GetRecord verb rejects.
 
-- APIs.json: https://raw.githubusercontent.com/api-evangelist/qatar/refs/heads/main/apis.yml
-- Run with Naftiko: https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=qatar-api-evangelist&utm_content=repo
+**Areas:** Education · Higher Education · University · Qatar · Middle East · Research · Identity Federation · Scholarly Publishing · Research Repository · Open Access · OAI-PMH · SAML
 
-## Type
+## Qatar University on APIs.io
 
-- Index / Consumer / 3rd-Party
+Everything profiled for Qatar University is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/qatar/](https://apis.io/providers/qatar/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (13)
 
-Education, Higher Education, University, Qatar, Middle East, Research, Open Access, Institutional Repository, DSpace, OAI-PMH
+- [Qatar University SAML 2.0 Identity Provider](https://apis.io/apis/qatar/qu-sso-saml/) — The same host publishes a SAML 2.0 IDPSSODescriptor at /identity/metadata/saml2, entityID `sso.qu.edu.qa`, with separate signing and encryption key…
+- [QSpace Institutional Repository (Open Repository tenant)](https://apis.io/apis/qatar/qspace/) — QSpace is Qatar University's institutional repository — 66,950 records, DSpace 7.6, administered by Qatar University Library at quspace@qu.edu.qa, with…
+- [Qatar University Blackboard Learn (Anthology tenant)](https://apis.io/apis/qatar/blackboard-learn/) — Qatar University's learning management system is a Blackboard Learn SaaS tenant at elearning.qu.edu.qa. The Anthology Blackboard Learn REST API is reachable…
+- [Qatar University Library Research Guides (Springshare tenant)](https://apis.io/apis/qatar/libguides/) — Qatar University Library's research guides, including the QSpace institutional-repository guide that is the only public documentation for the repository,…
+- [Qatar University Student Information System (Ellucian Banner)](https://apis.io/apis/qatar/banner-sis/) — Qatar University runs Ellucian Banner Self-Service at mybanner.qu.edu.qa, on its own network (netname QUNET). The host answers 200 with a real Banner menu,…
+- [Research Organization Registry membership](https://apis.io/apis/qatar/ror/) — Qatar University is registered in ROR as https://ror.org/00yhnba62 — status active, established 1973, domain qu.edu.qa, located in Doha, Qatar —…
+- [Crossref membership (Qatar University Press)](https://apis.io/apis/qatar/crossref/) — Qatar University Press is a Crossref member in its own right — member 11655, DOI prefix 10.29117, 2,533 DOIs registered (510 current, 2,023 backfile) —…
+- [Handle.Net naming authority 10576](https://apis.io/apis/qatar/handle/) — Qatar University holds Handle.Net prefix 10576 and every QSpace item carries a persistent identifier under it, resolving through hdl.handle.net to the…
+- [Qatar University Client Registration API](https://apis.io/apis/qatar/qatar-client-registration-api/) — OpenID Connect Dynamic Client Registration.
+- [Qatar University Discovery API](https://apis.io/apis/qatar/qatar-discovery-api/) — Provider metadata and signing keys.
+- [Qatar University OAI PMH API](https://apis.io/apis/qatar/qatar-oai-pmh-api/) — The six OAI-PMH 2.0 protocol verbs, site-wide and per journal.
+- [Qatar University OpenID Connect API](https://apis.io/apis/qatar/qatar-openid-connect-api/) — Authorization, user info and session management.
+- [Qatar University O Auth API](https://apis.io/apis/qatar/qatar-oauth-api/) — Token issuance, introspection and revocation.
 
-## APIs
+### Published properties
 
-- **QSpace OAI-PMH Metadata Endpoint** — OAI-PMH 2.0 harvesting endpoint for the QSpace institutional repository (DSpace 7.6). Base: `https://qspace.qu.edu.qa/server/oai/request`. Docs: https://libguides.qu.edu.qa/quir
-- **QSpace DSpace REST API** — Public DSpace 7.6 REST/HAL API backing QSpace. Base: `https://qspace.qu.edu.qa/server/api`. Docs: https://libguides.qu.edu.qa/quir
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## Plans, Rate Limits, and FinOps
+#### JSON Schema (2)
 
-- Plans & Pricing: [plans/qatar-plans-pricing.yml](plans/qatar-plans-pricing.yml)
-- Rate Limits: [rate-limits/qatar-rate-limits.yml](rate-limits/qatar-rate-limits.yml)
-- FinOps: [finops/qatar-finops.yml](finops/qatar-finops.yml)
+The data models the API reads and writes.
 
-## Timestamps
+- [QU Press OAI-PMH Record (JSON projection)](https://apis.io/schemas/qatar/qatar-oai-pmh-record.schema/)
+- [Qatar University SSO — OpenID Provider Metadata](https://apis.io/schemas/qatar/qatar-qu-sso-openid-configuration.schema/)
 
-- Created: 2026-06-03
-- Modified: 2026-06-03
+#### JSON-LD (1)
 
-## Common Properties
+Linked-data contexts for the provider's vocabulary.
 
-- Website: https://www.qu.edu.qa/
-- GitHub: https://github.com/qataruniversity (org exists, 0 public repos)
-- LinkedIn: https://www.linkedin.com/school/qatar-university/
-- Review: [review.yml](review.yml)
+- [Qatar Context](https://apis.io/jsonld/qatar/qatar-context/)
 
-## Notes
+#### Examples (4)
 
-All endpoints were probed live during cataloging. QSpace OAI-PMH and the DSpace REST API root both returned HTTP 200 and self-identify as DSpace 7.6 ("Qspace"). No dedicated developer portal, open-data API, or published mobile/SIS API was found; Self-Service Banner (MyBanner) and SSO/MFA are authentication-gated with no open developer documentation. The official GitHub org `qataruniversity` exists but currently has no public repositories. No endpoints were fabricated — only verified URLs are cataloged.
+Example requests and responses.
 
-## Maintainers
+- [Qatar Crossref Member](https://apis.io/examples/qatar/qatar-crossref-member/)
+- [Qatar Handle Resolution](https://apis.io/examples/qatar/qatar-handle-resolution/)
+- [Qatar Qu Sso Openid Configuration](https://apis.io/examples/qatar/qatar-qu-sso-openid-configuration/)
+- [Qatar Ror Record](https://apis.io/examples/qatar/qatar-ror-record/)
 
-- Kin Lane — kin@apievangelist.com
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [Qatar University API Rules](https://apis.io/rules/qatar/qatar-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Qatar Authentication](https://apis.io/security/qatar/qatar-authentication/)
+- [Qatar Domain Security](https://apis.io/security/qatar/qatar-domain-security/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Qatar Scopes](https://apis.io/scopes/qatar/qatar-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Qatar Plans Pricing](https://apis.io/plans/qatar/qatar-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Qatar Rate Limits](https://apis.io/rate-limits/qatar/qatar-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Qatar Finops](https://apis.io/finops/qatar/qatar-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.qu.edu.qa/)
+- [Documentation](https://libguides.qu.edu.qa/quir)
+
+## API Evangelist rating
+
+**Kin Score 20.2** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 71.4 |
+| Contract quality | 24.3 |
+| Contract governance | 3.8 |
+| Operational transparency | 5.3 |
+| Developer ergonomics | 21.4 |
+| Access clarity | 5.3 |
+
+**Agent readiness 18.6** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 26.5** — Education & Research
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/qatar/](https://apis.io/providers/qatar/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Qatar University: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/qatar/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
